@@ -29,6 +29,7 @@ public class Home extends javax.swing.JFrame {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
         jPanel1 = new javax.swing.JPanel();
+        jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
@@ -62,18 +63,44 @@ public class Home extends javax.swing.JFrame {
 
         getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
 
-        jPanel2.setBackground(new java.awt.Color(51, 255, 51));
+        jPanel3.setBackground(new java.awt.Color(52, 176, 23));
+        jPanel3.setMinimumSize(new java.awt.Dimension(200, 200));
 
-        jButton1.setText("jButton1");
+        jPanel2.setMinimumSize(new java.awt.Dimension(100, 100));
+        jPanel2.setOpaque(false);
+        jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.PAGE_AXIS));
+
+        jButton1.setText("Home");
+        jButton1.setMaximumSize(new java.awt.Dimension(180, 31));
+        jButton1.setMinimumSize(new java.awt.Dimension(100, 100));
         jPanel2.add(jButton1);
 
         jButton2.setText("jButton2");
+        jButton2.setMaximumSize(new java.awt.Dimension(180, 31));
         jPanel2.add(jButton2);
 
         jButton3.setText("jButton3");
+        jButton3.setMaximumSize(new java.awt.Dimension(180, 31));
         jPanel2.add(jButton3);
 
-        getContentPane().add(jPanel2, java.awt.BorderLayout.LINE_START);
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, 176, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
+        getContentPane().add(jPanel3, java.awt.BorderLayout.LINE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -120,5 +147,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     // End of variables declaration//GEN-END:variables
 }
