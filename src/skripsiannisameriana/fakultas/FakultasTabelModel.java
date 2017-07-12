@@ -36,17 +36,6 @@ public class FakultasTabelModel extends AbstractTableModel{
     }
 
     @Override
-    public String getColumnName(int column) {
-        switch (column) {
-            case 0: return "No"; 
-            case 1: return "Id Fakultas";
-            case 2: return "Fakultas";
-            default:
-                return null;
-        }
-    }
-
-    @Override
     public Object getValueAt(int rowIndex, int columnIndex) {
         switch (columnIndex) {
             case 0: return rowIndex + 1;
@@ -56,6 +45,17 @@ public class FakultasTabelModel extends AbstractTableModel{
                 return null;
         }
         
+    }
+    
+    @Override
+    public String getColumnName(int column) {
+        switch (column) {
+            case 0: return "No"; 
+            case 1: return "Id Fakultas";
+            case 2: return "Fakultas";
+            default:
+                return null;
+        }
     }
     
 }

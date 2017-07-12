@@ -11,7 +11,7 @@ package skripsiannisameriana.fakultas;
  */
 public class Fakultas {
     int idFakultas;
-    String namaFakultas;
+    String namaFakultas, id;
 
     public int getIdFakultas() {
         return idFakultas;
@@ -28,5 +28,7 @@ public class Fakultas {
     public void setNamaFakultas(String namaFakultas) {
         this.namaFakultas = namaFakultas;
     }
+
+      
     
 }
