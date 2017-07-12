@@ -21,7 +21,7 @@ public class HomeView extends javax.swing.JFrame {
      */    
     public HomeView() {
         initComponents();
-        setExtendedState(MAXIMIZED_BOTH);
+        //setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
