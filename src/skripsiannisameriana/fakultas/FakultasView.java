@@ -9,7 +9,6 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import skripsiannisameriana.home.HomeView;
 
 /**
  *
@@ -261,19 +260,19 @@ public class FakultasView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-        buttonTambahkan();
+//        buttonTambahkan();
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
-        buttonUbah();
+//        buttonUbah();
     }//GEN-LAST:event_btnUbahActionPerformed
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-        HapusFakultas();
+//        HapusFakultas();
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
-        refresh();
+//        refresh();
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
@@ -281,18 +280,19 @@ public class FakultasView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCetakActionPerformed
 
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
-        buttonTutup();
+//        buttonTutup();
     }//GEN-LAST:event_btnTutupActionPerformed
 
     private void txtCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCariKeyReleased
-        searchPeremeter();
+//        searchPeremeter();
     }//GEN-LAST:event_txtCariKeyReleased
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
         // TODO add your handling code here:
         setTableModel();
-        refresh();
-        tableFakultasAction();
+//        refresh();
+//        tableFakultasAction();
+        loadDatabase();
     }//GEN-LAST:event_formInternalFrameOpened
 
 
@@ -316,14 +316,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
     public static javax.swing.JTextField txtNamaFakultas;
     // End of variables declaration//GEN-END:variables
 
-    public void setTableModel() {
-        try {
-            tabelFakultas.setModel(fakultasTabelModel);
-        } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
-        }
-    }
-
+    //Load Database
     public void loadDatabase() {
         try {
             List<Fakultas> list = fakultasImplements.getFakultas();
@@ -333,279 +326,12 @@ public class FakultasView extends javax.swing.JInternalFrame {
         }
     }
     
-    public void refresh() {
+    public void setTableModel() {
         try {
-            loadDatabase();
-            
-            txtKodeFakultas.setEnabled(false);
-            txtNamaFakultas.setEnabled(false);
-            
-            txtKodeFakultas.setText("");
-            txtNamaFakultas.setText("");
-
-            btnBatal.setEnabled(true);
-            btnBatal.setText("Bersihkan");
-            btnBatal.setToolTipText("Bersihkan");
-
-            btnTambah.setEnabled(true);
-            btnTambah.setText("Tambah");
-            btnTambah.setToolTipText("Tambah");
-
-            btnCetak.setEnabled(true);
-            btnTutup.setEnabled(true);
-
-            txtCari.setEnabled(true);
-            ComboBoxCari.setEnabled(true);
-            txtCari.setText("");
-            ComboBoxCari.setSelectedIndex(0);
-
-            btnUbah.setEnabled(false);
-            btnHapus.setEnabled(false);
-
-            tabelFakultas.setEnabled(true);
-            btnTambah.requestFocus();
+            tabelFakultas.setModel(fakultasTabelModel);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
     }
-
-    public void buttonTambahkan() {
-        try {
-            switch (btnTambah.getToolTipText()) {
-                case "Tambah":
-                    disableAndEnableForInsert();
-                    break;
-                case "Simpan":
-                    if (txtKodeFakultas.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kode Fakultas!");
-                        txtKodeFakultas.requestFocus();
-                    } else if (txtNamaFakultas.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nama Fakultas!");
-                        txtNamaFakultas.requestFocus();
-                    } else {
-                        insertFakultas();
-                    }
-                    break;
-            }
-
-        } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
-        }
-    }
-
-    public void buttonUbah() {
-        try {
-            switch (btnUbah.getToolTipText()) {
-                case "Ubah":
-                    disableAndEnableForUpdate();
-                    break;
-                case "Simpan":
-                    if (txtKodeFakultas.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Id Fakultas!");
-                        txtKodeFakultas.requestFocus();
-                    } else if (txtNamaFakultas.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nama Fakultas!");
-                        txtNamaFakultas.requestFocus();
-                    } else {
-                        ubahFakultas();
-                    }
-                    break;
-            }
-
-        } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
-        }
-    }
-
-    public void buttonTutup() {
-        try {
-            //HomeView.setEnableDisableMenu(true);
-            dispose();
-            //Home2.isMenuItemJurusanActive = false;
-        } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
-        }
-    }
-
-    public void insertFakultas() {
-        try {
-            Fakultas fakultas = new Fakultas();
-
-            fakultas.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
-            fakultas.setNamaFakultas(txtNamaFakultas.getText());
-
-            fakultasImplements.insertFakultas(fakultas);
-            JOptionPane.showMessageDialog(null, "Nama Fakultas"+ txtNamaFakultas.getText() + "Berhasil Disimpan!");
-            refresh();
-        } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
-        }
-    }
-
-    public void ubahFakultas() {
-        try {
-            Fakultas fakultas = new Fakultas();
-            
-            fakultas.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
-            fakultas.setNamaFakultas(txtNamaFakultas.getText());
-
-            fakultasImplements.updateFakultas(fakultas);
-            JOptionPane.showMessageDialog(null, "Nama Fakultas " + txtNamaFakultas.getText() + " Barhasil Di Ubah !");
-            refresh();
-
-        } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
-        }
-    }
-
-    public void HapusFakultas() {
-        try {
-            int row = tabelFakultas.getSelectedRow();
-            if (row == -1) {
-                JOptionPane.showMessageDialog(this, "Silahkan seleksi data yang ingin dihapus!");
-            } else {
-                int confirm = JOptionPane.showConfirmDialog(this, "Anda Yakin Mau Menghapus Jurusan "
-                        + fakultasTabelModel.get(row).getNamaFakultas()+ "? \n", "Konfirmasi",
-                        JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
-
-                //Periksa Jawaban yang dipilih
-                if (confirm == JOptionPane.YES_OPTION) {
-                    int idFakultas = fakultasTabelModel.get(row).getIdFakultas();
-
-                    fakultasImplements.deleteFakultas(idFakultas);
-                    refresh();
-                } else if (confirm == JOptionPane.NO_OPTION) {
-                    refresh();
-                }
-            }
-        } catch (IndexOutOfBoundsException error) {
-            System.out.println("Terjadi Kesalahan!");
-        } catch (Exception error) {
-            System.out.println("Terjadi Kesalahan!");
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
-        }
-    }
-
-    public void disableAndEnableForInsert() {
-        try {
-            txtKodeFakultas.setEnabled(true);
-            txtNamaFakultas.setEnabled(true);
-            
-            txtKodeFakultas.setText("");
-            txtKodeFakultas.setText("");
-
-            btnBatal.setEnabled(true);
-            btnBatal.setText("Batal");
-            btnBatal.setToolTipText("Batal");
-
-            btnTambah.setEnabled(true);
-            btnTambah.setText("Simpan");
-            btnTambah.setToolTipText("Simpan");
-
-            btnCetak.setEnabled(false);
-            btnTutup.setEnabled(false);
-            btnUbah.setEnabled(false);
-            btnHapus.setEnabled(false);
-
-            txtCari.setEnabled(false);
-            ComboBoxCari.setEnabled(false);
-            txtCari.setText("");
-            ComboBoxCari.setSelectedIndex(0);
-
-            tabelFakultas.setEnabled(false);
-            txtKodeFakultas.requestFocus();
-
-        } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
-        }
-    }
-
-    public void disableAndEnableForUpdate() {
-        try {
-
-            int row = tabelFakultas.getSelectedRow();
-            if (row == -1) {
-                JOptionPane.showMessageDialog(this, "Silahkan seleksi data yang ingin diubah!");
-            } else {
-                txtKodeFakultas.setEnabled(false);
-                txtNamaFakultas.setEnabled(true);
-
-                btnBatal.setEnabled(true);
-                btnBatal.setText("Batal");
-                btnBatal.setToolTipText("Batal");
-
-                btnUbah.setEnabled(true);
-                btnUbah.setText("Simpan");
-                btnUbah.setToolTipText("Simpan");
-
-                btnCetak.setEnabled(false);
-                btnTutup.setEnabled(false);
-                btnTambah.setEnabled(false);
-                btnHapus.setEnabled(false);
-
-                txtCari.setEnabled(false);
-                ComboBoxCari.setEnabled(false);
-                txtCari.setText("");
-                ComboBoxCari.setSelectedIndex(0);
-
-                tabelFakultas.setEnabled(false);
-                txtNamaFakultas.requestFocus();
-            }
-
-        } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
-        }
-    }
-
-    public void tableFakultasAction() {
-        tabelFakultas.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
-            @Override
-            public void valueChanged(ListSelectionEvent e) {
-                int row = tabelFakultas.getSelectedRow();
-                //CEK APAKAH BARIS BENAR2 TERSELEKSI
-                if (row != -1) {
-                    Fakultas fakultas = fakultasTabelModel.get(row);
-                    
-                    txtKodeFakultas.setText(Integer.toString(fakultas.getIdFakultas()));
-                    txtNamaFakultas.setText(fakultas.getNamaFakultas());
-
-                    btnUbah.setEnabled(true);
-                    btnUbah.setText("Ubah");
-                    btnUbah.setToolTipText("Ubah");
-                    btnHapus.setEnabled(true);
-                    btnUbah.requestFocus();
-                }
-            }
-        });
-    }
-
-    public void searchPeremeter() {
-        try {
-            String sqlParameter = null;
-            String searchParameter;
-            if (ComboBoxCari.getSelectedIndex() == 0) {
-                sqlParameter = "id_fakultas";
-            } else if (ComboBoxCari.getSelectedIndex() == 1) {
-                sqlParameter = "fakultas";
-            }
-            searchParameter = txtCari.getText();
-            List<Fakultas> list = fakultasImplements.getFakultasParameter(sqlParameter, searchParameter);
-            fakultasTabelModel.setData(list);
-        } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
-        }
-    }
-
-    /*public void buttonPrint() {
-        int row = tabelJurusan.getRowCount();
-        if (row == 0) {
-            JOptionPane.showMessageDialog(this, "Tidak Ada Data Yang Di Cetak !");
-        } else {
-            try {
-                JasperPrint jasperPrint = jurusanImplements.cetakJurusan();
-                JasperViewer.viewReport(jasperPrint, false);
-            } catch (Exception e) {
-            }
-        }
-    }*/
+    
 }

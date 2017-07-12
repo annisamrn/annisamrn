@@ -29,6 +29,11 @@ public class FakultasTabelModel extends AbstractTableModel{
     public int getRowCount() {
         return list.size();
     }
+    
+    @Override
+    public int getColumnCount() {
+        return 3;
+    }
 
     @Override
     public String getColumnName(int column) {
@@ -51,11 +56,6 @@ public class FakultasTabelModel extends AbstractTableModel{
                 return null;
         }
         
-    }
-
-    @Override
-    public int getColumnCount() {
-        return 3;
     }
     
 }

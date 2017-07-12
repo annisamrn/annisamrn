@@ -69,6 +69,7 @@ public class FakultasImplements {
         }
     }
     
+    // database Tabel
     public List<Fakultas> getFakultas() throws SQLException {
         String sqlSelect = "SELECT * FROM tb_fakultas WHERE id_fakultas <> '1'";
         Statement statement = null;
