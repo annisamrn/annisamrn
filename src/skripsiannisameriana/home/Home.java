@@ -28,12 +28,12 @@ public class Home extends javax.swing.JFrame {
     private void initComponents() {
 
         jDesktopPane1 = new javax.swing.JDesktopPane();
-        jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        panelHeader2 = new skripsiannisameriana.home.PanelHeader();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -48,21 +48,6 @@ public class Home extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
-
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 738, Short.MAX_VALUE)
-        );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 100, Short.MAX_VALUE)
-        );
-
-        getContentPane().add(jPanel1, java.awt.BorderLayout.PAGE_START);
-
         jPanel3.setBackground(new java.awt.Color(52, 176, 23));
         jPanel3.setMinimumSize(new java.awt.Dimension(200, 200));
 
@@ -75,11 +60,11 @@ public class Home extends javax.swing.JFrame {
         jButton1.setMinimumSize(new java.awt.Dimension(100, 100));
         jPanel2.add(jButton1);
 
-        jButton2.setText("jButton2");
+        jButton2.setText("Daftar");
         jButton2.setMaximumSize(new java.awt.Dimension(180, 31));
         jPanel2.add(jButton2);
 
-        jButton3.setText("jButton3");
+        jButton3.setText("Fakultas");
         jButton3.setMaximumSize(new java.awt.Dimension(180, 31));
         jPanel2.add(jButton3);
 
@@ -101,6 +86,21 @@ public class Home extends javax.swing.JFrame {
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.LINE_START);
+
+        panelHeader2.setMinimumSize(new java.awt.Dimension(100, 150));
+
+        javax.swing.GroupLayout panelHeader2Layout = new javax.swing.GroupLayout(panelHeader2);
+        panelHeader2.setLayout(panelHeader2Layout);
+        panelHeader2Layout.setHorizontalGroup(
+            panelHeader2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 738, Short.MAX_VALUE)
+        );
+        panelHeader2Layout.setVerticalGroup(
+            panelHeader2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 150, Short.MAX_VALUE)
+        );
+
+        getContentPane().add(panelHeader2, java.awt.BorderLayout.PAGE_START);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -145,8 +145,8 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private skripsiannisameriana.home.PanelHeader panelHeader2;
     // End of variables declaration//GEN-END:variables
 }
