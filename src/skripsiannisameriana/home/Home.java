@@ -5,6 +5,8 @@
  */
 package skripsiannisameriana.home;
 
+import skripsiannisameriana.fakultas.FakultasView;
+
 /**
  *
  * @author USER
@@ -16,6 +18,7 @@ public class Home extends javax.swing.JFrame {
      */
     public Home() {
         initComponents();
+        setExtendedState(MAXIMIZED_BOTH);
     }
 
     /**
@@ -34,6 +37,7 @@ public class Home extends javax.swing.JFrame {
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         panelHeader2 = new skripsiannisameriana.home.PanelHeader();
+        jDesktopPane2 = new javax.swing.JDesktopPane();
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -66,6 +70,11 @@ public class Home extends javax.swing.JFrame {
 
         jButton3.setText("Fakultas");
         jButton3.setMaximumSize(new java.awt.Dimension(180, 31));
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton3);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
@@ -101,9 +110,17 @@ public class Home extends javax.swing.JFrame {
         );
 
         getContentPane().add(panelHeader2, java.awt.BorderLayout.PAGE_START);
+        getContentPane().add(jDesktopPane2, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        FakultasView fv = new FakultasView();
+        jDesktopPane2.add(fv);
+        fv.setVisible(true);
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -145,6 +162,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JDesktopPane jDesktopPane1;
+    private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private skripsiannisameriana.home.PanelHeader panelHeader2;
