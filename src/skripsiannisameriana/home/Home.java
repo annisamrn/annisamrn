@@ -5,7 +5,9 @@
  */
 package skripsiannisameriana.home;
 
+import skripsiannisameriana.cmahasiswa.CMahasiswaView;
 import skripsiannisameriana.fakultas.FakultasView;
+import skripsiannisameriana.prodi.ProdiView;
 
 /**
  *
@@ -34,8 +36,9 @@ public class Home extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         jPanel2 = new javax.swing.JPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        Daftar = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        btnProdi = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -70,9 +73,14 @@ public class Home extends javax.swing.JFrame {
         jButton1.setMinimumSize(new java.awt.Dimension(100, 100));
         jPanel2.add(jButton1);
 
-        jButton2.setText("Daftar");
-        jButton2.setMaximumSize(new java.awt.Dimension(180, 31));
-        jPanel2.add(jButton2);
+        Daftar.setText("Daftar");
+        Daftar.setMaximumSize(new java.awt.Dimension(180, 31));
+        Daftar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                DaftarActionPerformed(evt);
+            }
+        });
+        jPanel2.add(Daftar);
 
         jButton3.setText("Fakultas");
         jButton3.setMaximumSize(new java.awt.Dimension(180, 31));
@@ -82,6 +90,15 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton3);
+
+        btnProdi.setText("Program Studi");
+        btnProdi.setMaximumSize(new java.awt.Dimension(180, 31));
+        btnProdi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnProdiActionPerformed(evt);
+            }
+        });
+        jPanel2.add(btnProdi);
 
         jButton4.setText("Soal");
         jButton4.setMaximumSize(new java.awt.Dimension(180, 31));
@@ -148,6 +165,20 @@ public class Home extends javax.swing.JFrame {
         fv.setVisible(true);
     }//GEN-LAST:event_jButton3ActionPerformed
 
+    private void DaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DaftarActionPerformed
+        // TODO add your handling code here:
+        CMahasiswaView cmv = new CMahasiswaView();
+        jDesktopPane2.add(cmv);
+        cmv.show();
+    }//GEN-LAST:event_DaftarActionPerformed
+
+    private void btnProdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProdiActionPerformed
+        // TODO add your handling code here:
+        ProdiView pv = new ProdiView();
+        jDesktopPane2.add(pv);
+        pv.show();
+    }//GEN-LAST:event_btnProdiActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -184,8 +215,9 @@ public class Home extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton Daftar;
+    private javax.swing.JButton btnProdi;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
