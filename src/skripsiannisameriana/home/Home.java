@@ -36,6 +36,11 @@ public class Home extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
+        jButton6 = new javax.swing.JButton();
+        jButton7 = new javax.swing.JButton();
+        jButton8 = new javax.swing.JButton();
         panelHeader2 = new skripsiannisameriana.home.PanelHeader();
         jDesktopPane2 = new javax.swing.JDesktopPane();
 
@@ -55,6 +60,7 @@ public class Home extends javax.swing.JFrame {
         jPanel3.setBackground(new java.awt.Color(52, 176, 23));
         jPanel3.setMinimumSize(new java.awt.Dimension(200, 200));
 
+        jPanel2.setBackground(new java.awt.Color(13, 122, 12));
         jPanel2.setMinimumSize(new java.awt.Dimension(100, 100));
         jPanel2.setOpaque(false);
         jPanel2.setLayout(new javax.swing.BoxLayout(jPanel2, javax.swing.BoxLayout.PAGE_AXIS));
@@ -76,6 +82,26 @@ public class Home extends javax.swing.JFrame {
             }
         });
         jPanel2.add(jButton3);
+
+        jButton4.setText("Soal");
+        jButton4.setMaximumSize(new java.awt.Dimension(180, 31));
+        jPanel2.add(jButton4);
+
+        jButton5.setText("Hasil");
+        jButton5.setMaximumSize(new java.awt.Dimension(180, 31));
+        jPanel2.add(jButton5);
+
+        jButton6.setText("Laporan");
+        jButton6.setMaximumSize(new java.awt.Dimension(180, 31));
+        jPanel2.add(jButton6);
+
+        jButton7.setText("Help");
+        jButton7.setMaximumSize(new java.awt.Dimension(180, 31));
+        jPanel2.add(jButton7);
+
+        jButton8.setText("Logout");
+        jButton8.setMaximumSize(new java.awt.Dimension(180, 31));
+        jPanel2.add(jButton8);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -161,6 +187,11 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
+    private javax.swing.JButton jButton8;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JPanel jPanel2;
