@@ -75,7 +75,7 @@ public class LoginView extends javax.swing.JDialog {
 
         jPanel4.setBackground(new java.awt.Color(6, 158, 30));
 
-        jLabel2.setFont(new java.awt.Font("Century Schoolbook L", 1, 14)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(252, 252, 252));
         jLabel2.setText("login");
 
