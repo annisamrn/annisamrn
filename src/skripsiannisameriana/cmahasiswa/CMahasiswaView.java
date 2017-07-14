@@ -403,10 +403,10 @@ public class CMahasiswaView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCari;
     public static javax.swing.JTextField txtEmail;
     public static javax.swing.JTextField txtKodeFakultas;
-    public static javax.swing.JTextField txtKodeProdi;
+    private javax.swing.JTextField txtKodeProdi;
     public static javax.swing.JTextField txtNamaFakultas;
     private javax.swing.JTextField txtNamaPendaftar;
-    public static javax.swing.JTextField txtNamaProdi;
+    private javax.swing.JTextField txtNamaProdi;
     private javax.swing.JTextField txtTelepon;
     // End of variables declaration//GEN-END:variables
 
