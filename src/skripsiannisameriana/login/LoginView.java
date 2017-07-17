@@ -64,11 +64,13 @@ public class LoginView extends javax.swing.JDialog {
         jLabel11 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(39, 72, 120));
 
-        jPanel3.setBackground(new java.awt.Color(74, 183, 254));
+        jPanel3.setBackground(new java.awt.Color(41, 235, 173));
 
         jLabel1.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(254, 254, 254));
@@ -369,7 +371,7 @@ public class LoginView extends javax.swing.JDialog {
 
     private void JnameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JnameMouseClicked
         // TODO add your handling code here:
-            
+            Jname.setText("");
     }//GEN-LAST:event_JnameMouseClicked
 
     /**
