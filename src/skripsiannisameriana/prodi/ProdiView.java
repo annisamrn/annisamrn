@@ -59,11 +59,28 @@ public class ProdiView extends javax.swing.JInternalFrame {
         tabelProdi = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(51, 51, 51));
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         panelButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         panelButton.setForeground(new java.awt.Color(255, 255, 255));
         panelButton.setOpaque(false);
-        panelButton.setLayout(new java.awt.GridLayout());
+        panelButton.setLayout(new java.awt.GridLayout(1, 0));
 
         btnTambah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/skripsiannisameriana/picture/add.png"))); // NOI18N
@@ -305,6 +322,13 @@ public class ProdiView extends javax.swing.JInternalFrame {
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
         btnCariFakultas();
     }//GEN-LAST:event_btnCariActionPerformed
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        // TODO add your handling code here:
+        setTableModel();
+        refresh();
+        loadDatabase();
+    }//GEN-LAST:event_formInternalFrameOpened
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
