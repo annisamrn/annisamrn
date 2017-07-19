@@ -10,15 +10,16 @@ package skripsiannisameriana.login;
  *
  * @author phantom
  */
-public class LoginView extends javax.swing.JDialog {
+public class Login extends javax.swing.JFrame {
 
     /**
-     * Creates new form LoginView
+     * Creates new form Login
      */
-    public LoginView(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    public Login() {
         initComponents();
-        setLocationRelativeTo(null);
+        setExtendedState(MAXIMIZED_BOTH);
+        jPanel1.setLocation(250, 150);
+        BaseHome.add(jPanel1);
     }
 
     /**
@@ -30,6 +31,7 @@ public class LoginView extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        BaseHome = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
@@ -38,35 +40,36 @@ public class LoginView extends javax.swing.JDialog {
         jTextField2 = new javax.swing.JTextField();
         jPanel4 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jfakultas = new javax.swing.JComboBox();
-        jLabel4 = new javax.swing.JLabel();
+        jemail = new javax.swing.JTextField();
+        jSeparator7 = new javax.swing.JSeparator();
+        jSeparator6 = new javax.swing.JSeparator();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jtelp = new javax.swing.JTextField();
         Jname = new javax.swing.JTextField();
         jSeparator2 = new javax.swing.JSeparator();
+        jfakultas = new javax.swing.JComboBox();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
         jSeparator3 = new javax.swing.JSeparator();
         Jsekolah = new javax.swing.JTextField();
-        jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jSeparator5 = new javax.swing.JSeparator();
-        jLabel7 = new javax.swing.JLabel();
         jprodi = new javax.swing.JComboBox();
-        jLabel8 = new javax.swing.JLabel();
-        jSeparator6 = new javax.swing.JSeparator();
-        jtelp = new javax.swing.JTextField();
-        jLabel9 = new javax.swing.JLabel();
-        jSeparator7 = new javax.swing.JSeparator();
-        jemail = new javax.swing.JTextField();
-        jSeparator8 = new javax.swing.JSeparator();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jSeparator5 = new javax.swing.JSeparator();
+        jLabel6 = new javax.swing.JLabel();
         jSeparator9 = new javax.swing.JSeparator();
         jemail1 = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jPanel5 = new javax.swing.JPanel();
         jLabel11 = new javax.swing.JLabel();
+        jSeparator8 = new javax.swing.JSeparator();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setBounds(new java.awt.Rectangle(0, 0, 0, 0));
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
         setUndecorated(true);
+
+        BaseHome.setBackground(new java.awt.Color(48, 151, 199));
 
         jPanel1.setBackground(new java.awt.Color(39, 72, 120));
 
@@ -152,21 +155,31 @@ public class LoginView extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
-        jLabel3.setBackground(new java.awt.Color(170, 170, 170));
-        jLabel3.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(170, 170, 170));
-        jLabel3.setText("Sign up");
+        jemail.setBackground(new java.awt.Color(39, 72, 120));
+        jemail.setForeground(new java.awt.Color(170, 170, 170));
+        jemail.setText(" input email");
+        jemail.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jemail.setOpaque(false);
 
-        jfakultas.setBackground(new java.awt.Color(254, 254, 254));
-        jfakultas.setFont(new java.awt.Font("Century Schoolbook L", 2, 12)); // NOI18N
-        jfakultas.setForeground(new java.awt.Color(195, 195, 195));
-        jfakultas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
-        jfakultas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jSeparator7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
 
-        jLabel4.setBackground(new java.awt.Color(170, 170, 170));
-        jLabel4.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(170, 170, 170));
-        jLabel4.setText("Nama");
+        jSeparator6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
+
+        jLabel8.setBackground(new java.awt.Color(170, 170, 170));
+        jLabel8.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
+        jLabel8.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel8.setText("Telepon");
+
+        jLabel9.setBackground(new java.awt.Color(170, 170, 170));
+        jLabel9.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
+        jLabel9.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel9.setText("Email");
+
+        jtelp.setBackground(new java.awt.Color(39, 72, 120));
+        jtelp.setForeground(new java.awt.Color(170, 170, 170));
+        jtelp.setText(" input nomor telepon");
+        jtelp.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+        jtelp.setOpaque(false);
 
         Jname.setBackground(new java.awt.Color(39, 72, 120));
         Jname.setForeground(new java.awt.Color(170, 170, 170));
@@ -181,6 +194,22 @@ public class LoginView extends javax.swing.JDialog {
 
         jSeparator2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
 
+        jfakultas.setBackground(new java.awt.Color(254, 254, 254));
+        jfakultas.setFont(new java.awt.Font("Century Schoolbook L", 2, 12)); // NOI18N
+        jfakultas.setForeground(new java.awt.Color(195, 195, 195));
+        jfakultas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
+        jfakultas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
+
+        jLabel4.setBackground(new java.awt.Color(170, 170, 170));
+        jLabel4.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
+        jLabel4.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel4.setText("Nama");
+
+        jLabel5.setBackground(new java.awt.Color(170, 170, 170));
+        jLabel5.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
+        jLabel5.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel5.setText("Asal Sekolah");
+
         jSeparator3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
 
         Jsekolah.setBackground(new java.awt.Color(39, 72, 120));
@@ -189,56 +218,28 @@ public class LoginView extends javax.swing.JDialog {
         Jsekolah.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         Jsekolah.setOpaque(false);
 
-        jLabel5.setBackground(new java.awt.Color(170, 170, 170));
-        jLabel5.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(170, 170, 170));
-        jLabel5.setText("Asal Sekolah");
-
-        jLabel6.setBackground(new java.awt.Color(170, 170, 170));
-        jLabel6.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(170, 170, 170));
-        jLabel6.setText("Fakultas");
-
-        jSeparator5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
-
-        jLabel7.setBackground(new java.awt.Color(170, 170, 170));
-        jLabel7.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(170, 170, 170));
-        jLabel7.setText("Program Studi");
-
         jprodi.setBackground(new java.awt.Color(254, 254, 254));
         jprodi.setFont(new java.awt.Font("Century Schoolbook L", 2, 12)); // NOI18N
         jprodi.setForeground(new java.awt.Color(195, 195, 195));
         jprodi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jprodi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
-        jLabel8.setBackground(new java.awt.Color(170, 170, 170));
-        jLabel8.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(170, 170, 170));
-        jLabel8.setText("Telepon");
+        jLabel7.setBackground(new java.awt.Color(170, 170, 170));
+        jLabel7.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
+        jLabel7.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel7.setText("Program Studi");
 
-        jSeparator6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
+        jLabel3.setBackground(new java.awt.Color(170, 170, 170));
+        jLabel3.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
+        jLabel3.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel3.setText("Sign up");
 
-        jtelp.setBackground(new java.awt.Color(39, 72, 120));
-        jtelp.setForeground(new java.awt.Color(170, 170, 170));
-        jtelp.setText(" input nomor telepon");
-        jtelp.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jtelp.setOpaque(false);
+        jSeparator5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
 
-        jLabel9.setBackground(new java.awt.Color(170, 170, 170));
-        jLabel9.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(170, 170, 170));
-        jLabel9.setText("Email");
-
-        jSeparator7.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
-
-        jemail.setBackground(new java.awt.Color(39, 72, 120));
-        jemail.setForeground(new java.awt.Color(170, 170, 170));
-        jemail.setText(" input email");
-        jemail.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
-        jemail.setOpaque(false);
-
-        jSeparator8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
+        jLabel6.setBackground(new java.awt.Color(170, 170, 170));
+        jLabel6.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
+        jLabel6.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel6.setText("Fakultas");
 
         jSeparator9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
 
@@ -276,13 +277,15 @@ public class LoginView extends javax.swing.JDialog {
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
+        jSeparator8.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 52, Short.MAX_VALUE)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addComponent(jSeparator8)
@@ -309,13 +312,13 @@ public class LoginView extends javax.swing.JDialog {
                         .addComponent(jemail1)
                         .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(46, 46, 46))
+                .addGap(0, 159, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(60, 60, 60)
+                .addGap(35, 35, 35)
                 .addComponent(jLabel3)
                 .addGap(18, 18, 18)
                 .addComponent(jLabel4)
@@ -359,19 +362,36 @@ public class LoginView extends javax.swing.JDialog {
                 .addComponent(jemail1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jSeparator9, javax.swing.GroupLayout.PREFERRED_SIZE, 2, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 18, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(25, 25, 25))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
-        getContentPane().add(jPanel1, java.awt.BorderLayout.CENTER);
+        javax.swing.GroupLayout BaseHomeLayout = new javax.swing.GroupLayout(BaseHome);
+        BaseHome.setLayout(BaseHomeLayout);
+        BaseHomeLayout.setHorizontalGroup(
+            BaseHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BaseHomeLayout.createSequentialGroup()
+                .addGap(64, 64, 64)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(137, Short.MAX_VALUE))
+        );
+        BaseHomeLayout.setVerticalGroup(
+            BaseHomeLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(BaseHomeLayout.createSequentialGroup()
+                .addGap(84, 84, 84)
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(74, 74, 74))
+        );
+
+        getContentPane().add(BaseHome, java.awt.BorderLayout.CENTER);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void JnameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_JnameMouseClicked
         // TODO add your handling code here:
-            Jname.setText("");
+        Jname.setText("");
     }//GEN-LAST:event_JnameMouseClicked
 
     /**
@@ -391,32 +411,26 @@ public class LoginView extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(LoginView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(Login.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
-        /* Create and display the dialog */
+        /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                LoginView dialog = new LoginView(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
+                new Login().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JPanel BaseHome;
     private javax.swing.JTextField Jname;
     private javax.swing.JTextField Jsekolah;
     private javax.swing.JLabel jLabel1;
