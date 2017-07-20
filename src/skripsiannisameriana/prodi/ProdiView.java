@@ -63,7 +63,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
         panelButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         panelButton.setForeground(new java.awt.Color(255, 255, 255));
         panelButton.setOpaque(false);
-        panelButton.setLayout(new java.awt.GridLayout(1, 0));
+        panelButton.setLayout(new java.awt.GridLayout());
 
         btnTambah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/skripsiannisameriana/picture/add.png"))); // NOI18N
@@ -154,26 +154,25 @@ public class ProdiView extends javax.swing.JInternalFrame {
         panelIsiLayout.setHorizontalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIsiLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap()
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
-                        .addComponent(jLabel3)
-                        .addGap(18, 18, 18)
-                        .addComponent(txtNamaProdi, javax.swing.GroupLayout.PREFERRED_SIZE, 518, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel1))
+                .addGap(32, 32, 32)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtKodeFakultas, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
+                    .addComponent(txtKodeProdi))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelIsiLayout.createSequentialGroup()
-                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel2)
-                            .addComponent(jLabel1))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelIsiLayout.createSequentialGroup()
-                                .addComponent(txtKodeFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNamaFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 0, Short.MAX_VALUE))
-                            .addComponent(txtKodeProdi))))
+                        .addComponent(txtNamaFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 296, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(btnCari, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addComponent(jLabel3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(txtNamaProdi)))
                 .addContainerGap())
         );
         panelIsiLayout.setVerticalGroup(
@@ -181,17 +180,16 @@ public class ProdiView extends javax.swing.JInternalFrame {
             .addGroup(panelIsiLayout.createSequentialGroup()
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtKodeProdi, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtKodeProdi, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3)
+                    .addComponent(txtNamaProdi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtKodeFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtNamaFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCari)
                     .addComponent(jLabel2))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtNamaProdi, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         panelData.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cari Berdasarkan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
@@ -246,7 +244,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
                     .addComponent(ComboBoxCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 209, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 213, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -270,7 +268,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
                 .addComponent(panelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addGap(34, 34, 34))
         );
 
         pack();
@@ -377,8 +375,8 @@ public class ProdiView extends javax.swing.JInternalFrame {
             txtCari.setText("");
             ComboBoxCari.setSelectedIndex(0);
 
-            btnUbah.setEnabled(false);
-            btnHapus.setEnabled(false);
+            //btnUbah.setEnabled(false);
+            //btnHapus.setEnabled(false);
 
             tabelProdi.setEnabled(true);
             btnTambah.requestFocus();
@@ -391,7 +389,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
         try {
             switch (btnTambah.getToolTipText()) {
                 case "Baru":
-                    //disableAndEnableForInsert();
+                    disableAndEnableForInsert();
                     break;
                 case "Simpan":
                     if (txtKodeProdi.getText().equals("")) {
@@ -418,7 +416,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
         try {
             switch (btnUbah.getToolTipText()) {
                 case "Ubah":
-//                    disableAndEnableForUpdate();
+                    disableAndEnableForUpdate();
                     break;
                 case "Simpan":
                     if (txtKodeProdi.getText().equals("")) {
@@ -513,7 +511,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
         }
     }
 
-    /*public void disableAndEnableForInsert() {
+    public void disableAndEnableForInsert() {
         try {
             txtKodeProdi.setEnabled(true);
             txtNamaProdi.setEnabled(true);
@@ -532,11 +530,6 @@ public class ProdiView extends javax.swing.JInternalFrame {
             btnTambah.setEnabled(true);
             btnTambah.setText("Simpan");
             btnTambah.setToolTipText("Simpan");
-
-            btnCetak.setEnabled(false);
-            btnHapus.setEnabled(false);
-            btnUbah.setEnabled(false);
-            btnHapus.setEnabled(false);
 
             txtCari.setEnabled(false);
             ComboBoxCari.setEnabled(false);
@@ -571,11 +564,6 @@ public class ProdiView extends javax.swing.JInternalFrame {
                 btnUbah.setText("Simpan");
                 btnUbah.setToolTipText("Simpan");
 
-                btnCetak.setEnabled(false);
-                btnTutup.setEnabled(false);
-                btnTambah.setEnabled(false);
-                btnHapus.setEnabled(false);
-
                 txtCari.setEnabled(false);
                 ComboBoxCari.setEnabled(false);
                 txtCari.setText("");
@@ -588,7 +576,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
         }
-    }*/
+    }
 
     public void tableProdiAction() {
         tabelProdi.getSelectionModel().addListSelectionListener(new ListSelectionListener() {

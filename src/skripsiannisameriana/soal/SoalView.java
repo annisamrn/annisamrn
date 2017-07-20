@@ -500,7 +500,7 @@ public class SoalView extends javax.swing.JInternalFrame {
             dispose();
             //Home2.isMenuItemKelasActive = false;
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
         }
     }
 

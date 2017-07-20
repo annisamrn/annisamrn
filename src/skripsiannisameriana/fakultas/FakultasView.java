@@ -337,7 +337,8 @@ public class FakultasView extends javax.swing.JInternalFrame {
     public void refresh() {
         try {
             loadDatabase();
-                        
+            txtNamaFakultas.setEnabled(false);
+            txtKodeFakultas.setEnabled(false);            
             txtKodeFakultas.setText("");
             txtNamaFakultas.setText("");
 
@@ -371,7 +372,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
         try {
             switch (btnTambah.getToolTipText()) {
                 case "Tambah":
-                    //disableAndEnableForInsert();
+                    disableAndEnableForInsert();
                     break;
                 case "Simpan":
                     if (txtKodeFakultas.getText().equals("")) {
@@ -395,7 +396,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
         try {
             switch (btnUbah.getToolTipText()) {
                 case "Ubah":
-                    //disableAndEnableForUpdate();
+                    disableAndEnableForUpdate();
                     break;
                 case "Simpan":
                     if (txtKodeFakultas.getText().equals("")) {
@@ -484,7 +485,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
         }
     }
 
-    /*public void disableAndEnableForInsert() {
+    public void disableAndEnableForInsert() {
         try {
             txtKodeFakultas.setEnabled(true);
             txtNamaFakultas.setEnabled(true);
@@ -499,11 +500,6 @@ public class FakultasView extends javax.swing.JInternalFrame {
             btnTambah.setEnabled(true);
             btnTambah.setText("Simpan");
             btnTambah.setToolTipText("Simpan");
-
-            btnCetak.setEnabled(false);
-            btnTutup.setEnabled(false);
-            btnUbah.setEnabled(false);
-            btnHapus.setEnabled(false);
 
             txtCari.setEnabled(false);
             ComboBoxCari.setEnabled(false);
@@ -536,11 +532,6 @@ public class FakultasView extends javax.swing.JInternalFrame {
                 btnUbah.setText("Simpan");
                 btnUbah.setToolTipText("Simpan");
 
-                btnCetak.setEnabled(false);
-                btnTutup.setEnabled(false);
-                btnTambah.setEnabled(false);
-                btnHapus.setEnabled(false);
-
                 txtCari.setEnabled(false);
                 ComboBoxCari.setEnabled(false);
                 txtCari.setText("");
@@ -553,7 +544,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
-    }*/
+    }
 
     public void tableFakultasAction() {
         tabelFakultas.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
