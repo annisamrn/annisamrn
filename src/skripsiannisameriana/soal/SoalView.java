@@ -5,11 +5,24 @@
  */
 package skripsiannisameriana.soal;
 
+import java.util.List;
+import javax.swing.JOptionPane;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import skripsiannisameriana.prodi.CariFakultasView;
+import skripsiannisameriana.prodi.Prodi;
+import static skripsiannisameriana.prodi.ProdiView.txtKodeFakultas;
+import static skripsiannisameriana.prodi.ProdiView.txtKodeProdi;
+import static skripsiannisameriana.prodi.ProdiView.txtNamaFakultas;
+import static skripsiannisameriana.prodi.ProdiView.txtNamaProdi;
+
 /**
  *
  * @author USER
  */
 public class SoalView extends javax.swing.JInternalFrame {
+    SoalImplements simpl = new SoalImplements();
+    SoalTabelModel stabmod = new SoalTabelModel();
 
     /**
      * Creates new form SoalView
@@ -322,7 +335,7 @@ public class SoalView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnCetakActionPerformed
 
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
-        //buttonTutup();
+        buttonTutup();
     }//GEN-LAST:event_btnTutupActionPerformed
 
     private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
@@ -366,4 +379,331 @@ public class SoalView extends javax.swing.JInternalFrame {
     public static javax.swing.JTextField txtNamaFakultas1;
     public static javax.swing.JTextField txtNamaProdi1;
     // End of variables declaration//GEN-END:variables
+
+    public void setTableModel() {
+        try {
+            tabelProdi.setModel(stabmod);
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+        }
+    }
+
+    public void loadDatabase() {
+        try {
+            List<Soal> list = simpl.getSoal();
+            stabmod.setData(list);
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+        }
+    }
+
+    /*public void refresh() {
+        try {
+            loadDatabase();
+            
+            txtKodeSoal.setEnabled(false);
+            txtKodeFakultas.setEnabled(false);
+            txtNamaFakultas.setEnabled(false);
+            txtNamaProdi.setEnabled(false);
+            txtKodeProdi.setEnabled(false);
+            
+            btnCari.setEnabled(false);
+
+            txtKodeProdi.setText("");
+            txtKodeFakultas.setText("");
+            txtNamaFakultas.setText("");
+            txtNamaProdi.setText("");
+
+            btnBatal.setEnabled(true);
+            btnBatal.setText("Bersihkan");
+            btnBatal.setToolTipText("Bersihkan");
+
+            btnTambah.setEnabled(true);
+            btnTambah.setText("Baru");
+            btnTambah.setToolTipText("Baru");
+
+            btnCetak.setEnabled(true);
+            btnTutup.setEnabled(true);
+
+            txtCari.setEnabled(true);
+            ComboBoxCari.setEnabled(true);
+            txtCari.setText("");
+            ComboBoxCari.setSelectedIndex(0);
+
+            btnUbah.setEnabled(false);
+            btnHapus.setEnabled(false);
+
+            tabelProdi.setEnabled(true);
+            btnTambah.requestFocus();
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
+        }
+    }
+
+    public void buttonTambah() {
+        try {
+            switch (btnTambah.getToolTipText()) {
+                case "Baru":
+                    //disableAndEnableForInsert();
+                    break;
+                case "Simpan":
+                    if (txtKodeProdi.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kode Program Studi!");
+                        txtKodeProdi.requestFocus();
+                    } else if (txtNamaProdi.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nama Program Studi!");
+                        txtNamaProdi.requestFocus();
+                    } else if (txtNamaFakultas.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Fakultas!");
+                        btnCari.doClick();
+                    } else {
+                        insertProdi();
+                    }
+                    break;
+            }
+
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+        }
+    }
+
+    public void buttonUbah() {
+        try {
+            switch (btnUbah.getToolTipText()) {
+                case "Ubah":
+//                    disableAndEnableForUpdate();
+                    break;
+                case "Simpan":
+                    if (txtKodeProdi.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kode Program Studi!");
+                        txtKodeProdi.requestFocus();
+                    } else if (txtNamaProdi.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nama Program Studi!");
+                        txtNamaProdi.requestFocus();
+                    } else if (txtNamaFakultas.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Fakultas!");
+                        btnCari.doClick();
+                    } else {
+                        updateProdi();
+                    }
+                    break;
+            }
+
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+        }
+    }*/
+
+    public void buttonTutup() {
+        try {
+            //Home2.setEnableDisableMenu(true);
+            dispose();
+            //Home2.isMenuItemKelasActive = false;
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+        }
+    }
+
+    /*public void insertProdi() {
+        try {
+            Prodi prodi = new Prodi();
+
+            prodi.setIdProdi(Integer.parseInt(txtKodeProdi.getText()));
+            prodi.setNamaProdi(txtNamaProdi.getText());
+            prodi.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
+
+            prodiImplements.insertProdi(prodi);
+            JOptionPane.showMessageDialog(null, "Program Studi " + txtNamaProdi.getText() + " Berhasil Di Simpan!");
+            refresh();
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+        }
+    }
+
+    public void updateProdi() {
+        try {
+            Prodi prodi = new Prodi();
+            
+            prodi.setIdProdi(Integer.parseInt(txtKodeProdi.getText()));
+            prodi.setNamaProdi(txtNamaProdi.getText());
+            prodi.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
+
+            prodiImplements.updateProdi(prodi);
+            JOptionPane.showMessageDialog(null, "Program Studi " + txtNamaProdi.getText() + " Berhasil Di Ubah!");
+            refresh();
+
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
+        }
+    }
+
+    public void deleteProdi() {
+        try {
+            int row = tabelProdi.getSelectedRow();
+            if (row == -1) {
+                JOptionPane.showMessageDialog(this, "Silahkan seleksi data yang ingin dihapus!");
+            } else {
+                int confirm = JOptionPane.showConfirmDialog(this, "Anda Yakin Mau Menghapus Program Studi "
+                        + prodiTabelModel.get(row).getNamaProdi()+ "? \n", "Konfirmasi",
+                        JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
+
+                //Periksa Jawaban yang dipilih
+                if (confirm == JOptionPane.YES_OPTION) {
+                    int idProdi = prodiTabelModel.get(row).getIdProdi();
+
+                    prodiImplements.deleteProdi(idProdi);
+                    JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus Semua!");
+                    refresh();
+                } else if (confirm == JOptionPane.NO_OPTION) {
+                    refresh();
+                }
+            }
+        } catch (IndexOutOfBoundsException error) {
+            System.out.println("Terjadi Kesalahan!");
+        } catch (Exception error) {
+            System.out.println("Terjadi Kesalahan!");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
+        }
+    }
+
+    /*public void disableAndEnableForInsert() {
+        try {
+            txtKodeProdi.setEnabled(true);
+            txtNamaProdi.setEnabled(true);
+            
+            btnCari.setEnabled(true);
+            
+            txtKodeProdi.setText("");
+            txtNamaProdi.setText("");
+            txtKodeFakultas.setText("");
+            txtNamaFakultas.setText("");
+
+            btnBatal.setEnabled(true);
+            btnBatal.setText("Batal");
+            btnBatal.setToolTipText("Batal");
+
+            btnTambah.setEnabled(true);
+            btnTambah.setText("Simpan");
+            btnTambah.setToolTipText("Simpan");
+
+            btnCetak.setEnabled(false);
+            btnHapus.setEnabled(false);
+            btnUbah.setEnabled(false);
+            btnHapus.setEnabled(false);
+
+            txtCari.setEnabled(false);
+            ComboBoxCari.setEnabled(false);
+            txtCari.setText("");
+            ComboBoxCari.setSelectedIndex(0);
+
+            tabelProdi.setEnabled(false);
+            txtKodeProdi.requestFocus();
+
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+        }
+    }
+
+    public void disableAndEnableForUpdate() {
+        try {
+
+            int row = tabelProdi.getSelectedRow();
+            if (row == -1) {
+                JOptionPane.showMessageDialog(this, "Silahkan seleksi data yang ingin diubah!");
+            } else {
+                txtKodeProdi.setEnabled(false);
+                txtNamaProdi.setEnabled(true);
+                
+                btnCari.setEnabled(true);
+
+                btnBatal.setEnabled(true);
+                btnBatal.setText("Batal");
+                btnBatal.setToolTipText("Batal");
+
+                btnUbah.setEnabled(true);
+                btnUbah.setText("Simpan");
+                btnUbah.setToolTipText("Simpan");
+
+                btnCetak.setEnabled(false);
+                btnTutup.setEnabled(false);
+                btnTambah.setEnabled(false);
+                btnHapus.setEnabled(false);
+
+                txtCari.setEnabled(false);
+                ComboBoxCari.setEnabled(false);
+                txtCari.setText("");
+                ComboBoxCari.setSelectedIndex(0);
+
+                tabelProdi.setEnabled(false);
+                txtNamaProdi.requestFocus();
+            }
+
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
+        }
+    }*/
+
+    /*public void tableProdiAction() {
+        tabelProdi.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+            @Override
+            public void valueChanged(ListSelectionEvent e) {
+                int row = tabelProdi.getSelectedRow();
+                //CEK APAKAH BARIS BENAR2 TERSELEKSI
+                if (row != -1) {
+                    Prodi prodi = prodiTabelModel.get(row);
+                    
+                    txtKodeProdi.setText(Integer.toString(prodi.getIdProdi()));
+                    txtNamaProdi.setText(prodi.getNamaProdi());
+                    txtKodeFakultas.setText(Integer.toString(prodi.getIdFakultas()));
+                    txtNamaFakultas.setText(prodi.getNamaFakultas());
+
+                    btnUbah.setEnabled(true);
+                    btnUbah.setText("Ubah");
+                    btnUbah.setToolTipText("Ubah");
+                    btnHapus.setEnabled(true);
+                    btnUbah.requestFocus();
+                }
+            }
+        });
+    }
+
+    public void searchPeremeter() {
+        try {
+            String sqlParameter = null;
+            String searchParameter;
+            if (ComboBoxCari.getSelectedIndex() == 0) {
+                sqlParameter = "id_prodi";
+            } else if (ComboBoxCari.getSelectedIndex() == 1) {
+                sqlParameter = "prodi";
+            }
+            searchParameter = txtCari.getText();
+            List<Prodi> list = prodiImplements.getProdiParameter(sqlParameter, searchParameter);
+            prodiTabelModel.setData(list);
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+        }
+    }
+
+    public void buttonPrint() {
+
+        int row = tabelProdi.getRowCount();
+        if (row == 0) {
+            JOptionPane.showMessageDialog(this, "Tidak Ada Data Yang Di Cetak !");
+        } else {
+            try {
+                //JasperPrint jasperPrint = kelasImplements.cetakKelas();
+                //JasperViewer.viewReport(jasperPrint, false);
+            } catch (Exception e) {
+            }
+        }
+    }
+
+    public void btnCariFakultas() {
+        try {
+            CariFakultasView cariFakultasView = new CariFakultasView(null, true);
+            cariFakultasView.setVisible(true);
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+        }
+    }*/
 }

@@ -337,10 +337,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
     public void refresh() {
         try {
             loadDatabase();
-            
-            txtKodeFakultas.setEnabled(false);
-            txtNamaFakultas.setEnabled(false);
-            
+                        
             txtKodeFakultas.setText("");
             txtNamaFakultas.setText("");
 
@@ -374,7 +371,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
         try {
             switch (btnTambah.getToolTipText()) {
                 case "Tambah":
-                    disableAndEnableForInsert();
+                    //disableAndEnableForInsert();
                     break;
                 case "Simpan":
                     if (txtKodeFakultas.getText().equals("")) {
@@ -398,7 +395,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
         try {
             switch (btnUbah.getToolTipText()) {
                 case "Ubah":
-                    disableAndEnableForUpdate();
+                    //disableAndEnableForUpdate();
                     break;
                 case "Simpan":
                     if (txtKodeFakultas.getText().equals("")) {
@@ -487,7 +484,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
         }
     }
 
-    public void disableAndEnableForInsert() {
+    /*public void disableAndEnableForInsert() {
         try {
             txtKodeFakultas.setEnabled(true);
             txtNamaFakultas.setEnabled(true);
@@ -556,7 +553,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
-    }
+    }*/
 
     public void tableFakultasAction() {
         tabelFakultas.getSelectionModel().addListSelectionListener(new ListSelectionListener() {

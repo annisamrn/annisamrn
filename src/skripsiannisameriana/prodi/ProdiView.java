@@ -353,12 +353,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
     public void refresh() {
         try {
             loadDatabase();
-            
-            txtKodeProdi.setEnabled(false);
-            txtKodeFakultas.setEnabled(false);
-            txtNamaFakultas.setEnabled(false);
-            txtNamaProdi.setEnabled(false);
-            
+                   
             btnCari.setEnabled(false);
 
             txtKodeProdi.setText("");
@@ -396,7 +391,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
         try {
             switch (btnTambah.getToolTipText()) {
                 case "Baru":
-                    disableAndEnableForInsert();
+                    //disableAndEnableForInsert();
                     break;
                 case "Simpan":
                     if (txtKodeProdi.getText().equals("")) {
@@ -423,7 +418,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
         try {
             switch (btnUbah.getToolTipText()) {
                 case "Ubah":
-                    disableAndEnableForUpdate();
+//                    disableAndEnableForUpdate();
                     break;
                 case "Simpan":
                     if (txtKodeProdi.getText().equals("")) {
@@ -518,7 +513,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
         }
     }
 
-    public void disableAndEnableForInsert() {
+    /*public void disableAndEnableForInsert() {
         try {
             txtKodeProdi.setEnabled(true);
             txtNamaProdi.setEnabled(true);
@@ -593,7 +588,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
         }
-    }
+    }*/
 
     public void tableProdiAction() {
         tabelProdi.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
