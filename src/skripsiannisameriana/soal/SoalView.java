@@ -67,12 +67,12 @@ public class SoalView extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelProdi = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(51, 51, 51));
+        setBackground(new java.awt.Color(204, 204, 204));
 
         panelButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         panelButton.setForeground(new java.awt.Color(255, 255, 255));
         panelButton.setOpaque(false);
-        panelButton.setLayout(new java.awt.GridLayout());
+        panelButton.setLayout(new java.awt.GridLayout(1, 0));
 
         btnTambah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/skripsiannisameriana/picture/add.png"))); // NOI18N
@@ -134,12 +134,10 @@ public class SoalView extends javax.swing.JInternalFrame {
         });
         panelButton.add(btnTutup);
 
-        panelIsi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Soal", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
-        panelIsi.setForeground(new java.awt.Color(255, 255, 255));
+        panelIsi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Soal", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 24))); // NOI18N
         panelIsi.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Kode Soal                       :");
 
         btnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/skripsiannisameriana/picture/search.png"))); // NOI18N
@@ -159,7 +157,6 @@ public class SoalView extends javax.swing.JInternalFrame {
         });
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Soal / Pertanyaan        :");
 
         txtAreaSoal.setColumns(20);
@@ -167,7 +164,6 @@ public class SoalView extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(txtAreaSoal);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Nilai                                 :");
 
         javax.swing.GroupLayout panelIsiLayout = new javax.swing.GroupLayout(panelIsi);
@@ -233,7 +229,7 @@ public class SoalView extends javax.swing.JInternalFrame {
                         .addGap(0, 0, Short.MAX_VALUE))))
         );
 
-        panelData.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cari Berdasarkan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelData.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cari Berdasarkan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         panelData.setForeground(new java.awt.Color(255, 255, 255));
         panelData.setOpaque(false);
 
@@ -246,8 +242,8 @@ public class SoalView extends javax.swing.JInternalFrame {
             }
         });
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Soal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
-        jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Soal", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        jScrollPane1.setForeground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setOpaque(false);
 
         tabelProdi.setModel(new javax.swing.table.DefaultTableModel(

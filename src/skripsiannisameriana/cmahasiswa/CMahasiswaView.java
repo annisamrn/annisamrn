@@ -68,7 +68,7 @@ public class CMahasiswaView extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelCMahasiswa = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(51, 51, 51));
+        setBackground(new java.awt.Color(204, 204, 204));
 
         panelButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         panelButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -135,20 +135,18 @@ public class CMahasiswaView extends javax.swing.JInternalFrame {
         });
         panelButton.add(btnTutup);
 
-        panelIsi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pendaftaran Calon Mahasiswa", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelIsi.setBackground(new java.awt.Color(255, 255, 255));
+        panelIsi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pendaftaran Calon Mahasiswa", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 24))); // NOI18N
         panelIsi.setForeground(new java.awt.Color(255, 255, 255));
         panelIsi.setOpaque(false);
 
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Nama                             :");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Asal Sekolah                :");
 
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Nama Program Studi :");
 
         btnCariFakultas.setIcon(new javax.swing.ImageIcon(getClass().getResource("/skripsiannisameriana/picture/search.png"))); // NOI18N
@@ -158,19 +156,15 @@ public class CMahasiswaView extends javax.swing.JInternalFrame {
         btnCariProdi.setText("Cari");
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Fakultas                        :");
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Email            :");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Telepon                        :");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Alamat                         :");
 
         txtAreaAlamat.setColumns(20);
@@ -264,7 +258,7 @@ public class CMahasiswaView extends javax.swing.JInternalFrame {
                         .addContainerGap())))
         );
 
-        panelData.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cari Berdasarkan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelData.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cari Berdasarkan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         panelData.setForeground(new java.awt.Color(255, 255, 255));
         panelData.setOpaque(false);
 
@@ -277,7 +271,7 @@ public class CMahasiswaView extends javax.swing.JInternalFrame {
             }
         });
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Pendaftar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Pendaftar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setOpaque(false);
 
@@ -403,10 +397,10 @@ public class CMahasiswaView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCari;
     public static javax.swing.JTextField txtEmail;
     public static javax.swing.JTextField txtKodeFakultas;
-    private javax.swing.JTextField txtKodeProdi;
+    public static javax.swing.JTextField txtKodeProdi;
     public static javax.swing.JTextField txtNamaFakultas;
     private javax.swing.JTextField txtNamaPendaftar;
-    private javax.swing.JTextField txtNamaProdi;
+    public static javax.swing.JTextField txtNamaProdi;
     private javax.swing.JTextField txtTelepon;
     // End of variables declaration//GEN-END:variables
 

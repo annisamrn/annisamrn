@@ -51,7 +51,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
         jScrollPane1 = new javax.swing.JScrollPane();
         tabelFakultas = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(51, 51, 51));
+        setBackground(new java.awt.Color(204, 204, 204));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -70,16 +70,15 @@ public class FakultasView extends javax.swing.JInternalFrame {
             }
         });
 
-        panelIsi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fakultas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 24), new java.awt.Color(255, 255, 255))); // NOI18N
+        panelIsi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fakultas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 24))); // NOI18N
         panelIsi.setForeground(new java.awt.Color(255, 255, 255));
         panelIsi.setOpaque(false);
 
+        jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Kode Fakultas         :");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setText("Nama Fakultas        :");
 
         javax.swing.GroupLayout panelIsiLayout = new javax.swing.GroupLayout(panelIsi);
@@ -177,8 +176,8 @@ public class FakultasView extends javax.swing.JInternalFrame {
         });
         panelButton.add(btnTutup);
 
-        panelData.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cari Berdasarkan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14), new java.awt.Color(255, 255, 255))); // NOI18N
-        panelData.setForeground(new java.awt.Color(255, 255, 255));
+        panelData.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cari Berdasarkan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
+        panelData.setForeground(new java.awt.Color(204, 204, 204));
         panelData.setOpaque(false);
 
         ComboBoxCari.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
@@ -190,7 +189,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
             }
         });
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Fakultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12), new java.awt.Color(255, 255, 255))); // NOI18N
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Fakultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setOpaque(false);
 

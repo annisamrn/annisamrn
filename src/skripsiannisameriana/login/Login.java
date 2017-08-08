@@ -72,11 +72,11 @@ public class Login extends javax.swing.JFrame {
         BaseHome.setBackground(new java.awt.Color(48, 151, 199));
 
         jPanel1.setBackground(new java.awt.Color(39, 72, 120));
+        jPanel1.setForeground(new java.awt.Color(153, 153, 255));
 
         jPanel3.setBackground(new java.awt.Color(41, 235, 173));
 
         jLabel1.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(254, 254, 254));
         jLabel1.setText("login form");
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
@@ -103,7 +103,6 @@ public class Login extends javax.swing.JFrame {
         jPanel4.setBackground(new java.awt.Color(6, 158, 30));
 
         jLabel2.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel2.setForeground(new java.awt.Color(252, 252, 252));
         jLabel2.setText("login");
 
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
@@ -156,7 +155,7 @@ public class Login extends javax.swing.JFrame {
         );
 
         jemail.setBackground(new java.awt.Color(39, 72, 120));
-        jemail.setForeground(new java.awt.Color(170, 170, 170));
+        jemail.setForeground(new java.awt.Color(255, 255, 255));
         jemail.setText(" input email");
         jemail.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jemail.setOpaque(false);
@@ -167,22 +166,22 @@ public class Login extends javax.swing.JFrame {
 
         jLabel8.setBackground(new java.awt.Color(170, 170, 170));
         jLabel8.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel8.setForeground(new java.awt.Color(255, 255, 255));
         jLabel8.setText("Telepon");
 
         jLabel9.setBackground(new java.awt.Color(170, 170, 170));
         jLabel9.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel9.setForeground(new java.awt.Color(255, 255, 255));
         jLabel9.setText("Email");
 
         jtelp.setBackground(new java.awt.Color(39, 72, 120));
-        jtelp.setForeground(new java.awt.Color(170, 170, 170));
+        jtelp.setForeground(new java.awt.Color(255, 255, 255));
         jtelp.setText(" input nomor telepon");
         jtelp.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jtelp.setOpaque(false);
 
         Jname.setBackground(new java.awt.Color(39, 72, 120));
-        Jname.setForeground(new java.awt.Color(170, 170, 170));
+        Jname.setForeground(new java.awt.Color(255, 255, 255));
         Jname.setText(" input name");
         Jname.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         Jname.setOpaque(false);
@@ -196,65 +195,64 @@ public class Login extends javax.swing.JFrame {
 
         jfakultas.setBackground(new java.awt.Color(254, 254, 254));
         jfakultas.setFont(new java.awt.Font("Century Schoolbook L", 2, 12)); // NOI18N
-        jfakultas.setForeground(new java.awt.Color(195, 195, 195));
         jfakultas.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jfakultas.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jLabel4.setBackground(new java.awt.Color(170, 170, 170));
         jLabel4.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setText("Nama");
 
         jLabel5.setBackground(new java.awt.Color(170, 170, 170));
         jLabel5.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setText("Asal Sekolah");
 
         jSeparator3.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
 
         Jsekolah.setBackground(new java.awt.Color(39, 72, 120));
-        Jsekolah.setForeground(new java.awt.Color(170, 170, 170));
+        Jsekolah.setForeground(new java.awt.Color(255, 255, 255));
         Jsekolah.setText(" input asal sekolah");
         Jsekolah.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         Jsekolah.setOpaque(false);
 
         jprodi.setBackground(new java.awt.Color(254, 254, 254));
         jprodi.setFont(new java.awt.Font("Century Schoolbook L", 2, 12)); // NOI18N
-        jprodi.setForeground(new java.awt.Color(195, 195, 195));
         jprodi.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Item 1", "Item 2", "Item 3", "Item 4" }));
         jprodi.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
 
         jLabel7.setBackground(new java.awt.Color(170, 170, 170));
         jLabel7.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel7.setForeground(new java.awt.Color(255, 255, 255));
         jLabel7.setText("Program Studi");
 
         jLabel3.setBackground(new java.awt.Color(170, 170, 170));
         jLabel3.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Sign up");
 
         jSeparator5.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
 
         jLabel6.setBackground(new java.awt.Color(170, 170, 170));
         jLabel6.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Fakultas");
 
         jSeparator9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(254, 254, 254)));
 
         jemail1.setBackground(new java.awt.Color(39, 72, 120));
-        jemail1.setForeground(new java.awt.Color(170, 170, 170));
+        jemail1.setForeground(new java.awt.Color(255, 255, 255));
         jemail1.setText(" input alamat");
         jemail1.setBorder(javax.swing.BorderFactory.createEmptyBorder(1, 1, 1, 1));
         jemail1.setOpaque(false);
 
         jLabel10.setBackground(new java.awt.Color(170, 170, 170));
         jLabel10.setFont(new java.awt.Font("Century Schoolbook L", 0, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(170, 170, 170));
+        jLabel10.setForeground(new java.awt.Color(255, 255, 255));
         jLabel10.setText("Alamat");
 
         jPanel5.setBackground(new java.awt.Color(6, 158, 30));
+        jPanel5.setForeground(new java.awt.Color(153, 153, 255));
 
         jLabel11.setFont(new java.awt.Font("Century Schoolbook L", 0, 12)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(254, 254, 254));
