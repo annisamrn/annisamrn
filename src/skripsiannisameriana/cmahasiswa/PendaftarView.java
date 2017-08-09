@@ -18,7 +18,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
     
     CMahasiswaImplements cMahasiswaImplements = new CMahasiswaImplements();
     CMahasiswaTabelModel cMahasiswaTabelModel = new CMahasiswaTabelModel();
-
+    int id;
     /**
      * Creates new form PendaftarView
      */
@@ -508,6 +508,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
             cmhs.setTelepon(txtTelepon.getText());
             cmhs.setEmail(txtEmail.getText());
             cmhs.setAlamat(txtAreaAlamat.getText());
+            cmhs.setIdPendaftar(id);
             
             cMahasiswaImplements.updatePendaftar(cmhs);
             JOptionPane.showMessageDialog(null, "Nama Pendaftar "+ txtNamaPendaftar.getText() + " Berhasil diubah");
@@ -629,6 +630,8 @@ public class PendaftarView extends javax.swing.JInternalFrame {
                     txtTelepon.setText(cm.getTelepon());
                     txtEmail.setText(cm.getEmail());
                     txtAreaAlamat.setText(cm.getAlamat());
+                    
+                    id = cm.getIdPendaftar();
 
                     btnUbah.setEnabled(true);
                     btnUbah.setText("Ubah");
