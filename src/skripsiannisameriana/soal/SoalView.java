@@ -18,7 +18,7 @@ import skripsiannisameriana.prodi.CariFakultasView;
 public class SoalView extends javax.swing.JInternalFrame {
     SoalImplements soalimpl = new SoalImplements();
     SoalTabelModel soaltabmod = new SoalTabelModel();
-
+    int id;
     /**
      * Creates new form SoalView
      */
@@ -521,6 +521,7 @@ public class SoalView extends javax.swing.JInternalFrame {
             soal.setNamaFakultas(txtNamaFakultas.getText());
             soal.setIdProdi(Integer.parseInt(txtKodeProdi.getText()));
             soal.setNamaProdi(txtNamaProdi.getText());
+            soal.setIdSoal(id);
 
             soalimpl.updateSoal(soal);
             JOptionPane.showMessageDialog(null, "Program Studi " + txtNamaProdi.getText() + " Berhasil Di Ubah!");
@@ -646,6 +647,7 @@ public class SoalView extends javax.swing.JInternalFrame {
                     txtNamaProdi.setText(soal.getNamaProdi());
                     txtKodeFakultas.setText(Integer.toString(soal.getIdFakultas()));
                     txtNamaFakultas.setText(soal.getNamaFakultas());
+                    id = soal.getIdSoal();
 
                     btnUbah.setEnabled(true);
                     btnUbah.setText("Ubah");

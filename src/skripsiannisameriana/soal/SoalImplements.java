@@ -92,7 +92,9 @@ public class SoalImplements {
                 soal.setIdSoal(resultSet.getInt("id_soal"));
                 soal.setSoal(resultSet.getString("soal"));
                 soal.setNilai(resultSet.getInt("nilai_soal"));
+                soal.setIdFakultas(resultSet.getInt("tb_fakultas.id_fakultas"));
                 soal.setNamaFakultas(resultSet.getString("tb_fakultas.fakultas"));
+                soal.setIdProdi(resultSet.getInt("tb_prodi.id_prodi"));
                 soal.setNamaProdi(resultSet.getString("nama_prodi"));
                 list.add(soal);
             }
