@@ -5,7 +5,7 @@
  */
 package skripsiannisameriana.home;
 
-import skripsiannisameriana.cmahasiswa.CMahasiswaView;
+import skripsiannisameriana.cmahasiswa.PendaftarView;
 import skripsiannisameriana.fakultas.FakultasView;
 import skripsiannisameriana.prodi.ProdiView;
 
@@ -167,7 +167,7 @@ public class Home extends javax.swing.JFrame {
 
     private void DaftarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DaftarActionPerformed
         // TODO add your handling code here:
-        CMahasiswaView cmv = new CMahasiswaView();
+        PendaftarView cmv = new PendaftarView();
         jDesktopPane2.add(cmv);
         cmv.show();
     }//GEN-LAST:event_DaftarActionPerformed

@@ -31,7 +31,7 @@ public class CMahasiswaTabelModel extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 9;
+        return 7;
     }
 
     @Override
@@ -40,12 +40,10 @@ public class CMahasiswaTabelModel extends AbstractTableModel{
             case 0: return rowIndex + 1;
             case 1: return list.get(rowIndex).getIdPendaftar();            
             case 2: return list.get(rowIndex).getNamaPendaftar();
-            case 3: return list.get(rowIndex).getNamaFakultas();
-            case 4: return list.get(rowIndex).getNamaProdi();
-            case 5: return list.get(rowIndex).getAsalSekolah();
-            case 6: return list.get(rowIndex).getTelepon();
-            case 7: return list.get(rowIndex).getEmail();
-            case 8: return list.get(rowIndex).getAlamat();
+            case 3: return list.get(rowIndex).getAsalSekolah();
+            case 4: return list.get(rowIndex).getTelepon();
+            case 5: return list.get(rowIndex).getEmail();
+            case 6: return list.get(rowIndex).getAlamat();
             default:
                 return null;
         }
@@ -57,12 +55,10 @@ public class CMahasiswaTabelModel extends AbstractTableModel{
             case 0: return "No";
             case 1: return "No Pendaftaran";
             case 2: return "Nama Calon Mahasiswa";
-            case 3: return "Fakultas";
-            case 4: return "Program Studi";
-            case 5: return "Asal Sekolah";
-            case 6: return "Telepon";
-            case 7: return "Email";
-            case 8: return "Alamat";
+            case 3: return "Asal Sekolah";
+            case 4: return "Telepon";
+            case 5: return "Email";
+            case 6: return "Alamat";
             default:
                 return null;
         }

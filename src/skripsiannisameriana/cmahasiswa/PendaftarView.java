@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package skripsiannisameriana.fakultas;
+package skripsiannisameriana.cmahasiswa;
 
 import java.util.List;
 import javax.swing.JOptionPane;
@@ -14,13 +14,15 @@ import javax.swing.event.ListSelectionListener;
  *
  * @author USER
  */
-public class FakultasView extends javax.swing.JInternalFrame {
-    private FakultasImplements fakultasImplements = new FakultasImplements();
-    private FakultasTabelModel fakultasTabelModel = new FakultasTabelModel();
+public class PendaftarView extends javax.swing.JInternalFrame {
+    
+    CMahasiswaImplements cMahasiswaImplements = new CMahasiswaImplements();
+    CMahasiswaTabelModel cMahasiswaTabelModel = new CMahasiswaTabelModel();
+
     /**
-     * Creates new form FakultasView
+     * Creates new form PendaftarView
      */
-    public FakultasView() {
+    public PendaftarView() {
         initComponents();
     }
 
@@ -36,12 +38,18 @@ public class FakultasView extends javax.swing.JInternalFrame {
         panelIsi = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        txtKodeFakultas = new javax.swing.JTextField();
-        txtNamaFakultas = new javax.swing.JTextField();
+        txtNamaPendaftar = new javax.swing.JTextField();
+        txtAsalSekolah = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtTelepon = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        txtEmail = new javax.swing.JTextField();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        txtAreaAlamat = new javax.swing.JTextArea();
         panelButton = new javax.swing.JPanel();
         btnTambah = new javax.swing.JButton();
         btnUbah = new javax.swing.JButton();
-        btnHapus = new javax.swing.JButton();
         btnBatal = new javax.swing.JButton();
         btnCetak = new javax.swing.JButton();
         btnTutup = new javax.swing.JButton();
@@ -49,9 +57,8 @@ public class FakultasView extends javax.swing.JInternalFrame {
         ComboBoxCari = new javax.swing.JComboBox();
         txtCari = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelFakultas = new javax.swing.JTable();
+        tabelPendaftar = new javax.swing.JTable();
 
-        setBackground(new java.awt.Color(204, 204, 204));
         addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
             public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
             }
@@ -70,51 +77,89 @@ public class FakultasView extends javax.swing.JInternalFrame {
             }
         });
 
-        panelIsi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Fakultas", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 24))); // NOI18N
+        panelIsi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Pendaftar", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 24))); // NOI18N
         panelIsi.setForeground(new java.awt.Color(255, 255, 255));
         panelIsi.setOpaque(false);
 
         jLabel1.setBackground(new java.awt.Color(204, 204, 204));
         jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("Kode Fakultas         :");
+        jLabel1.setText("Nama Pendaftar                 :");
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel2.setText("Nama Fakultas        :");
+        jLabel2.setText("Asal Sekolah                       :");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel3.setText("Telepon                                :");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel4.setText("Email                                     :");
+
+        jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel5.setText("Alamat                                 :");
+
+        txtAreaAlamat.setColumns(20);
+        txtAreaAlamat.setRows(5);
+        jScrollPane2.setViewportView(txtAreaAlamat);
 
         javax.swing.GroupLayout panelIsiLayout = new javax.swing.GroupLayout(panelIsi);
         panelIsi.setLayout(panelIsiLayout);
         panelIsiLayout.setHorizontalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIsiLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelIsiLayout.createSequentialGroup()
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNamaFakultas))
-                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtKodeFakultas)))
-                .addContainerGap())
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(jLabel2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(txtAsalSekolah, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
+                    .addComponent(txtNamaPendaftar))
+                .addGap(105, 105, 105))
+            .addGroup(panelIsiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2)
+                    .addComponent(txtEmail)
+                    .addComponent(txtTelepon))
+                .addGap(106, 106, 106))
         );
         panelIsiLayout.setVerticalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIsiLayout.createSequentialGroup()
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
-                    .addComponent(txtKodeFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtNamaPendaftar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtAsalSekolah, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtTelepon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel4)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel2)
-                    .addComponent(txtNamaFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(14, Short.MAX_VALUE))
+                    .addComponent(jLabel5)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
 
         panelButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         panelButton.setForeground(new java.awt.Color(255, 255, 255));
         panelButton.setOpaque(false);
-        panelButton.setLayout(new java.awt.GridLayout(1, 0));
+        panelButton.setLayout(new java.awt.GridLayout());
 
         btnTambah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/skripsiannisameriana/picture/add.png"))); // NOI18N
@@ -135,16 +180,6 @@ public class FakultasView extends javax.swing.JInternalFrame {
             }
         });
         panelButton.add(btnUbah);
-
-        btnHapus.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnHapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/skripsiannisameriana/picture/delete.png"))); // NOI18N
-        btnHapus.setText("Hapus");
-        btnHapus.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnHapusActionPerformed(evt);
-            }
-        });
-        panelButton.add(btnHapus);
 
         btnBatal.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnBatal.setIcon(new javax.swing.ImageIcon(getClass().getResource("/skripsiannisameriana/picture/cancel.png"))); // NOI18N
@@ -181,7 +216,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
         panelData.setOpaque(false);
 
         ComboBoxCari.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        ComboBoxCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kode Fakultas", "Nama Fakultas" }));
+        ComboBoxCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nomor Pendaftar", "Nama Pendaftar", "Asal Sekolah" }));
 
         txtCari.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -189,11 +224,11 @@ public class FakultasView extends javax.swing.JInternalFrame {
             }
         });
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Fakultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Pendaftar", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setOpaque(false);
 
-        tabelFakultas.setModel(new javax.swing.table.DefaultTableModel(
+        tabelPendaftar.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -204,22 +239,21 @@ public class FakultasView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelFakultas.setOpaque(false);
-        jScrollPane1.setViewportView(tabelFakultas);
+        tabelPendaftar.setOpaque(false);
+        jScrollPane1.setViewportView(tabelPendaftar);
 
         javax.swing.GroupLayout panelDataLayout = new javax.swing.GroupLayout(panelData);
         panelData.setLayout(panelDataLayout);
         panelDataLayout.setHorizontalGroup(
             panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelDataLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jScrollPane1)
                     .addGroup(panelDataLayout.createSequentialGroup()
                         .addComponent(ComboBoxCari, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtCari)))
-                .addContainerGap())
+                        .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 421, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         panelDataLayout.setVerticalGroup(
             panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -228,31 +262,30 @@ public class FakultasView extends javax.swing.JInternalFrame {
                     .addComponent(ComboBoxCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 143, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+            .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(panelData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelIsi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(panelButton, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 678, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap())
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(panelIsi, javax.swing.GroupLayout.PREFERRED_SIZE, 577, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(panelIsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(panelData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(panelData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         pack();
@@ -266,16 +299,12 @@ public class FakultasView extends javax.swing.JInternalFrame {
         buttonUbah();
     }//GEN-LAST:event_btnUbahActionPerformed
 
-    private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-        HapusFakultas();
-    }//GEN-LAST:event_btnHapusActionPerformed
-
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
         refresh();
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
-//        buttonPrint();
+        //        buttonPrint();
     }//GEN-LAST:event_btnCetakActionPerformed
 
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
@@ -287,11 +316,9 @@ public class FakultasView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_txtCariKeyReleased
 
     private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
-        // TODO add your handling code here:
         setTableModel();
         refresh();
-        tableFakultasAction();
- //       loadDatabase();
+        tablePendaftarAction();
     }//GEN-LAST:event_formInternalFrameOpened
 
 
@@ -299,47 +326,58 @@ public class FakultasView extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox ComboBoxCari;
     private javax.swing.JButton btnBatal;
     private javax.swing.JButton btnCetak;
-    private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnTambah;
     private javax.swing.JButton btnTutup;
     private javax.swing.JButton btnUbah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel panelButton;
     private javax.swing.JPanel panelData;
     private javax.swing.JPanel panelIsi;
-    private javax.swing.JTable tabelFakultas;
+    private javax.swing.JTable tabelPendaftar;
+    private javax.swing.JTextArea txtAreaAlamat;
+    public static javax.swing.JTextField txtAsalSekolah;
     private javax.swing.JTextField txtCari;
-    public static javax.swing.JTextField txtKodeFakultas;
-    public static javax.swing.JTextField txtNamaFakultas;
+    public static javax.swing.JTextField txtEmail;
+    public static javax.swing.JTextField txtNamaPendaftar;
+    public static javax.swing.JTextField txtTelepon;
     // End of variables declaration//GEN-END:variables
 
-    //Load Database
     public void loadDatabase() {
         try {
-            List<Fakultas> list = fakultasImplements.getFakultas();
-            fakultasTabelModel.setData(list);
+            List<CMahasiswa> list = cMahasiswaImplements.getPendaftar();
+            cMahasiswaTabelModel.setData(list);
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 1!");
         }
     }
     
     public void setTableModel() {
         try {
-            tabelFakultas.setModel(fakultasTabelModel);
+            tabelPendaftar.setModel(cMahasiswaTabelModel);
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 2!");
         }
     }
     
     public void refresh() {
         try {
             loadDatabase();
-            txtNamaFakultas.setEnabled(true);
-            txtKodeFakultas.setEnabled(false);            
-            txtKodeFakultas.setText("");
-            txtNamaFakultas.setText("");
+            txtNamaPendaftar.setEnabled(true);
+            txtAsalSekolah.setEnabled(true);
+            txtTelepon.setEnabled(true);
+            txtEmail.setEnabled(true);
+            txtAreaAlamat.setEnabled(true);
+            txtNamaPendaftar.setText("");
+            txtAsalSekolah.setText("");
+            txtTelepon.setText("");
+            txtEmail.setText("");
+            txtAreaAlamat.setText("");
 
             btnBatal.setEnabled(true);
             btnBatal.setText("Bersihkan");
@@ -358,12 +396,12 @@ public class FakultasView extends javax.swing.JInternalFrame {
             ComboBoxCari.setSelectedIndex(0);
 
             btnUbah.setEnabled(true);
-            btnHapus.setEnabled(true);
+            //btnHapus.setEnabled(true);
 
-            tabelFakultas.setEnabled(true);
+            tabelPendaftar.setEnabled(true);
             btnTambah.requestFocus();
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 3!");
         }
     }
 
@@ -374,20 +412,29 @@ public class FakultasView extends javax.swing.JInternalFrame {
                     disableAndEnableForInsert();
                     break;
                 case "Simpan":
-                    if (txtKodeFakultas.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kode Fakultas!");
-                        txtKodeFakultas.requestFocus();
-                    } else if (txtNamaFakultas.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nama Fakultas!");
-                        txtNamaFakultas.requestFocus();
+                    if (txtNamaPendaftar.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Nama Pendaftar!");
+                        txtNamaPendaftar.requestFocus();
+                    } else if (txtAsalSekolah.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Isi Data Asal Sekolah dengan benar!");
+                        txtAsalSekolah.requestFocus();
+                    }else if (txtTelepon.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Isi nomor Telepon dengan benar!");
+                        txtTelepon.requestFocus();
+                    }else if (txtEmail.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Isi Data email dengan benar!");
+                        txtEmail.requestFocus();
+                    }else if (txtAreaAlamat.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Isi Data Alamat dengan benar!");
+                        txtAreaAlamat.requestFocus();
                     } else {
-                        insertFakultas();
+                        insertPendaftar();
                     }
                     break;
             }
 
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 4!");
         }
     }
 
@@ -398,20 +445,29 @@ public class FakultasView extends javax.swing.JInternalFrame {
                     disableAndEnableForUpdate();
                     break;
                 case "Simpan":
-                    if (txtKodeFakultas.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Id Fakultas!");
-                        txtKodeFakultas.requestFocus();
-                    } else if (txtNamaFakultas.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nama Fakultas!");
-                        txtNamaFakultas.requestFocus();
+                    if (txtNamaPendaftar.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Nama Pendaftar!");
+                        txtNamaPendaftar.requestFocus();
+                    } else if (txtAsalSekolah.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Isi Data Asal Sekolah dengan benar!");
+                        txtAsalSekolah.requestFocus();
+                    }else if (txtTelepon.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Isi nomor Telepon dengan benar!");
+                        txtTelepon.requestFocus();
+                    }else if (txtEmail.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Isi Data email dengan benar!");
+                        txtEmail.requestFocus();
+                    }else if (txtAreaAlamat.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Isi Data Alamat dengan benar!");
+                        txtAreaAlamat.requestFocus();
                     } else {
-                        ubahFakultas();
+                        ubahPendaftar();
                     }
                     break;
             }
 
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 5!");
         }
     }
 
@@ -421,76 +477,87 @@ public class FakultasView extends javax.swing.JInternalFrame {
             dispose();
             //Home2.isMenuItemJurusanActive = false;
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 6!");
         }
     }
 
-    public void insertFakultas() {
+    public void insertPendaftar() {
         try {
-            Fakultas fakultas = new Fakultas();
-
-            fakultas.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
-            fakultas.setNamaFakultas(txtNamaFakultas.getText());
-
-            fakultasImplements.insertFakultas(fakultas);
-            JOptionPane.showMessageDialog(null, "Nama Fakultas"+ txtNamaFakultas.getText() + "Berhasil Disimpan!");
-            refresh();
-        } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
-        }
-    }
-
-    public void ubahFakultas() {
-        try {
-            Fakultas fakultas = new Fakultas();
+            CMahasiswa cmhs = new CMahasiswa();
             
-            fakultas.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
-            fakultas.setNamaFakultas(txtNamaFakultas.getText());
-
-            fakultasImplements.updateFakultas(fakultas);
-            JOptionPane.showMessageDialog(null, "Nama Fakultas " + txtNamaFakultas.getText() + " Barhasil Di Ubah !");
+            cmhs.setNamaPendaftar(txtNamaPendaftar.getText());
+            cmhs.setAsalSekolah(txtAsalSekolah.getText());
+            cmhs.setTelepon(txtTelepon.getText());
+            cmhs.setEmail(txtEmail.getText());
+            cmhs.setAlamat(txtAreaAlamat.getText());
+            
+            cMahasiswaImplements.insertPeserta(cmhs);
+            JOptionPane.showMessageDialog(null, "Nama Pendaftar"+ txtNamaPendaftar.getText() + "Berhasil disimpan");
             refresh();
-
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 7!");
         }
     }
 
-    public void HapusFakultas() {
+    public void ubahPendaftar() {
         try {
-            int row = tabelFakultas.getSelectedRow();
+            CMahasiswa cmhs = new CMahasiswa();
+            
+            cmhs.setNamaPendaftar(txtNamaPendaftar.getText());
+            cmhs.setAsalSekolah(txtAsalSekolah.getText());
+            cmhs.setTelepon(txtTelepon.getText());
+            cmhs.setEmail(txtEmail.getText());
+            cmhs.setAlamat(txtAreaAlamat.getText());
+            
+            cMahasiswaImplements.updatePendaftar(cmhs);
+            JOptionPane.showMessageDialog(null, "Nama Pendaftar "+ txtNamaPendaftar.getText() + " Berhasil diubah");
+            refresh();
+
+        } catch (Exception error) {
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 8!");
+        }
+    }
+
+    /*public void HapusPendaftar() {
+        try {
+            int row = tabelPendaftar.getSelectedRow();
             if (row == -1) {
                 JOptionPane.showMessageDialog(this, "Silahkan seleksi data yang ingin dihapus!");
             } else {
-                int confirm = JOptionPane.showConfirmDialog(this, "Anda Yakin Mau Menghapus Fakultas "
-                        + fakultasTabelModel.get(row).getNamaFakultas()+ "? \n", "Konfirmasi",
+                int confirm = JOptionPane.showConfirmDialog(this, "Anda Yakin Mau Menghapus Peserta "
+                        + cMahasiswaTabelModel.get(row).getNamaPendaftar()+ "? \n", "Konfirmasi",
                         JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
 
                 //Periksa Jawaban yang dipilih
                 if (confirm == JOptionPane.YES_OPTION) {
-                    int idFakultas = fakultasTabelModel.get(row).getIdFakultas();
+                    int idPendaftar = CMahasiswaTabelModel.get(row).getIdPendaftar();
 
-                    fakultasImplements.deleteFakultas(idFakultas);
+                    CMahasiswaImplements.deleteCMahasiswa(idPendaftar);
                     refresh();
                 } else if (confirm == JOptionPane.NO_OPTION) {
                     refresh();
                 }
             }
         } catch (IndexOutOfBoundsException error) {
-            System.out.println("Terjadi Kesalahan!");
+            System.out.println("Terjadi Kesalahan 9!");
         } catch (Exception error) {
-            System.out.println("Terjadi Kesalahan!");
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+            System.out.println("Terjadi Kesalahan 10!");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 11!");
         }
-    }
+    }*/
 
     public void disableAndEnableForInsert() {
         try {
-            txtKodeFakultas.setEnabled(true);
-            txtNamaFakultas.setEnabled(true);
-            
-            txtKodeFakultas.setText("");
-            txtKodeFakultas.setText("");
+            txtNamaPendaftar.setEnabled(true);
+            txtAsalSekolah.setEnabled(true);
+            txtTelepon.setEnabled(true);
+            txtEmail.setEnabled(true);
+            txtAreaAlamat.setEnabled(true);
+            txtNamaPendaftar.setText("");
+            txtAsalSekolah.setText("");
+            txtTelepon.setText("");
+            txtEmail.setText("");
+            txtAreaAlamat.setText("");
 
             btnBatal.setEnabled(true);
             btnBatal.setText("Batal");
@@ -505,8 +572,8 @@ public class FakultasView extends javax.swing.JInternalFrame {
             txtCari.setText("");
             ComboBoxCari.setSelectedIndex(0);
 
-            tabelFakultas.setEnabled(false);
-            txtKodeFakultas.requestFocus();
+            tabelPendaftar.setEnabled(false);
+            txtNamaPendaftar.requestFocus();
 
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
@@ -516,12 +583,15 @@ public class FakultasView extends javax.swing.JInternalFrame {
     public void disableAndEnableForUpdate() {
         try {
 
-            int row = tabelFakultas.getSelectedRow();
+            int row = tabelPendaftar.getSelectedRow();
             if (row == -1) {
                 JOptionPane.showMessageDialog(this, "Silahkan seleksi data yang ingin diubah!");
             } else {
-                txtKodeFakultas.setEnabled(false);
-                txtNamaFakultas.setEnabled(true);
+                txtNamaPendaftar.setEnabled(true);
+                txtAsalSekolah.setEnabled(true);
+                txtTelepon.setEnabled(true);
+                txtEmail.setEnabled(true);
+                txtAreaAlamat.setEnabled(true);
 
                 btnBatal.setEnabled(true);
                 btnBatal.setText("Batal");
@@ -536,31 +606,34 @@ public class FakultasView extends javax.swing.JInternalFrame {
                 txtCari.setText("");
                 ComboBoxCari.setSelectedIndex(0);
 
-                tabelFakultas.setEnabled(false);
-                txtNamaFakultas.requestFocus();
+                tabelPendaftar.setEnabled(false);
+                txtNamaPendaftar.requestFocus();
             }
 
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 12!");
         }
     }
 
-    public void tableFakultasAction() {
-        tabelFakultas.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+    public void tablePendaftarAction() {
+        tabelPendaftar.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                int row = tabelFakultas.getSelectedRow();
+                int row = tabelPendaftar.getSelectedRow();
                 //CEK APAKAH BARIS BENAR2 TERSELEKSI
                 if (row != -1) {
-                    Fakultas fakultas = fakultasTabelModel.get(row);
+                    CMahasiswa cm = cMahasiswaTabelModel.get(row);
                     
-                    txtKodeFakultas.setText(Integer.toString(fakultas.getIdFakultas()));
-                    txtNamaFakultas.setText(fakultas.getNamaFakultas());
+                    txtNamaPendaftar.setText(cm.getNamaPendaftar());
+                    txtAsalSekolah.setText(cm.getAsalSekolah());
+                    txtTelepon.setText(cm.getTelepon());
+                    txtEmail.setText(cm.getEmail());
+                    txtAreaAlamat.setText(cm.getAlamat());
 
                     btnUbah.setEnabled(true);
                     btnUbah.setText("Ubah");
                     btnUbah.setToolTipText("Ubah");
-                    btnHapus.setEnabled(true);
+                    //btnHapus.setEnabled(true);
                     btnUbah.requestFocus();
                 }
             }
@@ -572,16 +645,18 @@ public class FakultasView extends javax.swing.JInternalFrame {
             String sqlParameter = null;
             String searchParameter;
             if (ComboBoxCari.getSelectedIndex() == 0) {
-                sqlParameter = "id_fakultas";
+                sqlParameter = "id_pendaftar";
             } else if (ComboBoxCari.getSelectedIndex() == 1) {
-                sqlParameter = "fakultas";
+                sqlParameter = "nama";
+            } else if (ComboBoxCari.getSelectedIndex() == 2) {
+                sqlParameter = "asal_sekolah";
             }
             searchParameter = txtCari.getText();
-            List<Fakultas> list = fakultasImplements.getFakultasParameter(sqlParameter, searchParameter);
-            fakultasTabelModel.setData(list);
+            List<CMahasiswa> list = cMahasiswaImplements.getPendaftarParameter(sqlParameter, searchParameter);
+            cMahasiswaTabelModel.setData(list);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
     }
-    
+
 }

@@ -10,8 +10,8 @@ package skripsiannisameriana.cmahasiswa;
  * @author USER
  */
 public class CMahasiswa {
-    int idPendaftar, idFakultas, idProdi;
-    String namaPendaftar, asalSekolah, telepon, email, alamat, namaFakultas, namaProdi;
+    int idPendaftar;
+    String namaPendaftar, asalSekolah, telepon, email, alamat;
 
     public int getIdPendaftar() {
         return idPendaftar;
@@ -19,22 +19,6 @@ public class CMahasiswa {
 
     public void setIdPendaftar(int idPendaftar) {
         this.idPendaftar = idPendaftar;
-    }
-
-    public int getIdFakultas() {
-        return idFakultas;
-    }
-
-    public void setIdFakultas(int idFakultas) {
-        this.idFakultas = idFakultas;
-    }
-
-    public int getIdProdi() {
-        return idProdi;
-    }
-
-    public void setIdProdi(int idProdi) {
-        this.idProdi = idProdi;
     }
 
     public String getNamaPendaftar() {
@@ -76,22 +60,4 @@ public class CMahasiswa {
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
-
-    public String getNamaFakultas() {
-        return namaFakultas;
-    }
-
-    public void setNamaFakultas(String namaFakultas) {
-        this.namaFakultas = namaFakultas;
-    }
-
-    public String getNamaProdi() {
-        return namaProdi;
-    }
-
-    public void setNamaProdi(String namaProdi) {
-        this.namaProdi = namaProdi;
-    }
-    
-    
 }
