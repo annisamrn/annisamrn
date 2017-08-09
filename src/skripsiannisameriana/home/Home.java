@@ -8,6 +8,7 @@ package skripsiannisameriana.home;
 import skripsiannisameriana.cmahasiswa.PendaftarView;
 import skripsiannisameriana.fakultas.FakultasView;
 import skripsiannisameriana.prodi.ProdiView;
+import skripsiannisameriana.soal.SoalView;
 
 /**
  *
@@ -102,6 +103,11 @@ public class Home extends javax.swing.JFrame {
 
         jButton4.setText("Soal");
         jButton4.setMaximumSize(new java.awt.Dimension(180, 31));
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton4);
 
         jButton5.setText("Hasil");
@@ -178,6 +184,12 @@ public class Home extends javax.swing.JFrame {
         jDesktopPane2.add(pv);
         pv.show();
     }//GEN-LAST:event_btnProdiActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        SoalView sv = new SoalView();
+        jDesktopPane2.add(sv);
+        sv.show();
+    }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
      * @param args the command line arguments

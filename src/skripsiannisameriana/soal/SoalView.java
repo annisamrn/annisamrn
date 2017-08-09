@@ -10,19 +10,14 @@ import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import skripsiannisameriana.prodi.CariFakultasView;
-import skripsiannisameriana.prodi.Prodi;
-import static skripsiannisameriana.prodi.ProdiView.txtKodeFakultas;
-import static skripsiannisameriana.prodi.ProdiView.txtKodeProdi;
-import static skripsiannisameriana.prodi.ProdiView.txtNamaFakultas;
-import static skripsiannisameriana.prodi.ProdiView.txtNamaProdi;
 
 /**
  *
  * @author USER
  */
 public class SoalView extends javax.swing.JInternalFrame {
-    SoalImplements simpl = new SoalImplements();
-    SoalTabelModel stabmod = new SoalTabelModel();
+    SoalImplements soalimpl = new SoalImplements();
+    SoalTabelModel soaltabmod = new SoalTabelModel();
 
     /**
      * Creates new form SoalView
@@ -48,26 +43,41 @@ public class SoalView extends javax.swing.JInternalFrame {
         btnCetak = new javax.swing.JButton();
         btnTutup = new javax.swing.JButton();
         panelIsi = new javax.swing.JPanel();
-        jLabel1 = new javax.swing.JLabel();
-        txtKodeSoal = new javax.swing.JTextField();
         txtKodeFakultas = new javax.swing.JTextField();
         txtNamaFakultas = new javax.swing.JTextField();
-        btnCari = new javax.swing.JButton();
-        btnCari1 = new javax.swing.JButton();
-        txtNamaFakultas1 = new javax.swing.JTextField();
-        txtKodeFakultas1 = new javax.swing.JTextField();
-        txtNamaProdi1 = new javax.swing.JTextField();
+        btnCariProdi = new javax.swing.JButton();
+        txtNamaProdi = new javax.swing.JTextField();
+        txtKodeProdi = new javax.swing.JTextField();
+        txtNilai = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaSoal = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
         panelData = new javax.swing.JPanel();
         ComboBoxCari = new javax.swing.JComboBox();
         txtCari = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelProdi = new javax.swing.JTable();
+        tabelSoal = new javax.swing.JTable();
 
         setBackground(new java.awt.Color(204, 204, 204));
+        addInternalFrameListener(new javax.swing.event.InternalFrameListener() {
+            public void internalFrameActivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosed(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameClosing(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeactivated(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameDeiconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameIconified(javax.swing.event.InternalFrameEvent evt) {
+            }
+            public void internalFrameOpened(javax.swing.event.InternalFrameEvent evt) {
+                formInternalFrameOpened(evt);
+            }
+        });
 
         panelButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         panelButton.setForeground(new java.awt.Color(255, 255, 255));
@@ -137,22 +147,11 @@ public class SoalView extends javax.swing.JInternalFrame {
         panelIsi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Soal", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 24))); // NOI18N
         panelIsi.setOpaque(false);
 
-        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel1.setText("Kode Soal                       :");
-
-        btnCari.setIcon(new javax.swing.ImageIcon(getClass().getResource("/skripsiannisameriana/picture/search.png"))); // NOI18N
-        btnCari.setText("Cari Fakultas");
-        btnCari.addActionListener(new java.awt.event.ActionListener() {
+        btnCariProdi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/skripsiannisameriana/picture/search.png"))); // NOI18N
+        btnCariProdi.setText("Cari Program Studi");
+        btnCariProdi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCariActionPerformed(evt);
-            }
-        });
-
-        btnCari1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/skripsiannisameriana/picture/search.png"))); // NOI18N
-        btnCari1.setText("Cari Program Studi");
-        btnCari1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCari1ActionPerformed(evt);
+                btnCariProdiActionPerformed(evt);
             }
         });
 
@@ -166,67 +165,60 @@ public class SoalView extends javax.swing.JInternalFrame {
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel5.setText("Nilai                                 :");
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setText("Fakultas                         :");
+
         javax.swing.GroupLayout panelIsiLayout = new javax.swing.GroupLayout(panelIsi);
         panelIsi.setLayout(panelIsiLayout);
         panelIsiLayout.setHorizontalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIsiLayout.createSequentialGroup()
-                .addGap(24, 24, 24)
+                .addContainerGap(14, Short.MAX_VALUE)
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jLabel1)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.Alignment.TRAILING))
-                    .addComponent(btnCari1))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addGroup(panelIsiLayout.createSequentialGroup()
-                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jScrollPane2)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
-                                .addComponent(txtKodeSoal, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addComponent(jLabel5)))
-                        .addGap(18, 18, 18)
-                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtKodeFakultas, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtNamaFakultas, javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(btnCari, javax.swing.GroupLayout.DEFAULT_SIZE, 128, Short.MAX_VALUE)
-                            .addComponent(txtNamaProdi1)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
-                        .addComponent(txtKodeFakultas1)
+                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel5)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel6))
+                        .addGap(26, 26, 26))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
+                        .addComponent(btnCariProdi)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(txtKodeProdi, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
+                            .addComponent(txtKodeFakultas))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(txtNamaFakultas1, javax.swing.GroupLayout.PREFERRED_SIZE, 328, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtNamaFakultas, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
+                            .addComponent(txtNamaProdi)))
+                    .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                        .addComponent(txtNilai, javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE))))
         );
         panelIsiLayout.setVerticalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIsiLayout.createSequentialGroup()
-                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1)
-                    .addComponent(txtKodeSoal, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNamaProdi1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel5))
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel4)
                     .addGroup(panelIsiLayout.createSequentialGroup()
-                        .addGap(15, 15, 15)
-                        .addComponent(jLabel4)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(panelIsiLayout.createSequentialGroup()
-                        .addGap(6, 6, 6)
-                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addGroup(panelIsiLayout.createSequentialGroup()
-                                .addComponent(txtKodeFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(txtNamaFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnCari))
-                            .addComponent(jScrollPane2))
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtKodeFakultas1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtNamaFakultas1, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(btnCari1))
-                        .addGap(0, 0, Short.MAX_VALUE))))
+                            .addComponent(txtNilai, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel5))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtKodeFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNamaFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(txtKodeProdi, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(txtNamaProdi, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCariProdi))
+                .addContainerGap())
         );
 
         panelData.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cari Berdasarkan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -234,7 +226,7 @@ public class SoalView extends javax.swing.JInternalFrame {
         panelData.setOpaque(false);
 
         ComboBoxCari.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        ComboBoxCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kode Soal", "Soal", "Nilai", "Fakultas", "Program Studi" }));
+        ComboBoxCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kode Soal", "Soal", "Nilai" }));
 
         txtCari.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -246,7 +238,7 @@ public class SoalView extends javax.swing.JInternalFrame {
         jScrollPane1.setForeground(new java.awt.Color(204, 204, 204));
         jScrollPane1.setOpaque(false);
 
-        tabelProdi.setModel(new javax.swing.table.DefaultTableModel(
+        tabelSoal.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -257,8 +249,8 @@ public class SoalView extends javax.swing.JInternalFrame {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelProdi.setOpaque(false);
-        jScrollPane1.setViewportView(tabelProdi);
+        tabelSoal.setOpaque(false);
+        jScrollPane1.setViewportView(tabelSoal);
 
         javax.swing.GroupLayout panelDataLayout = new javax.swing.GroupLayout(panelData);
         panelData.setLayout(panelDataLayout);
@@ -267,7 +259,7 @@ public class SoalView extends javax.swing.JInternalFrame {
             .addGroup(panelDataLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 588, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
                     .addGroup(panelDataLayout.createSequentialGroup()
                         .addComponent(ComboBoxCari, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -281,7 +273,7 @@ public class SoalView extends javax.swing.JInternalFrame {
                     .addComponent(ComboBoxCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -292,38 +284,38 @@ public class SoalView extends javax.swing.JInternalFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(panelData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(panelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(panelIsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(0, 32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelIsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(5, 5, 5)
+                .addGap(1, 1, 1)
                 .addComponent(panelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGap(23, 23, 23))
+                .addContainerGap())
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnTambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTambahActionPerformed
-        //buttonTambah();
+        buttonTambah();
     }//GEN-LAST:event_btnTambahActionPerformed
 
     private void btnUbahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUbahActionPerformed
-        //buttonUbah();
+        buttonUbah();
     }//GEN-LAST:event_btnUbahActionPerformed
 
     private void btnHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnHapusActionPerformed
-        //deleteProdi();
+        deleteSoal();
     }//GEN-LAST:event_btnHapusActionPerformed
 
     private void btnBatalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBatalActionPerformed
-        //refresh();
+        refresh();
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
@@ -334,51 +326,51 @@ public class SoalView extends javax.swing.JInternalFrame {
         buttonTutup();
     }//GEN-LAST:event_btnTutupActionPerformed
 
-    private void btnCariActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariActionPerformed
-       // btnCariFakultas();
-    }//GEN-LAST:event_btnCariActionPerformed
-
     private void txtCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCariKeyReleased
-        //searchPeremeter();
+        searchPeremeter();
     }//GEN-LAST:event_txtCariKeyReleased
 
-    private void btnCari1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCari1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_btnCari1ActionPerformed
+    private void btnCariProdiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCariProdiActionPerformed
+        btnCariProdi();
+    }//GEN-LAST:event_btnCariProdiActionPerformed
+
+    private void formInternalFrameOpened(javax.swing.event.InternalFrameEvent evt) {//GEN-FIRST:event_formInternalFrameOpened
+        refresh();
+        setTableModel();
+        tableSoalAction();
+    }//GEN-LAST:event_formInternalFrameOpened
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox ComboBoxCari;
     private javax.swing.JButton btnBatal;
-    private javax.swing.JButton btnCari;
-    private javax.swing.JButton btnCari1;
+    private javax.swing.JButton btnCariProdi;
     private javax.swing.JButton btnCetak;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnTambah;
     private javax.swing.JButton btnTutup;
     private javax.swing.JButton btnUbah;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel panelButton;
     private javax.swing.JPanel panelData;
     private javax.swing.JPanel panelIsi;
-    private javax.swing.JTable tabelProdi;
+    private javax.swing.JTable tabelSoal;
     private javax.swing.JTextArea txtAreaSoal;
     private javax.swing.JTextField txtCari;
     public static javax.swing.JTextField txtKodeFakultas;
-    public static javax.swing.JTextField txtKodeFakultas1;
-    public static javax.swing.JTextField txtKodeSoal;
+    public static javax.swing.JTextField txtKodeProdi;
     public static javax.swing.JTextField txtNamaFakultas;
-    public static javax.swing.JTextField txtNamaFakultas1;
-    public static javax.swing.JTextField txtNamaProdi1;
+    public static javax.swing.JTextField txtNamaProdi;
+    public static javax.swing.JTextField txtNilai;
     // End of variables declaration//GEN-END:variables
 
     public void setTableModel() {
         try {
-            tabelProdi.setModel(stabmod);
+            tabelSoal.setModel(soaltabmod);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
@@ -386,29 +378,29 @@ public class SoalView extends javax.swing.JInternalFrame {
 
     public void loadDatabase() {
         try {
-            List<Soal> list = simpl.getSoal();
-            stabmod.setData(list);
+            List<Soal> list = soalimpl.getSoal();
+            soaltabmod.setData(list);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
     }
 
-    /*public void refresh() {
+    public void refresh() {
         try {
             loadDatabase();
-            
-            txtKodeSoal.setEnabled(false);
+                   
+            btnCariProdi.setEnabled(true);
             txtKodeFakultas.setEnabled(false);
             txtNamaFakultas.setEnabled(false);
-            txtNamaProdi.setEnabled(false);
             txtKodeProdi.setEnabled(false);
-            
-            btnCari.setEnabled(false);
+            txtNamaProdi.setEnabled(false);
 
             txtKodeProdi.setText("");
             txtKodeFakultas.setText("");
             txtNamaFakultas.setText("");
             txtNamaProdi.setText("");
+            txtAreaSoal.setText("");
+            txtNilai.setText("");
 
             btnBatal.setEnabled(true);
             btnBatal.setText("Bersihkan");
@@ -426,10 +418,10 @@ public class SoalView extends javax.swing.JInternalFrame {
             txtCari.setText("");
             ComboBoxCari.setSelectedIndex(0);
 
-            btnUbah.setEnabled(false);
-            btnHapus.setEnabled(false);
+            //btnUbah.setEnabled(false);
+            //btnHapus.setEnabled(false);
 
-            tabelProdi.setEnabled(true);
+            tabelSoal.setEnabled(true);
             btnTambah.requestFocus();
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
@@ -440,20 +432,20 @@ public class SoalView extends javax.swing.JInternalFrame {
         try {
             switch (btnTambah.getToolTipText()) {
                 case "Baru":
-                    //disableAndEnableForInsert();
+                    disableAndEnableForInsert();
                     break;
                 case "Simpan":
-                    if (txtKodeProdi.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kode Program Studi!");
-                        txtKodeProdi.requestFocus();
-                    } else if (txtNamaProdi.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nama Program Studi!");
-                        txtNamaProdi.requestFocus();
+                    if (txtAreaSoal.getText().equals("")){
+                        JOptionPane.showMessageDialog(this, "Isi'i bujur2 soalnya nang");
+                        txtAreaSoal.requestFocus();
+                    } else if (txtNilai.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nilai dulu say!");
+                        txtNilai.requestFocus();
                     } else if (txtNamaFakultas.getText().equals("")) {
                         JOptionPane.showMessageDialog(this, "Lengkapi Data Fakultas!");
-                        btnCari.doClick();
+                        btnCariProdi.doClick();
                     } else {
-                        insertProdi();
+                        insertSoal();
                     }
                     break;
             }
@@ -467,28 +459,28 @@ public class SoalView extends javax.swing.JInternalFrame {
         try {
             switch (btnUbah.getToolTipText()) {
                 case "Ubah":
-//                    disableAndEnableForUpdate();
+                    disableAndEnableForUpdate();
                     break;
                 case "Simpan":
-                    if (txtKodeProdi.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kode Program Studi!");
-                        txtKodeProdi.requestFocus();
-                    } else if (txtNamaProdi.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nama Program Studi!");
-                        txtNamaProdi.requestFocus();
+                    if (txtAreaSoal.getText().equals("")){
+                        JOptionPane.showMessageDialog(this, "Isi'i bujur2 soalnya nang");
+                        txtAreaSoal.requestFocus();
+                    } else if (txtNilai.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nilai dulu say!");
+                        txtNilai.requestFocus();
                     } else if (txtNamaFakultas.getText().equals("")) {
                         JOptionPane.showMessageDialog(this, "Lengkapi Data Fakultas!");
-                        btnCari.doClick();
+                        btnCariProdi.doClick();
                     } else {
-                        updateProdi();
+                        updateSoal();
                     }
                     break;
             }
 
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 232!");
         }
-    }*/
+    }
 
     public void buttonTutup() {
         try {
@@ -496,58 +488,64 @@ public class SoalView extends javax.swing.JInternalFrame {
             dispose();
             //Home2.isMenuItemKelasActive = false;
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 5!");
         }
     }
 
-    /*public void insertProdi() {
+    public void insertSoal() {
         try {
-            Prodi prodi = new Prodi();
-
-            prodi.setIdProdi(Integer.parseInt(txtKodeProdi.getText()));
-            prodi.setNamaProdi(txtNamaProdi.getText());
-            prodi.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
-
-            prodiImplements.insertProdi(prodi);
+            Soal soal = new Soal();
+            
+            soal.setSoal(txtAreaSoal.getText());
+            soal.setNilai(Integer.parseInt(txtNilai.getText()));
+            soal.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
+            soal.setNamaFakultas(txtNamaFakultas.getText());
+            soal.setIdProdi(Integer.parseInt(txtKodeProdi.getText()));
+            soal.setNamaProdi(txtNamaProdi.getText());
+            
+            soalimpl.insertSoal(soal);
             JOptionPane.showMessageDialog(null, "Program Studi " + txtNamaProdi.getText() + " Berhasil Di Simpan!");
             refresh();
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 555!");
         }
     }
 
-    public void updateProdi() {
+    public void updateSoal() {
         try {
-            Prodi prodi = new Prodi();
+            Soal soal = new Soal();
             
-            prodi.setIdProdi(Integer.parseInt(txtKodeProdi.getText()));
-            prodi.setNamaProdi(txtNamaProdi.getText());
-            prodi.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
+            soal.setSoal(txtAreaSoal.getText());
+            soal.setNilai(Integer.parseInt(txtNilai.getText()));
+            soal.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
+            soal.setNamaFakultas(txtNamaFakultas.getText());
+            soal.setIdProdi(Integer.parseInt(txtKodeProdi.getText()));
+            soal.setNamaProdi(txtNamaProdi.getText());
 
-            prodiImplements.updateProdi(prodi);
+            soalimpl.updateSoal(soal);
             JOptionPane.showMessageDialog(null, "Program Studi " + txtNamaProdi.getText() + " Berhasil Di Ubah!");
             refresh();
 
         } catch (Exception error) {
-            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
+            JOptionPane.showMessageDialog(this, "Terjadi Kesalahan 999!");
         }
     }
 
-    public void deleteProdi() {
+    public void deleteSoal() {
         try {
-            int row = tabelProdi.getSelectedRow();
+            int row = tabelSoal.getSelectedRow();
             if (row == -1) {
                 JOptionPane.showMessageDialog(this, "Silahkan seleksi data yang ingin dihapus!");
             } else {
-                int confirm = JOptionPane.showConfirmDialog(this, "Anda Yakin Mau Menghapus Program Studi "
-                        + prodiTabelModel.get(row).getNamaProdi()+ "? \n", "Konfirmasi",
+                int confirm = JOptionPane.showConfirmDialog(this, "Anda Yakin Mau Menghapus Soal "
+                        + soaltabmod.get(row).getSoal()+ "? \n", "Konfirmasi",
                         JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
 
                 //Periksa Jawaban yang dipilih
                 if (confirm == JOptionPane.YES_OPTION) {
-                    int idProdi = prodiTabelModel.get(row).getIdProdi();
+                    int idSoal = soaltabmod.get(row).getIdProdi();
 
-                    prodiImplements.deleteProdi(idProdi);
+                    soalimpl.deleteSoal(idSoal);
                     JOptionPane.showMessageDialog(null, "Data Berhasil Dihapus Semua!");
                     refresh();
                 } else if (confirm == JOptionPane.NO_OPTION) {
@@ -562,12 +560,14 @@ public class SoalView extends javax.swing.JInternalFrame {
         }
     }
 
-    /*public void disableAndEnableForInsert() {
+    public void disableAndEnableForInsert() {
         try {
-            txtKodeProdi.setEnabled(true);
-            txtNamaProdi.setEnabled(true);
+            txtKodeProdi.setEnabled(false);
+            txtNamaProdi.setEnabled(false);
+            txtKodeFakultas.setEnabled(false);
+            txtNamaFakultas.setEnabled(false);
             
-            btnCari.setEnabled(true);
+            btnCariProdi.setEnabled(true);
             
             txtKodeProdi.setText("");
             txtNamaProdi.setText("");
@@ -582,17 +582,12 @@ public class SoalView extends javax.swing.JInternalFrame {
             btnTambah.setText("Simpan");
             btnTambah.setToolTipText("Simpan");
 
-            btnCetak.setEnabled(false);
-            btnHapus.setEnabled(false);
-            btnUbah.setEnabled(false);
-            btnHapus.setEnabled(false);
-
             txtCari.setEnabled(false);
             ComboBoxCari.setEnabled(false);
             txtCari.setText("");
             ComboBoxCari.setSelectedIndex(0);
 
-            tabelProdi.setEnabled(false);
+            tabelSoal.setEnabled(false);
             txtKodeProdi.requestFocus();
 
         } catch (Exception error) {
@@ -603,14 +598,16 @@ public class SoalView extends javax.swing.JInternalFrame {
     public void disableAndEnableForUpdate() {
         try {
 
-            int row = tabelProdi.getSelectedRow();
+            int row = tabelSoal.getSelectedRow();
             if (row == -1) {
                 JOptionPane.showMessageDialog(this, "Silahkan seleksi data yang ingin diubah!");
             } else {
                 txtKodeProdi.setEnabled(false);
-                txtNamaProdi.setEnabled(true);
+                txtNamaProdi.setEnabled(false);
+                txtKodeFakultas.setEnabled(false);
+                txtNamaFakultas.setEnabled(false);
                 
-                btnCari.setEnabled(true);
+                btnCariProdi.setEnabled(true);
 
                 btnBatal.setEnabled(true);
                 btnBatal.setText("Batal");
@@ -620,38 +617,35 @@ public class SoalView extends javax.swing.JInternalFrame {
                 btnUbah.setText("Simpan");
                 btnUbah.setToolTipText("Simpan");
 
-                btnCetak.setEnabled(false);
-                btnTutup.setEnabled(false);
-                btnTambah.setEnabled(false);
-                btnHapus.setEnabled(false);
-
                 txtCari.setEnabled(false);
                 ComboBoxCari.setEnabled(false);
                 txtCari.setText("");
                 ComboBoxCari.setSelectedIndex(0);
 
-                tabelProdi.setEnabled(false);
+                tabelSoal.setEnabled(false);
                 txtNamaProdi.requestFocus();
             }
 
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
         }
-    }*/
+    }
 
-    /*public void tableProdiAction() {
-        tabelProdi.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+    public void tableSoalAction() {
+        tabelSoal.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                int row = tabelProdi.getSelectedRow();
+                int row = tabelSoal.getSelectedRow();
                 //CEK APAKAH BARIS BENAR2 TERSELEKSI
                 if (row != -1) {
-                    Prodi prodi = prodiTabelModel.get(row);
+                    Soal soal = soaltabmod.get(row);
                     
-                    txtKodeProdi.setText(Integer.toString(prodi.getIdProdi()));
-                    txtNamaProdi.setText(prodi.getNamaProdi());
-                    txtKodeFakultas.setText(Integer.toString(prodi.getIdFakultas()));
-                    txtNamaFakultas.setText(prodi.getNamaFakultas());
+                    txtAreaSoal.setText(soal.getSoal());
+                    txtNilai.setText(Integer.toString(soal.getNilai()));
+                    txtKodeProdi.setText(Integer.toString(soal.getIdProdi()));
+                    txtNamaProdi.setText(soal.getNamaProdi());
+                    txtKodeFakultas.setText(Integer.toString(soal.getIdFakultas()));
+                    txtNamaFakultas.setText(soal.getNamaFakultas());
 
                     btnUbah.setEnabled(true);
                     btnUbah.setText("Ubah");
@@ -668,13 +662,16 @@ public class SoalView extends javax.swing.JInternalFrame {
             String sqlParameter = null;
             String searchParameter;
             if (ComboBoxCari.getSelectedIndex() == 0) {
-                sqlParameter = "id_prodi";
+                sqlParameter = "id_soal";
             } else if (ComboBoxCari.getSelectedIndex() == 1) {
-                sqlParameter = "prodi";
+                sqlParameter = "soal";
+            } else if (ComboBoxCari.getSelectedIndex() == 2) {
+                sqlParameter = "nilai_soal";
             }
             searchParameter = txtCari.getText();
-            List<Prodi> list = prodiImplements.getProdiParameter(sqlParameter, searchParameter);
-            prodiTabelModel.setData(list);
+            List<Soal> list = soalimpl.getSoalParameter(sqlParameter, searchParameter);
+            soaltabmod.setData(list);
+            
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
@@ -682,7 +679,7 @@ public class SoalView extends javax.swing.JInternalFrame {
 
     public void buttonPrint() {
 
-        int row = tabelProdi.getRowCount();
+        int row = tabelSoal.getRowCount();
         if (row == 0) {
             JOptionPane.showMessageDialog(this, "Tidak Ada Data Yang Di Cetak !");
         } else {
@@ -694,12 +691,12 @@ public class SoalView extends javax.swing.JInternalFrame {
         }
     }
 
-    public void btnCariFakultas() {
+    public void btnCariProdi() {
         try {
-            CariFakultasView cariFakultasView = new CariFakultasView(null, true);
-            cariFakultasView.setVisible(true);
+            CariProdiView cariProdiView = new CariProdiView(null, true);
+            cariProdiView.setVisible(true);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
-    }*/
+    }
 }

@@ -3,30 +3,28 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package skripsiannisameriana.cmahasiswa;
+package skripsiannisameriana.soal;
 
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import skripsiannisameriana.prodi.Prodi;
-import skripsiannisameriana.prodi.ProdiImplements;
-import skripsiannisameriana.prodi.ProdiTabelModel;
-import skripsiannisameriana.prodi.ProdiView;
+import skripsiannisameriana.fakultas.Fakultas;
+import skripsiannisameriana.fakultas.FakultasImplements;
+import skripsiannisameriana.fakultas.FakultasTabelModelCari;
 
 /**
  *
  * @author USER
  */
-public class CariProdiView extends javax.swing.JDialog {
+public class FakultasViewCari extends javax.swing.JDialog {
 
-    ProdiImplements pimple = new ProdiImplements();
-    ProdiTabelModel ptmodel = new ProdiTabelModel();
-    
+    FakultasImplements fakultasImplements = new FakultasImplements();
+    FakultasTabelModelCari fakultasTabelModel = new FakultasTabelModelCari();
     /**
-     * Creates new form CariProdiView
+     * Creates new form FakultasViewCari
      */
-    public CariProdiView(java.awt.Frame parent, boolean modal) {
+    public FakultasViewCari(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
     }
@@ -46,9 +44,14 @@ public class CariProdiView extends javax.swing.JDialog {
         comboBoxCari = new javax.swing.JComboBox();
         txtCari = new javax.swing.JTextField();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tabelProdi = new javax.swing.JTable();
+        tabelFakultas = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         jPanel2.setBackground(new java.awt.Color(204, 204, 204));
 
@@ -60,12 +63,17 @@ public class CariProdiView extends javax.swing.JDialog {
                 btnCancelActionPerformed(evt);
             }
         });
+        btnCancel.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnCancelKeyPressed(evt);
+            }
+        });
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cari Berdasarkan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel1.setForeground(new java.awt.Color(255, 255, 255));
         jPanel1.setOpaque(false);
 
-        comboBoxCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kode Program Studi", "Nama Program Studi" }));
+        comboBoxCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kode Fakultas", "Nama Fakultas" }));
 
         txtCari.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -73,11 +81,11 @@ public class CariProdiView extends javax.swing.JDialog {
             }
         });
 
-        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Program Studi", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
+        jScrollPane1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Data Fakultas", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 12))); // NOI18N
         jScrollPane1.setForeground(new java.awt.Color(255, 255, 255));
         jScrollPane1.setOpaque(false);
 
-        tabelProdi.setModel(new javax.swing.table.DefaultTableModel(
+        tabelFakultas.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -88,8 +96,8 @@ public class CariProdiView extends javax.swing.JDialog {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        tabelProdi.setOpaque(false);
-        jScrollPane1.setViewportView(tabelProdi);
+        tabelFakultas.setOpaque(false);
+        jScrollPane1.setViewportView(tabelFakultas);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -144,7 +152,7 @@ public class CariProdiView extends javax.swing.JDialog {
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -154,9 +162,19 @@ public class CariProdiView extends javax.swing.JDialog {
         dispose();
     }//GEN-LAST:event_btnCancelActionPerformed
 
+    private void btnCancelKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnCancelKeyPressed
+        dispose();
+    }//GEN-LAST:event_btnCancelKeyPressed
+
     private void txtCariKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtCariKeyReleased
         searchParameter();
     }//GEN-LAST:event_txtCariKeyReleased
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        tableFakultasAction();
+        setTableModel();
+        loadDatabase();
+    }//GEN-LAST:event_formWindowOpened
 
     /**
      * @param args the command line arguments
@@ -175,20 +193,20 @@ public class CariProdiView extends javax.swing.JDialog {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(CariProdiView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FakultasViewCari.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(CariProdiView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FakultasViewCari.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(CariProdiView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FakultasViewCari.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(CariProdiView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(FakultasViewCari.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the dialog */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                CariProdiView dialog = new CariProdiView(new javax.swing.JFrame(), true);
+                FakultasViewCari dialog = new FakultasViewCari(new javax.swing.JFrame(), true);
                 dialog.addWindowListener(new java.awt.event.WindowAdapter() {
                     @Override
                     public void windowClosing(java.awt.event.WindowEvent e) {
@@ -206,13 +224,13 @@ public class CariProdiView extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tabelProdi;
+    private javax.swing.JTable tabelFakultas;
     private javax.swing.JTextField txtCari;
     // End of variables declaration//GEN-END:variables
 
     public void setTableModel() {
         try {
-            tabelProdi.setModel(ptmodel);
+            tabelFakultas.setModel(fakultasTabelModel);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
@@ -220,24 +238,24 @@ public class CariProdiView extends javax.swing.JDialog {
 
     public void loadDatabase() {
         try {
-            List<Prodi> list = pimple.getProdi();
-            ptmodel.setData(list);
+            List<Fakultas> list = fakultasImplements.getFakultas();
+            fakultasTabelModel.setData(list);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
     }
     
-    public void tableProdiAction() {
-        tabelProdi.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+    public void tableFakultasAction() {
+        tabelFakultas.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             @Override
             public void valueChanged(ListSelectionEvent e) {
-                int row = tabelProdi.getSelectedRow();
+                int row = tabelFakultas.getSelectedRow();
                 //CEK APAKAH BARIS BENAR2 TERSELEKSI
                 if (row != -1) {
-                    Prodi prodi = ptmodel.get(row);
+                    Fakultas fakultas = fakultasTabelModel.get(row);
                     
-                    ProdiView.txtKodeProdi.setText(Integer.toString(prodi.getIdProdi()));
-                    ProdiView.txtNamaProdi.setText(prodi.getNamaProdi());
+                    SoalView.txtKodeFakultas.setText(Integer.toString(fakultas.getIdFakultas()));
+                    SoalView.txtNamaFakultas.setText(fakultas.getNamaFakultas());
                     dispose();
                 }
             }
@@ -249,13 +267,13 @@ public class CariProdiView extends javax.swing.JDialog {
             String sqlParameter = null;
             String searchParameter;
             if (comboBoxCari.getSelectedIndex() == 0) {
-                sqlParameter = "id_prodi";
+                sqlParameter = "id_fakultas";
             } else if (comboBoxCari.getSelectedIndex() == 1) {
-                sqlParameter = "nama_prodi";
+                sqlParameter = "fakultas";
             }
             searchParameter = txtCari.getText();
-            List<Prodi> list = pimple.getProdiParameter(sqlParameter, searchParameter);
-            ptmodel.setData(list);
+            List<Fakultas> list = fakultasImplements.getFakultasParameter(sqlParameter, searchParameter);
+            fakultasTabelModel.setData(list);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }

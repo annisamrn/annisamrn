@@ -21,7 +21,7 @@ import skripsiannisameriana.connect.Connect;
  */
 public class SoalImplements {
     public void insertSoal(Soal soal) throws Exception {
-        String sqlInsert = "INSERT INTO tb_calon_mhs VALUES (?, ?, ?, ?, ?)";
+        String sqlInsert = "INSERT INTO tb_soal VALUES (?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = Connect.getConnection().prepareStatement(sqlInsert);
@@ -40,7 +40,7 @@ public class SoalImplements {
     }
 
     public void updateSoal(Soal soal) throws Exception {
-        String sqlUpdate = "UPDATE tb_soal SET soal = ?, nilai = ?,"
+        String sqlUpdate = "UPDATE tb_soal SET soal = ?, nilai_soal = ?,"
                          + "id_fakultas = ?, id_prodi = ? WHERE id_soal = ?";
         PreparedStatement preparedStatement;
         try {
@@ -91,7 +91,7 @@ public class SoalImplements {
                 Soal soal = new Soal();
                 soal.setIdSoal(resultSet.getInt("id_soal"));
                 soal.setSoal(resultSet.getString("soal"));
-                soal.setNilai(resultSet.getInt("nilai"));
+                soal.setNilai(resultSet.getInt("nilai_soal"));
                 soal.setNamaFakultas(resultSet.getString("tb_fakultas.fakultas"));
                 soal.setNamaProdi(resultSet.getString("nama_prodi"));
                 list.add(soal);
@@ -131,7 +131,7 @@ public class SoalImplements {
                 Soal soal = new Soal();
                 soal.setIdSoal(resultSet.getInt("id_soal"));
                 soal.setSoal(resultSet.getString("soal"));
-                soal.setNilai(resultSet.getInt("nilai"));
+                soal.setNilai(resultSet.getInt("nilai_soal"));
                 soal.setNamaFakultas(resultSet.getString("tb_fakultas.fakultas"));
                 soal.setNamaProdi(resultSet.getString("nama_prodi"));
                 list.add(soal);
