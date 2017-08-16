@@ -74,6 +74,7 @@ public class Login extends javax.swing.JFrame {
         btnClose.setText("Close");
 
         Rpilih.add(r1);
+        r1.setSelected(true);
         r1.setText("Admin");
 
         Rpilih.add(r2);
