@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="612" pageHeight="792" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9b5993b1-001e-4734-8703-4273a678f5ed">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
@@ -14,15 +14,17 @@
 	<title>
 		<band height="52" splitType="Stretch">
 			<staticText>
-				<reportElement x="54" y="0" width="471" height="32"/>
+				<reportElement x="85" y="0" width="471" height="32" uuid="88d839ee-0101-4383-a9ba-e086feaccd7e"/>
 				<textElement>
 					<font size="24" isBold="true"/>
 				</textElement>
 				<text><![CDATA[UNIVERSITAS ISLAM KALIMANTAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="188" y="32" width="179" height="20"/>
-				<textElement/>
+				<reportElement x="167" y="32" width="233" height="20" uuid="d1252d57-d8c0-49f5-8ee9-a1a3c453e5f2"/>
+				<textElement>
+					<font size="14"/>
+				</textElement>
 				<text><![CDATA[MUHAMMAD ARSYAD AL BANJARI]]></text>
 			</staticText>
 		</band>
@@ -30,8 +32,10 @@
 	<pageHeader>
 		<band height="35" splitType="Stretch">
 			<staticText>
-				<reportElement x="232" y="9" width="100" height="20"/>
-				<textElement/>
+				<reportElement x="227" y="15" width="100" height="20" uuid="5741d277-57ad-445b-a502-2a35482f1ae6"/>
+				<textElement>
+					<font size="12"/>
+				</textElement>
 				<text><![CDATA[Data Fakultas]]></text>
 			</staticText>
 		</band>
@@ -39,18 +43,18 @@
 	<columnHeader>
 		<band height="22" splitType="Stretch">
 			<rectangle>
-				<reportElement x="167" y="1" width="100" height="20"/>
+				<reportElement x="167" y="1" width="100" height="20" uuid="a50d874f-0867-44e8-9b47-9d4db861b13f"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="267" y="1" width="100" height="20"/>
+				<reportElement x="267" y="1" width="100" height="20" uuid="3dae99a0-a45d-4561-8eac-ff233c1e6738"/>
 			</rectangle>
 			<staticText>
-				<reportElement x="167" y="2" width="100" height="20"/>
+				<reportElement x="167" y="2" width="100" height="20" uuid="75b66c1a-89d8-4cab-9372-5339bd590b81"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[id_fakultas]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="267" y="2" width="100" height="20"/>
+				<reportElement x="267" y="2" width="100" height="20" uuid="0ac9e518-5b66-49de-80b3-db53795be527"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<text><![CDATA[fakultas]]></text>
 			</staticText>
@@ -59,18 +63,18 @@
 	<detail>
 		<band height="20" splitType="Stretch">
 			<rectangle>
-				<reportElement x="167" y="-1" width="100" height="20"/>
+				<reportElement x="167" y="-1" width="100" height="20" uuid="6056972c-898b-4c94-9796-9f37230007f7"/>
 			</rectangle>
 			<rectangle>
-				<reportElement x="267" y="-1" width="100" height="20"/>
+				<reportElement x="267" y="-1" width="100" height="20" uuid="46343929-5b8f-4c13-908c-94692fc424c9"/>
 			</rectangle>
 			<textField>
-				<reportElement x="267" y="0" width="100" height="20"/>
+				<reportElement x="267" y="0" width="100" height="20" uuid="804e070a-e7c6-493f-beea-19079ef30b83"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{fakultas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="167" y="0" width="100" height="20"/>
+				<reportElement x="167" y="0" width="100" height="20" uuid="0867521d-087c-4d7f-9526-0fdef4c3a829"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle"/>
 				<textFieldExpression><![CDATA[$F{id_fakultas}]]></textFieldExpression>
 			</textField>
