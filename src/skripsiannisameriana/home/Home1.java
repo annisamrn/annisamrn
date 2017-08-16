@@ -8,6 +8,8 @@ package skripsiannisameriana.home;
 import skripsiannisameriana.cmahasiswa.PendaftarView;
 import skripsiannisameriana.fakultas.FakultasView;
 import skripsiannisameriana.prodi.ProdiView;
+import skripsiannisameriana.quis.Prioritas;
+import skripsiannisameriana.quis.QuisView;
 import skripsiannisameriana.soal.SoalView;
 
 /**
@@ -22,6 +24,13 @@ public class Home1 extends javax.swing.JFrame {
     public Home1() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
+        Prioritas p = new Prioritas();
+        jDesktopPane2.add(p);
+        p.setVisible(true);
+        
+//          QuisView qv = new QuisView();
+//          jDesktopPane2.add(qv);
+//          qv.setVisible(true);
     }
 
     /**

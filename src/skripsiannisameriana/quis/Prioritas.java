@@ -6,7 +6,7 @@
 package skripsiannisameriana.quis;
 
 import javax.swing.JOptionPane;
-import skripsiannisameriana.soal.CariProdiView;
+import skripsiannisameriana.quis.CariProdiView;
 
 /**
  *
@@ -211,18 +211,18 @@ public class Prioritas extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JTextField txtPilihFak1;
-    private javax.swing.JTextField txtPilihFak2;
-    private javax.swing.JTextField txtPilihFak3;
-    private javax.swing.JTextField txtPilihFak4;
-    private javax.swing.JTextField txtPilihFak5;
-    private javax.swing.JTextField txtPilihFak6;
-    private javax.swing.JTextField txtPilihProdi1;
-    private javax.swing.JTextField txtPilihProdi2;
-    private javax.swing.JTextField txtPilihProdi3;
-    private javax.swing.JTextField txtPilihProdi4;
-    private javax.swing.JTextField txtPilihProdi5;
-    private javax.swing.JTextField txtPilihProdi6;
+    public static javax.swing.JTextField txtPilihFak1;
+    public static javax.swing.JTextField txtPilihFak2;
+    public static javax.swing.JTextField txtPilihFak3;
+    public static javax.swing.JTextField txtPilihFak4;
+    public static javax.swing.JTextField txtPilihFak5;
+    public static javax.swing.JTextField txtPilihFak6;
+    public static javax.swing.JTextField txtPilihProdi1;
+    public static javax.swing.JTextField txtPilihProdi2;
+    public static javax.swing.JTextField txtPilihProdi3;
+    public static javax.swing.JTextField txtPilihProdi4;
+    public static javax.swing.JTextField txtPilihProdi5;
+    public static javax.swing.JTextField txtPilihProdi6;
     // End of variables declaration//GEN-END:variables
 
     public void buttonBatal() {
@@ -237,7 +237,7 @@ public class Prioritas extends javax.swing.JInternalFrame {
     
     public void btnCariProdi1() {
         try {
-            CariProdiView cariProdiView = new CariProdiView(null, true);
+            CariProdiView cariProdiView = new CariProdiView(null, true, 1);
             cariProdiView.setVisible(true);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
@@ -246,7 +246,7 @@ public class Prioritas extends javax.swing.JInternalFrame {
     
     public void btnCariProdi2() {
         try {
-            CariProdiView cariProdiView = new CariProdiView(null, true);
+            CariProdiView cariProdiView = new CariProdiView(null, true, 2);
             cariProdiView.setVisible(true);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
@@ -255,7 +255,7 @@ public class Prioritas extends javax.swing.JInternalFrame {
     
     public void btnCariProdi3() {
         try {
-            CariProdiView cariProdiView = new CariProdiView(null, true);
+            CariProdiView cariProdiView = new CariProdiView(null, true, 3);
             cariProdiView.setVisible(true);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
@@ -264,7 +264,7 @@ public class Prioritas extends javax.swing.JInternalFrame {
     
     public void btnCariProdi4() {
         try {
-            CariProdiView cariProdiView = new CariProdiView(null, true);
+            CariProdiView cariProdiView = new CariProdiView(null, true, 4);
             cariProdiView.setVisible(true);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
@@ -273,7 +273,7 @@ public class Prioritas extends javax.swing.JInternalFrame {
     
     public void btnCariProdi5() {
         try {
-            CariProdiView cariProdiView = new CariProdiView(null, true);
+            CariProdiView cariProdiView = new CariProdiView(null, true, 5);
             cariProdiView.setVisible(true);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
@@ -282,7 +282,7 @@ public class Prioritas extends javax.swing.JInternalFrame {
     
     public void btnCariProdi6() {
         try {
-            CariProdiView cariProdiView = new CariProdiView(null, true);
+            CariProdiView cariProdiView = new CariProdiView(null, true, 6);
             cariProdiView.setVisible(true);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");

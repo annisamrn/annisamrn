@@ -10,6 +10,7 @@ import java.sql.Statement;
 import javax.swing.JOptionPane;
 import skripsiannisameriana.connect.Connect;
 import skripsiannisameriana.home.Home;
+import skripsiannisameriana.home.Home1;
 
 /**
  *
@@ -205,8 +206,8 @@ public class Login extends javax.swing.JFrame {
                 if (rs.next()) {
                     int id = rs.getInt("id_pendaftar");
                     String pass = rs.getString("password");
-                    Home home = new Home();
-                    home.setVisible(true);
+                    Home1 home1 = new Home1();
+                    home1.setVisible(true);
                     this.dispose();
                 } else {
                     JOptionPane.showMessageDialog(this, "username dan password tidak ditemukan");

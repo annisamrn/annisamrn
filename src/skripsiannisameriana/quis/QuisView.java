@@ -5,17 +5,31 @@
  */
 package skripsiannisameriana.quis;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.sql.Statement;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import skripsiannisameriana.connect.Connect;
+
 /**
  *
  * @author USER
  */
 public class QuisView extends javax.swing.JInternalFrame {
 
+    ResultSet rs, rs1;
+    String jawaban[] = new String[3];
+    String jw[] = new String[3];
+    int i = 0, p = 0, count = 0;
+
     /**
      * Creates new form QuisView
      */
     public QuisView() {
         initComponents();
+        tampil();
     }
 
     /**
@@ -27,30 +41,50 @@ public class QuisView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        bGPilih = new javax.swing.ButtonGroup();
         jPanel1 = new javax.swing.JPanel();
-        jRadioButton1 = new javax.swing.JRadioButton();
-        jRadioButton2 = new javax.swing.JRadioButton();
-        jRadioButton3 = new javax.swing.JRadioButton();
-        jRadioButton4 = new javax.swing.JRadioButton();
-        jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        jR4 = new javax.swing.JRadioButton();
+        jR1 = new javax.swing.JRadioButton();
+        jR2 = new javax.swing.JRadioButton();
+        jR3 = new javax.swing.JRadioButton();
+        btnResult = new javax.swing.JButton();
+        btnNext = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "QUIS PEMILIHAN PROGRAM STUDI", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-        jPanel1.add(jRadioButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
-        jPanel1.add(jRadioButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
-        jPanel1.add(jRadioButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
-        jPanel1.add(jRadioButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
 
-        jLabel2.setText("jLabel1");
-        jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
+        bGPilih.add(jR4);
+        jPanel1.add(jR4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 200, -1, -1));
 
-        jButton1.setText("Result");
-        jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 250, -1, -1));
+        bGPilih.add(jR1);
+        jPanel1.add(jR1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 110, -1, -1));
 
-        jButton2.setText("Next");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 250, -1, -1));
+        bGPilih.add(jR2);
+        jPanel1.add(jR2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
+
+        bGPilih.add(jR3);
+        jPanel1.add(jR3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 170, -1, -1));
+
+        btnResult.setText("Result");
+        btnResult.setEnabled(false);
+        btnResult.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnResultActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnResult, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 240, -1, -1));
+
+        btnNext.setText("Next");
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNextActionPerformed(evt);
+            }
+        });
+        jPanel1.add(btnNext, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 240, -1, -1));
+
+        jLabel1.setText("jLabel1");
+        jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 50, -1, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -66,15 +100,140 @@ public class QuisView extends javax.swing.JInternalFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        // TODO add your handling code here:
+        try {
+            if (rs.next()) {
+                int id = rs.getInt("id_soal");
+                String soal = rs.getString("soal");
+                String a = rs.getString("a");
+                String b = rs.getString("b");
+                String c = rs.getString("c");
+                String d = rs.getString("d");
+
+                jLabel1.setText(soal);
+                jR1.setText(a);
+                jR2.setText(b);
+                jR3.setText(c);
+                jR4.setText(d);
+
+                if (jR1.isSelected()) {
+                    jawaban[i] = "a";
+                    i++;
+                } else if (jR2.isSelected()) {
+                    jawaban[i] = "b";
+                    i++;
+                } else if (jR3.isSelected()) {
+                    jawaban[i] = "c";
+                    i++;
+                } else {
+                    jawaban[i] = "d";
+                    i++;
+                }
+//
+                chek_button();
+            } else {
+                //rs.previous();
+                JOptionPane.showMessageDialog(QuisView.this, "End of File");
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(QuisView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultActionPerformed
+        // TODO add your handling code here:
+        if (jR1.isSelected()) {
+            jawaban[i] = "a";
+            i++;
+        } else if (jR2.isSelected()) {
+            jawaban[i] = "b";
+            i++;
+        } else if (jR3.isSelected()) {
+            jawaban[i] = "c";
+            i++;
+        } else {
+            jawaban[i] = "d";
+            i++;
+        }
+        
+        String sql2 = "SELECT * FROM tb_soal";
+        try {
+
+            Statement s = Connect.getConnection().createStatement();
+            rs1 = s.executeQuery(sql2);
+            int r = 0;
+            while (rs1.next()) {
+                String kunci = rs1.getString("kunci");
+                int nilai1 = rs1.getInt("nilai_a");
+                int nilai2 = rs1.getInt("nilai_b");
+                int nilai3 = rs1.getInt("nilai_c");
+                int nilai4 = rs1.getInt("nilai_d");
+
+                //System.out.println(kunci);
+                if (jawaban[r].equals("a")) {
+                    count = count + nilai1;
+                    //System.out.println(count);
+                }else if(jawaban[r].equals("b")){
+                    count = count + nilai2;
+                }else if(jawaban[r].equals("c")){
+                    count = count + nilai3;
+                }else{
+                    count = count + nilai4;
+                }
+                r++;
+            }
+            rs1.close();
+        } catch (Exception e) {
+        }
+
+    }//GEN-LAST:event_btnResultActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.ButtonGroup bGPilih;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnResult;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JRadioButton jRadioButton1;
-    private javax.swing.JRadioButton jRadioButton2;
-    private javax.swing.JRadioButton jRadioButton3;
-    private javax.swing.JRadioButton jRadioButton4;
+    private javax.swing.JRadioButton jR1;
+    private javax.swing.JRadioButton jR2;
+    private javax.swing.JRadioButton jR3;
+    private javax.swing.JRadioButton jR4;
     // End of variables declaration//GEN-END:variables
+
+    private void tampil() {
+        String sql = "SELECT * FROM tb_soal";
+        try {
+
+            Statement s = Connect.getConnection().createStatement();
+            rs = s.executeQuery(sql);
+
+            rs.next();
+            String soal = rs.getString("soal");
+            String a = rs.getString("a");
+            String b = rs.getString("b");
+            String c = rs.getString("c");
+            String d = rs.getString("d");
+
+            jLabel1.setText(soal);
+            jR1.setText(a);
+            jR2.setText(b);
+            jR3.setText(c);
+            jR4.setText(d);
+
+        } catch (Exception e) {
+        }
+    }
+
+    private void chek_button() {
+        try {
+            if (rs.isLast()) {
+                btnResult.setEnabled(true);
+                btnNext.setEnabled(false);
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(QuisView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
