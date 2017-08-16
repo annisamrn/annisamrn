@@ -21,16 +21,23 @@ import skripsiannisameriana.connect.Connect;
  */
 public class SoalImplements {
     public void insertSoal(Soal soal) throws Exception {
-        String sqlInsert = "INSERT INTO tb_soal VALUES (?, ?, ?, ?, ?)";
+        String sqlInsert = "INSERT INTO tb_soal VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = Connect.getConnection().prepareStatement(sqlInsert);
 
             preparedStatement.setInt(1, soal.getIdSoal());
             preparedStatement.setString(2, soal.getSoal());
-            preparedStatement.setInt(3, soal.getNilai());
-            preparedStatement.setInt(4, soal.getIdFakultas());
-            preparedStatement.setInt(5, soal.getIdProdi());
+            preparedStatement.setString(3, soal.getA());
+            preparedStatement.setString(4, soal.getB());
+            preparedStatement.setString(5, soal.getC());
+            preparedStatement.setString(6, soal.getD());
+            preparedStatement.setInt(7, soal.getNilaiA());
+            preparedStatement.setInt(8, soal.getNilaiB());
+            preparedStatement.setInt(9, soal.getNilaiC());
+            preparedStatement.setInt(10, soal.getNilaiD());
+            preparedStatement.setInt(11, soal.getIdFakultas());
+            preparedStatement.setInt(12, soal.getIdProdi());
             preparedStatement.executeUpdate();
 
         } catch (Exception err) {
@@ -40,22 +47,29 @@ public class SoalImplements {
     }
 
     public void updateSoal(Soal soal) throws Exception {
-        String sqlUpdate = "UPDATE tb_soal SET soal = ?, nilai_soal = ?,"
-                         + "id_fakultas = ?, id_prodi = ? WHERE id_soal = ?";
+        String sqlUpdate = "UPDATE tb_soal SET soal = ?, a = ?, b = ?, c = ?, d = ?, nilai_a = ?, nilai_b = ?"
+                         + "nilai_c = ?, nilai_d = ?, id_fakultas = ?, id_prodi = ? WHERE id_soal = ?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = Connect.getConnection().prepareStatement(sqlUpdate);
 
-            preparedStatement.setInt(5, soal.getIdSoal());
+            preparedStatement.setInt(12, soal.getIdSoal());
             preparedStatement.setString(1, soal.getSoal());
-            preparedStatement.setInt(2, soal.getNilai());
-            preparedStatement.setInt(3, soal.getIdFakultas());
-            preparedStatement.setInt(4, soal.getIdProdi());
+            preparedStatement.setString(2, soal.getA());
+            preparedStatement.setString(3, soal.getB());
+            preparedStatement.setString(4, soal.getC());
+            preparedStatement.setString(5, soal.getD());            
+            preparedStatement.setInt(6, soal.getNilaiA());            
+            preparedStatement.setInt(7, soal.getNilaiB());            
+            preparedStatement.setInt(8, soal.getNilaiC());            
+            preparedStatement.setInt(9, soal.getNilaiD());
+            preparedStatement.setInt(10, soal.getIdFakultas());
+            preparedStatement.setInt(11, soal.getIdProdi());
             preparedStatement.executeUpdate();
 
         } catch (Exception err) {
             System.out.println("salah : " + err);
-            JOptionPane.showMessageDialog(null, "Data Tidak Bisa Di Hapus, \nKarena Data Masih Di Pakai.");
+            JOptionPane.showMessageDialog(null, "Data Tidak Bisa Di Hapus, \n Karena Data Masih Di Pakai.");
         }
     }
 
@@ -91,7 +105,14 @@ public class SoalImplements {
                 Soal soal = new Soal();
                 soal.setIdSoal(resultSet.getInt("id_soal"));
                 soal.setSoal(resultSet.getString("soal"));
-                soal.setNilai(resultSet.getInt("nilai_soal"));
+                soal.setA(resultSet.getString("a"));
+                soal.setB(resultSet.getString("b"));
+                soal.setC(resultSet.getString("c"));
+                soal.setD(resultSet.getString("d"));
+                soal.setNilaiA(resultSet.getInt("nilai_a"));
+                soal.setNilaiB(resultSet.getInt("nilai_b"));
+                soal.setNilaiC(resultSet.getInt("nilai_c"));
+                soal.setNilaiD(resultSet.getInt("nilai_d"));
                 soal.setIdFakultas(resultSet.getInt("tb_fakultas.id_fakultas"));
                 soal.setNamaFakultas(resultSet.getString("tb_fakultas.fakultas"));
                 soal.setIdProdi(resultSet.getInt("tb_prodi.id_prodi"));
@@ -133,7 +154,14 @@ public class SoalImplements {
                 Soal soal = new Soal();
                 soal.setIdSoal(resultSet.getInt("id_soal"));
                 soal.setSoal(resultSet.getString("soal"));
-                soal.setNilai(resultSet.getInt("nilai_soal"));
+                soal.setA(resultSet.getString("a"));
+                soal.setB(resultSet.getString("b"));
+                soal.setC(resultSet.getString("c"));
+                soal.setD(resultSet.getString("d"));
+                soal.setNilaiA(resultSet.getInt("nilai_a"));
+                soal.setNilaiB(resultSet.getInt("nilai_b"));
+                soal.setNilaiC(resultSet.getInt("nilai_c"));
+                soal.setNilaiD(resultSet.getInt("nilai_d"));
                 soal.setNamaFakultas(resultSet.getString("tb_fakultas.fakultas"));
                 soal.setNamaProdi(resultSet.getString("nama_prodi"));
                 list.add(soal);

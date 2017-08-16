@@ -30,7 +30,7 @@ public class SoalTabelModel extends AbstractTableModel{
 
     @Override
     public int getColumnCount() {
-        return 6;
+        return 13;
     }
 
     @Override
@@ -39,9 +39,16 @@ public class SoalTabelModel extends AbstractTableModel{
             case 0: return rowIndex + 1;
             case 1: return list.get(rowIndex).getIdSoal();            
             case 2: return list.get(rowIndex).getSoal();
-            case 3: return list.get(rowIndex).getNilai();
-            case 4: return list.get(rowIndex).getNamaFakultas();
-            case 5: return list.get(rowIndex).getNamaProdi();
+            case 3: return list.get(rowIndex).getA();
+            case 4: return list.get(rowIndex).getB();
+            case 5: return list.get(rowIndex).getC();
+            case 6: return list.get(rowIndex).getD();
+            case 7: return list.get(rowIndex).getNilaiA();
+            case 8: return list.get(rowIndex).getNilaiB();
+            case 9: return list.get(rowIndex).getNilaiC();
+            case 10: return list.get(rowIndex).getNilaiD();
+            case 11: return list.get(rowIndex).getNamaFakultas();
+            case 12: return list.get(rowIndex).getNamaProdi();
             default:
                 return null;
         }
@@ -53,9 +60,16 @@ public class SoalTabelModel extends AbstractTableModel{
             case 0: return "No";
             case 1: return "Kode Soal";
             case 2: return "Soal";
-            case 3: return "Nilai Soal";
-            case 4: return "Fakultas";
-            case 5: return "Program Studi";
+            case 3: return "Jawaban A";
+            case 4: return "Jawaban B";
+            case 5: return "Jawaban C";
+            case 6: return "Jawaban D";
+            case 7: return "Nilai A";
+            case 8: return "Nilai B";
+            case 9: return "Nilai C";
+            case 10: return "Nilai D";
+            case 11: return "Fakultas";
+            case 12: return "Program Studi";
             default:
                 return null;
         }

@@ -10,8 +10,8 @@ package skripsiannisameriana.soal;
  * @author USER
  */
 public class Soal {
-    int idSoal, nilai, idFakultas, idProdi;
-    String Soal, namaFakultas, namaProdi;
+    int idSoal, idFakultas, idProdi, nilaiA, nilaiB, nilaiC, nilaiD;
+    String Soal, namaFakultas, namaProdi, a, b, c, d;
 
     public int getIdSoal() {
         return idSoal;
@@ -19,14 +19,6 @@ public class Soal {
 
     public void setIdSoal(int idSoal) {
         this.idSoal = idSoal;
-    }
-
-    public int getNilai() {
-        return nilai;
-    }
-
-    public void setNilai(int nilai) {
-        this.nilai = nilai;
     }
 
     public int getIdFakultas() {
@@ -43,6 +35,38 @@ public class Soal {
 
     public void setIdProdi(int idProdi) {
         this.idProdi = idProdi;
+    }
+
+    public int getNilaiA() {
+        return nilaiA;
+    }
+
+    public void setNilaiA(int nilaiA) {
+        this.nilaiA = nilaiA;
+    }
+
+    public int getNilaiB() {
+        return nilaiB;
+    }
+
+    public void setNilaiB(int nilaiB) {
+        this.nilaiB = nilaiB;
+    }
+
+    public int getNilaiC() {
+        return nilaiC;
+    }
+
+    public void setNilaiC(int nilaiC) {
+        this.nilaiC = nilaiC;
+    }
+
+    public int getNilaiD() {
+        return nilaiD;
+    }
+
+    public void setNilaiD(int nilaiD) {
+        this.nilaiD = nilaiD;
     }
 
     public String getSoal() {
@@ -67,5 +91,37 @@ public class Soal {
 
     public void setNamaProdi(String namaProdi) {
         this.namaProdi = namaProdi;
+    }
+
+    public String getA() {
+        return a;
+    }
+
+    public void setA(String a) {
+        this.a = a;
+    }
+
+    public String getB() {
+        return b;
+    }
+
+    public void setB(String b) {
+        this.b = b;
+    }
+
+    public String getC() {
+        return c;
+    }
+
+    public void setC(String c) {
+        this.c = c;
+    }
+
+    public String getD() {
+        return d;
+    }
+
+    public void setD(String d) {
+        this.d = d;
     }
 }
