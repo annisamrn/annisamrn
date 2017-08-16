@@ -7,15 +7,18 @@ package skripsiannisameriana.login;
 
 import java.sql.ResultSet;
 import java.sql.Statement;
+import javax.swing.JOptionPane;
 import skripsiannisameriana.connect.Connect;
+import skripsiannisameriana.home.Home;
 
 /**
  *
  * @author phantom
  */
 public class Login extends javax.swing.JFrame {
-    
+
     ResultSet rs;
+
     /**
      * Creates new form Login
      */
@@ -172,23 +175,44 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
+        String sql1 = "SELECT * FROM tb_user WHERE username = '" + user.getText() + "' AND password = '" + pass.getText() + "'";
+        String sql2 = "SELECT * FROM tb_calon_mhs WHERE email = '" + user.getText() + "' AND password = '" + pass.getText() + "'";
         if (r1.isSelected()) {
-            String sql1 = "SELECT * FROM tb_user";
-            String sql2 = "SELECT * FROM tb_calon_mhs";
             try {
 
                 Statement s = Connect.getConnection().createStatement();
                 rs = s.executeQuery(sql1);
 
-                rs.next();
-                String user = rs.getString("username");
-                String pass = rs.getString("password");
-                
+                if (rs.next()) {
+                    String user = rs.getString("username");
+                    String pass = rs.getString("password");
+                    Home home = new Home();
+                    home.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "username dan password tidak ditemukan");
+                }
                 rs.close();
             } catch (Exception e) {
             }
-        }else{
-            
+        } else {
+            try {
+
+                Statement s = Connect.getConnection().createStatement();
+                rs = s.executeQuery(sql2);
+
+                if (rs.next()) {
+                    int id = rs.getInt("id_pendaftar");
+                    String pass = rs.getString("password");
+                    Home home = new Home();
+                    home.setVisible(true);
+                    this.dispose();
+                } else {
+                    JOptionPane.showMessageDialog(this, "username dan password tidak ditemukan");
+                }
+                rs.close();
+            } catch (Exception e) {
+            }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
 
