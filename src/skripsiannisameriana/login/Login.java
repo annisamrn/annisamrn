@@ -3,15 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package skripsiannisameriana.login;
+
+import java.sql.ResultSet;
+import java.sql.Statement;
+import skripsiannisameriana.connect.Connect;
 
 /**
  *
  * @author phantom
  */
 public class Login extends javax.swing.JFrame {
-
+    
+    ResultSet rs;
     /**
      * Creates new form Login
      */
@@ -169,6 +173,21 @@ public class Login extends javax.swing.JFrame {
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
         if (r1.isSelected()) {
+            String sql1 = "SELECT * FROM tb_user";
+            String sql2 = "SELECT * FROM tb_calon_mhs";
+            try {
+
+                Statement s = Connect.getConnection().createStatement();
+                rs = s.executeQuery(sql1);
+
+                rs.next();
+                String user = rs.getString("username");
+                String pass = rs.getString("password");
+                
+                rs.close();
+            } catch (Exception e) {
+            }
+        }else{
             
         }
     }//GEN-LAST:event_btnLoginActionPerformed
