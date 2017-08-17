@@ -150,6 +150,11 @@ public class Prioritas extends javax.swing.JInternalFrame {
         jPanel1.add(btnBatal, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 210, 150, -1));
 
         btnIkutTes.setText("Ikut Tes");
+        btnIkutTes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnIkutTesActionPerformed(evt);
+            }
+        });
         jPanel1.add(btnIkutTes, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 210, 150, -1));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -193,6 +198,11 @@ public class Prioritas extends javax.swing.JInternalFrame {
     private void btnPilih6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPilih6ActionPerformed
         btnCariProdi6();
     }//GEN-LAST:event_btnPilih6ActionPerformed
+
+    private void btnIkutTesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIkutTesActionPerformed
+        // TODO add your handling code here:
+        
+    }//GEN-LAST:event_btnIkutTesActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
