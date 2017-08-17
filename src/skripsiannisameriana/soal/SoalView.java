@@ -48,12 +48,14 @@ public class SoalView extends javax.swing.JInternalFrame {
         btnCariProdi = new javax.swing.JButton();
         txtNamaProdi = new javax.swing.JTextField();
         txtKodeProdi = new javax.swing.JTextField();
-        txtNilai = new javax.swing.JTextField();
+        txtNilaiA = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaSoal = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
+        jRadioButton1 = new javax.swing.JRadioButton();
+        txtNilaiA1 = new javax.swing.JTextField();
         panelData = new javax.swing.JPanel();
         ComboBoxCari = new javax.swing.JComboBox();
         txtCari = new javax.swing.JTextField();
@@ -163,7 +165,7 @@ public class SoalView extends javax.swing.JInternalFrame {
         jScrollPane2.setViewportView(txtAreaSoal);
 
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        jLabel5.setText("Nilai                                 :");
+        jLabel5.setText("Kunci Jawaban             :");
 
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Fakultas                         :");
@@ -173,7 +175,7 @@ public class SoalView extends javax.swing.JInternalFrame {
         panelIsiLayout.setHorizontalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIsiLayout.createSequentialGroup()
-                .addContainerGap(14, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
                         .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -184,7 +186,7 @@ public class SoalView extends javax.swing.JInternalFrame {
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
                         .addComponent(btnCariProdi)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelIsiLayout.createSequentialGroup()
                         .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(txtKodeProdi, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
@@ -193,9 +195,13 @@ public class SoalView extends javax.swing.JInternalFrame {
                         .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtNamaFakultas, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
                             .addComponent(txtNamaProdi)))
-                    .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                        .addComponent(txtNilai, javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, 435, Short.MAX_VALUE))))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
+                        .addComponent(jRadioButton1)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtNilaiA1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(txtNilaiA, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
         );
         panelIsiLayout.setVerticalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -205,9 +211,13 @@ public class SoalView extends javax.swing.JInternalFrame {
                     .addGroup(panelIsiLayout.createSequentialGroup()
                         .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(txtNilai, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel5))))
+                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(jLabel5)
+                                .addComponent(jRadioButton1))
+                            .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(txtNilaiA, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(txtNilaiA1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtKodeFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -259,7 +269,7 @@ public class SoalView extends javax.swing.JInternalFrame {
             .addGroup(panelDataLayout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(panelDataLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 578, Short.MAX_VALUE)
+                    .addComponent(jScrollPane1)
                     .addGroup(panelDataLayout.createSequentialGroup()
                         .addComponent(ComboBoxCari, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -273,7 +283,7 @@ public class SoalView extends javax.swing.JInternalFrame {
                     .addComponent(ComboBoxCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 142, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -281,12 +291,11 @@ public class SoalView extends javax.swing.JInternalFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(panelData, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(panelIsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(0, 32, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(panelIsi, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(panelData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(panelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -353,6 +362,7 @@ public class SoalView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JRadioButton jRadioButton1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel panelButton;
@@ -365,7 +375,8 @@ public class SoalView extends javax.swing.JInternalFrame {
     public static javax.swing.JTextField txtKodeProdi;
     public static javax.swing.JTextField txtNamaFakultas;
     public static javax.swing.JTextField txtNamaProdi;
-    public static javax.swing.JTextField txtNilai;
+    public static javax.swing.JTextField txtNilaiA;
+    public static javax.swing.JTextField txtNilaiA1;
     // End of variables declaration//GEN-END:variables
 
     public void setTableModel() {
@@ -400,7 +411,7 @@ public class SoalView extends javax.swing.JInternalFrame {
             txtNamaFakultas.setText("");
             txtNamaProdi.setText("");
             txtAreaSoal.setText("");
-            txtNilai.setText("");
+            txtNilaiA.setText("");
 
             btnBatal.setEnabled(true);
             btnBatal.setText("Bersihkan");
@@ -438,9 +449,9 @@ public class SoalView extends javax.swing.JInternalFrame {
                     if (txtAreaSoal.getText().equals("")){
                         JOptionPane.showMessageDialog(this, "Isi'i bujur2 soalnya nang");
                         txtAreaSoal.requestFocus();
-                    } else if (txtNilai.getText().equals("")) {
+                    } else if (txtNilaiA.getText().equals("")) {
                         JOptionPane.showMessageDialog(this, "Lengkapi Data Nilai dulu say!");
-                        txtNilai.requestFocus();
+                        txtNilaiA.requestFocus();
                     } else if (txtNamaFakultas.getText().equals("")) {
                         JOptionPane.showMessageDialog(this, "Lengkapi Data Fakultas!");
                         btnCariProdi.doClick();
@@ -465,9 +476,9 @@ public class SoalView extends javax.swing.JInternalFrame {
                     if (txtAreaSoal.getText().equals("")){
                         JOptionPane.showMessageDialog(this, "Isi'i bujur2 soalnya nang");
                         txtAreaSoal.requestFocus();
-                    } else if (txtNilai.getText().equals("")) {
+                    } else if (txtNilaiA.getText().equals("")) {
                         JOptionPane.showMessageDialog(this, "Lengkapi Data Nilai dulu say!");
-                        txtNilai.requestFocus();
+                        txtNilaiA.requestFocus();
                     } else if (txtNamaFakultas.getText().equals("")) {
                         JOptionPane.showMessageDialog(this, "Lengkapi Data Fakultas!");
                         btnCariProdi.doClick();
@@ -497,7 +508,7 @@ public class SoalView extends javax.swing.JInternalFrame {
             Soal soal = new Soal();
             
             soal.setSoal(txtAreaSoal.getText());
-            soal.setNilai(Integer.parseInt(txtNilai.getText()));
+            soal.setNilai(Integer.parseInt(txtNilaiA.getText()));
             soal.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
             soal.setNamaFakultas(txtNamaFakultas.getText());
             soal.setIdProdi(Integer.parseInt(txtKodeProdi.getText()));
@@ -516,7 +527,7 @@ public class SoalView extends javax.swing.JInternalFrame {
             Soal soal = new Soal();
             
             soal.setSoal(txtAreaSoal.getText());
-            soal.setNilai(Integer.parseInt(txtNilai.getText()));
+            soal.setNilai(Integer.parseInt(txtNilaiA.getText()));
             soal.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
             soal.setNamaFakultas(txtNamaFakultas.getText());
             soal.setIdProdi(Integer.parseInt(txtKodeProdi.getText()));
@@ -642,7 +653,7 @@ public class SoalView extends javax.swing.JInternalFrame {
                     Soal soal = soaltabmod.get(row);
                     
                     txtAreaSoal.setText(soal.getSoal());
-                    txtNilai.setText(Integer.toString(soal.getNilai()));
+                    txtNilaiA.setText(Integer.toString(soal.getNilai()));
                     txtKodeProdi.setText(Integer.toString(soal.getIdProdi()));
                     txtNamaProdi.setText(soal.getNamaProdi());
                     txtKodeFakultas.setText(Integer.toString(soal.getIdFakultas()));
