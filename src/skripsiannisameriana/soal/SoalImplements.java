@@ -47,8 +47,7 @@ public class SoalImplements {
     }
 
     public void updateSoal(Soal soal) throws Exception {
-        String sqlUpdate = "UPDATE tb_soal SET soal = ?, a = ?, b = ?, c = ?, d = ?, nilai_a = ?, nilai_b = ?"
-                         + "nilai_c = ?, nilai_d = ?, id_fakultas = ?, id_prodi = ? WHERE id_soal = ?";
+        String sqlUpdate = "UPDATE tb_soal SET soal = ?, a = ?, b = ?, c = ?, d = ?, nilai_a = ?, nilai_b = ?, nilai_c = ?, nilai_d = ?, id_fakultas = ?, id_prodi = ? WHERE id_soal = ?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = Connect.getConnection().prepareStatement(sqlUpdate);
@@ -69,7 +68,7 @@ public class SoalImplements {
 
         } catch (Exception err) {
             System.out.println("salah : " + err);
-            JOptionPane.showMessageDialog(null, "Data Tidak Bisa Di Hapus, \n Karena Data Masih Di Pakai.");
+            JOptionPane.showMessageDialog(null, "Data Tidak Bisa Di Diubah, \n Karena Data Masih Di Pakai.");
         }
     }
 

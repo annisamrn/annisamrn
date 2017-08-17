@@ -35,6 +35,7 @@ public class SoalView extends javax.swing.JInternalFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btnGrupKunciJawaban = new javax.swing.ButtonGroup();
         panelButton = new javax.swing.JPanel();
         btnTambah = new javax.swing.JButton();
         btnUbah = new javax.swing.JButton();
@@ -183,14 +184,22 @@ public class SoalView extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Fakultas                         :");
 
+        btnGrupKunciJawaban.add(jRadioButton1);
+
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel7.setText("Nilai Kunci   :");
 
         jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel8.setText("Nilai Kunci   :");
 
+        btnGrupKunciJawaban.add(jRadioButton2);
+
+        btnGrupKunciJawaban.add(jRadioButton3);
+
         jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel9.setText("Nilai Kunci   :");
+
+        btnGrupKunciJawaban.add(jRadioButton4);
 
         jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel10.setText("Nilai Kunci   :");
@@ -454,6 +463,7 @@ public class SoalView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnBatal;
     private javax.swing.JButton btnCariProdi;
     private javax.swing.JButton btnCetak;
+    private javax.swing.ButtonGroup btnGrupKunciJawaban;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnTambah;
     private javax.swing.JButton btnTutup;

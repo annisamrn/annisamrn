@@ -11,7 +11,7 @@ package skripsiannisameriana.cmahasiswa;
  */
 public class CMahasiswa {
     int idPendaftar;
-    String namaPendaftar, asalSekolah, telepon, email, alamat;
+    String namaPendaftar, asalSekolah, telepon, email, alamat, password;
 
     public int getIdPendaftar() {
         return idPendaftar;
@@ -59,5 +59,13 @@ public class CMahasiswa {
 
     public void setAlamat(String alamat) {
         this.alamat = alamat;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

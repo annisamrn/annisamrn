@@ -47,6 +47,8 @@ public class PendaftarView extends javax.swing.JInternalFrame {
         txtEmail = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaAlamat = new javax.swing.JTextArea();
+        txtPassword = new javax.swing.JTextField();
+        jLabel6 = new javax.swing.JLabel();
         panelButton = new javax.swing.JPanel();
         btnTambah = new javax.swing.JButton();
         btnUbah = new javax.swing.JButton();
@@ -101,36 +103,48 @@ public class PendaftarView extends javax.swing.JInternalFrame {
         txtAreaAlamat.setRows(5);
         jScrollPane2.setViewportView(txtAreaAlamat);
 
+        jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel6.setText("Password                             :");
+
         javax.swing.GroupLayout panelIsiLayout = new javax.swing.GroupLayout(panelIsi);
         panelIsi.setLayout(panelIsiLayout);
         panelIsiLayout.setHorizontalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(panelIsiLayout.createSequentialGroup()
-                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelIsiLayout.createSequentialGroup()
+                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelIsiLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel2)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(txtAsalSekolah, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
+                            .addComponent(txtNamaPendaftar)))
                     .addGroup(panelIsiLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
-                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(txtAsalSekolah, javax.swing.GroupLayout.DEFAULT_SIZE, 374, Short.MAX_VALUE)
-                    .addComponent(txtNamaPendaftar))
-                .addGap(105, 105, 105))
-            .addGroup(panelIsiLayout.createSequentialGroup()
-                .addContainerGap()
-                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel3)
-                    .addComponent(jLabel4)
-                    .addComponent(jLabel5))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane2)
-                    .addComponent(txtEmail)
-                    .addComponent(txtTelepon))
-                .addGap(106, 106, 106))
+                        .addContainerGap()
+                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelIsiLayout.createSequentialGroup()
+                                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jLabel3)
+                                    .addComponent(jLabel4)
+                                    .addComponent(jLabel5))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(txtEmail)
+                                    .addGroup(panelIsiLayout.createSequentialGroup()
+                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(0, 0, Short.MAX_VALUE))
+                                    .addComponent(txtTelepon)))
+                            .addGroup(panelIsiLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(txtPassword)))))
+                .addGap(160, 160, 160))
         );
         panelIsiLayout.setVerticalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -150,6 +164,10 @@ public class PendaftarView extends javax.swing.JInternalFrame {
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(txtEmail, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel6)
+                    .addComponent(txtPassword, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel5)
@@ -159,7 +177,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
         panelButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         panelButton.setForeground(new java.awt.Color(255, 255, 255));
         panelButton.setOpaque(false);
-        panelButton.setLayout(new java.awt.GridLayout());
+        panelButton.setLayout(new java.awt.GridLayout(1, 0));
 
         btnTambah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnTambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/skripsiannisameriana/picture/add.png"))); // NOI18N
@@ -334,6 +352,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel panelButton;
@@ -345,6 +364,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCari;
     public static javax.swing.JTextField txtEmail;
     public static javax.swing.JTextField txtNamaPendaftar;
+    public static javax.swing.JTextField txtPassword;
     public static javax.swing.JTextField txtTelepon;
     // End of variables declaration//GEN-END:variables
 
@@ -377,6 +397,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
             txtAsalSekolah.setText("");
             txtTelepon.setText("");
             txtEmail.setText("");
+            txtPassword.setText("");
             txtAreaAlamat.setText("");
 
             btnBatal.setEnabled(true);
@@ -424,6 +445,9 @@ public class PendaftarView extends javax.swing.JInternalFrame {
                     }else if (txtEmail.getText().equals("")) {
                         JOptionPane.showMessageDialog(this, "Isi Data email dengan benar!");
                         txtEmail.requestFocus();
+                    }else if (txtPassword.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Isi Data password dengan benar!");
+                        txtPassword.requestFocus();
                     }else if (txtAreaAlamat.getText().equals("")) {
                         JOptionPane.showMessageDialog(this, "Isi Data Alamat dengan benar!");
                         txtAreaAlamat.requestFocus();
@@ -457,6 +481,9 @@ public class PendaftarView extends javax.swing.JInternalFrame {
                     }else if (txtEmail.getText().equals("")) {
                         JOptionPane.showMessageDialog(this, "Isi Data email dengan benar!");
                         txtEmail.requestFocus();
+                    }else if (txtPassword.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Isi Data password dengan benar!");
+                        txtPassword.requestFocus();
                     }else if (txtAreaAlamat.getText().equals("")) {
                         JOptionPane.showMessageDialog(this, "Isi Data Alamat dengan benar!");
                         txtAreaAlamat.requestFocus();
@@ -489,6 +516,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
             cmhs.setAsalSekolah(txtAsalSekolah.getText());
             cmhs.setTelepon(txtTelepon.getText());
             cmhs.setEmail(txtEmail.getText());
+            cmhs.setPassword(txtPassword.getText());
             cmhs.setAlamat(txtAreaAlamat.getText());
             
             cMahasiswaImplements.insertPeserta(cmhs);
@@ -507,6 +535,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
             cmhs.setAsalSekolah(txtAsalSekolah.getText());
             cmhs.setTelepon(txtTelepon.getText());
             cmhs.setEmail(txtEmail.getText());
+            cmhs.setPassword(txtPassword.getText());
             cmhs.setAlamat(txtAreaAlamat.getText());
             cmhs.setIdPendaftar(id);
             
@@ -558,6 +587,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
             txtAsalSekolah.setText("");
             txtTelepon.setText("");
             txtEmail.setText("");
+            txtPassword.setText("");
             txtAreaAlamat.setText("");
 
             btnBatal.setEnabled(true);
@@ -592,6 +622,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
                 txtAsalSekolah.setEnabled(true);
                 txtTelepon.setEnabled(true);
                 txtEmail.setEnabled(true);
+                txtPassword.setEnabled(true);
                 txtAreaAlamat.setEnabled(true);
 
                 btnBatal.setEnabled(true);
@@ -629,6 +660,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
                     txtAsalSekolah.setText(cm.getAsalSekolah());
                     txtTelepon.setText(cm.getTelepon());
                     txtEmail.setText(cm.getEmail());
+                    txtPassword.setText(cm.getPassword());
                     txtAreaAlamat.setText(cm.getAlamat());
                     
                     id = cm.getIdPendaftar();
