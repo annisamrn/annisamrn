@@ -41,7 +41,6 @@ public class Home extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         btnProdi = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
-        jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
         jButton8 = new javax.swing.JButton();
@@ -110,10 +109,6 @@ public class Home extends javax.swing.JFrame {
         });
         jPanel2.add(jButton4);
 
-        jButton5.setText("Hasil");
-        jButton5.setMaximumSize(new java.awt.Dimension(180, 31));
-        jPanel2.add(jButton5);
-
         jButton6.setText("Laporan");
         jButton6.setMaximumSize(new java.awt.Dimension(180, 31));
         jPanel2.add(jButton6);
@@ -139,8 +134,8 @@ public class Home extends javax.swing.JFrame {
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 252, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(42, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel3, java.awt.BorderLayout.LINE_START);
@@ -232,7 +227,6 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
