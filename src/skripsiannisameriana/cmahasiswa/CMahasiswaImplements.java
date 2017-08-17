@@ -21,7 +21,7 @@ import skripsiannisameriana.connect.Connect;
  */
 public class CMahasiswaImplements {
     public void insertPeserta(CMahasiswa cm) throws Exception {
-        String sqlInsert = "INSERT INTO tb_calon_mhs VALUES (?, ?, ?, ?, ?, ?)";
+        String sqlInsert = "INSERT INTO tb_calon_mhs VALUES (?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = Connect.getConnection().prepareStatement(sqlInsert);
@@ -31,7 +31,8 @@ public class CMahasiswaImplements {
             preparedStatement.setString(3, cm.getAsalSekolah());
             preparedStatement.setString(4, cm.getTelepon());
             preparedStatement.setString(5, cm.getEmail());
-            preparedStatement.setString(6, cm.getAlamat());
+            preparedStatement.setString(6, cm.getPassword());
+            preparedStatement.setString(7, cm.getAlamat());
             preparedStatement.executeUpdate();
 
         } catch (Exception err) {
@@ -41,7 +42,7 @@ public class CMahasiswaImplements {
     }
     
     public void updatePendaftar(CMahasiswa cm) throws Exception {
-        String sqlUpdate = "UPDATE tb_calon_mhs SET nama = ?, asal_sekolah = ?, telepon = ?, email = ?, alamat = ? WHERE id_pendaftar = ?";
+        String sqlUpdate = "UPDATE tb_calon_mhs SET nama = ?, asal_sekolah = ?, telepon = ?, email = ?, password = ?, alamat = ? WHERE id_pendaftar = ?";
         PreparedStatement preparedStatement;
         try {
 
@@ -51,8 +52,9 @@ public class CMahasiswaImplements {
             preparedStatement.setString(2, cm.getAsalSekolah());
             preparedStatement.setString(3, cm.getTelepon());
             preparedStatement.setString(4, cm.getEmail());
-            preparedStatement.setString(5, cm.getAlamat());
-            preparedStatement.setInt(6, cm.getIdPendaftar());
+            preparedStatement.setString(5, cm.getPassword());
+            preparedStatement.setString(6, cm.getAlamat());
+            preparedStatement.setInt(7, cm.getIdPendaftar());
             preparedStatement.executeUpdate();
 
         } catch (Exception err) {
@@ -95,6 +97,7 @@ public class CMahasiswaImplements {
                 cm.setAsalSekolah(resultSet.getString("asal_sekolah"));
                 cm.setTelepon(resultSet.getString("telepon"));
                 cm.setEmail(resultSet.getString("email"));
+                cm.setPassword(resultSet.getString("password"));
                 cm.setAlamat(resultSet.getString("alamat"));
                 list.add(cm);
             }
@@ -133,6 +136,7 @@ public class CMahasiswaImplements {
                 cm.setAsalSekolah(resultSet.getString("asal_sekolah"));
                 cm.setTelepon(resultSet.getString("telepon"));
                 cm.setEmail(resultSet.getString("email"));
+                cm.setPassword(resultSet.getString("password"));
                 cm.setAlamat(resultSet.getString("alamat"));
                 list.add(cm);
             }
