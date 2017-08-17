@@ -48,14 +48,27 @@ public class SoalView extends javax.swing.JInternalFrame {
         btnCariProdi = new javax.swing.JButton();
         txtNamaProdi = new javax.swing.JTextField();
         txtKodeProdi = new javax.swing.JTextField();
-        txtNilaiA = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         txtAreaSoal = new javax.swing.JTextArea();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
         jRadioButton1 = new javax.swing.JRadioButton();
-        txtNilaiA1 = new javax.swing.JTextField();
+        txtKunciA = new javax.swing.JTextField();
+        jLabel7 = new javax.swing.JLabel();
+        txtNilaiA = new javax.swing.JTextField();
+        jLabel8 = new javax.swing.JLabel();
+        txtKunciB = new javax.swing.JTextField();
+        jRadioButton2 = new javax.swing.JRadioButton();
+        txtKunciC = new javax.swing.JTextField();
+        jRadioButton3 = new javax.swing.JRadioButton();
+        jLabel9 = new javax.swing.JLabel();
+        txtNilaiC = new javax.swing.JTextField();
+        txtKunciD = new javax.swing.JTextField();
+        jRadioButton4 = new javax.swing.JRadioButton();
+        txtNilaiD = new javax.swing.JTextField();
+        jLabel10 = new javax.swing.JLabel();
+        txtNilaiB = new javax.swing.JTextField();
         panelData = new javax.swing.JPanel();
         ComboBoxCari = new javax.swing.JComboBox();
         txtCari = new javax.swing.JTextField();
@@ -170,65 +183,151 @@ public class SoalView extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Fakultas                         :");
 
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setText("Nilai Kunci   :");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel8.setText("Nilai Kunci   :");
+
+        jLabel9.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel9.setText("Nilai Kunci   :");
+
+        jLabel10.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel10.setText("Nilai Kunci   :");
+
         javax.swing.GroupLayout panelIsiLayout = new javax.swing.GroupLayout(panelIsi);
         panelIsi.setLayout(panelIsiLayout);
         panelIsiLayout.setHorizontalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIsiLayout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
-                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel5)
-                            .addComponent(jLabel4)
-                            .addComponent(jLabel6))
-                        .addGap(26, 26, 26))
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
-                        .addComponent(btnCariProdi)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
-                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(panelIsiLayout.createSequentialGroup()
-                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                            .addComponent(txtKodeProdi, javax.swing.GroupLayout.DEFAULT_SIZE, 112, Short.MAX_VALUE)
-                            .addComponent(txtKodeFakultas))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(txtNamaFakultas, javax.swing.GroupLayout.DEFAULT_SIZE, 317, Short.MAX_VALUE)
-                            .addComponent(txtNamaProdi)))
-                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel4)
+                        .addGap(26, 26, 26)
+                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 435, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(jRadioButton2)
+                        .addGap(18, 18, 18)
+                        .addComponent(txtKunciB, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(7, 7, 7)
+                        .addComponent(jLabel8)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNilaiB, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(jRadioButton3)
+                        .addGap(19, 19, 19)
+                        .addComponent(txtKunciC, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel9)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNilaiC, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addGap(164, 164, 164)
+                        .addComponent(jRadioButton4)
+                        .addGap(19, 19, 19)
+                        .addComponent(txtKunciD, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel10)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNilaiD, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(0, 0, Short.MAX_VALUE))
+            .addGroup(panelIsiLayout.createSequentialGroup()
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel5)
+                        .addGap(30, 30, 30)
                         .addComponent(jRadioButton1)
                         .addGap(18, 18, 18)
-                        .addComponent(txtNilaiA1, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(txtNilaiA, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(txtKunciA, javax.swing.GroupLayout.PREFERRED_SIZE, 254, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(6, 6, 6)
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtNilaiA))
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelIsiLayout.createSequentialGroup()
+                                .addGap(14, 14, 14)
+                                .addComponent(jLabel6)
+                                .addGap(23, 23, 23))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(btnCariProdi)))
+                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(panelIsiLayout.createSequentialGroup()
+                                .addGap(1, 1, 1)
+                                .addComponent(txtKodeFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(8, 8, 8))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(txtKodeProdi, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)))
+                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtNamaFakultas, javax.swing.GroupLayout.DEFAULT_SIZE, 307, Short.MAX_VALUE)
+                            .addComponent(txtNamaProdi))))
+                .addContainerGap())
         );
         panelIsiLayout.setVerticalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIsiLayout.createSequentialGroup()
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel4)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(3, 3, 3)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(panelIsiLayout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGap(3, 3, 3)
+                        .addComponent(jLabel5))
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addGap(3, 3, 3)
+                        .addComponent(jRadioButton1))
+                    .addComponent(txtKunciA, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(jLabel7))
+                    .addComponent(txtNilaiA, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(5, 5, 5)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton2)
+                    .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel8)
+                        .addComponent(txtKunciB, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(txtNilaiB, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton3)
+                    .addComponent(txtKunciC, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel9)
+                        .addComponent(txtNilaiC, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(5, 5, 5)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jRadioButton4)
+                    .addComponent(txtKunciD, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel10)
+                        .addComponent(txtNilaiD, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(2, 2, 2)
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelIsiLayout.createSequentialGroup()
                         .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(jLabel5)
-                                .addComponent(jRadioButton1))
-                            .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                .addComponent(txtNilaiA, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addComponent(txtNilaiA1, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
-                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtKodeFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNamaFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel6))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(txtKodeProdi, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(txtNamaProdi, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnCariProdi))
-                .addContainerGap())
+                            .addGroup(panelIsiLayout.createSequentialGroup()
+                                .addComponent(jLabel6)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addGroup(panelIsiLayout.createSequentialGroup()
+                                .addComponent(txtNamaFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 8, Short.MAX_VALUE)
+                                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(txtNamaProdi, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(txtKodeProdi, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(btnCariProdi))))
+                        .addContainerGap())
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addComponent(txtKodeFakultas, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
 
         panelData.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cari Berdasarkan", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 1, 14))); // NOI18N
@@ -236,7 +335,7 @@ public class SoalView extends javax.swing.JInternalFrame {
         panelData.setOpaque(false);
 
         ComboBoxCari.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        ComboBoxCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kode Soal", "Soal", "Nilai" }));
+        ComboBoxCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kode Soal", "Soal", "Fakultas", "Program Studi" }));
 
         txtCari.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -283,7 +382,7 @@ public class SoalView extends javax.swing.JInternalFrame {
                     .addComponent(ComboBoxCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 146, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 132, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -293,7 +392,7 @@ public class SoalView extends javax.swing.JInternalFrame {
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(panelIsi, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
+                    .addComponent(panelIsi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(panelButton, javax.swing.GroupLayout.PREFERRED_SIZE, 610, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
@@ -301,7 +400,7 @@ public class SoalView extends javax.swing.JInternalFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addComponent(panelIsi, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(panelButton, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(panelData, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -359,10 +458,17 @@ public class SoalView extends javax.swing.JInternalFrame {
     private javax.swing.JButton btnTambah;
     private javax.swing.JButton btnTutup;
     private javax.swing.JButton btnUbah;
+    private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JRadioButton jRadioButton1;
+    private javax.swing.JRadioButton jRadioButton2;
+    private javax.swing.JRadioButton jRadioButton3;
+    private javax.swing.JRadioButton jRadioButton4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel panelButton;
@@ -373,10 +479,16 @@ public class SoalView extends javax.swing.JInternalFrame {
     private javax.swing.JTextField txtCari;
     public static javax.swing.JTextField txtKodeFakultas;
     public static javax.swing.JTextField txtKodeProdi;
+    public static javax.swing.JTextField txtKunciA;
+    public static javax.swing.JTextField txtKunciB;
+    public static javax.swing.JTextField txtKunciC;
+    public static javax.swing.JTextField txtKunciD;
     public static javax.swing.JTextField txtNamaFakultas;
     public static javax.swing.JTextField txtNamaProdi;
     public static javax.swing.JTextField txtNilaiA;
-    public static javax.swing.JTextField txtNilaiA1;
+    public static javax.swing.JTextField txtNilaiB;
+    public static javax.swing.JTextField txtNilaiC;
+    public static javax.swing.JTextField txtNilaiD;
     // End of variables declaration//GEN-END:variables
 
     public void setTableModel() {
@@ -411,7 +523,14 @@ public class SoalView extends javax.swing.JInternalFrame {
             txtNamaFakultas.setText("");
             txtNamaProdi.setText("");
             txtAreaSoal.setText("");
+            txtKunciA.setText("");
             txtNilaiA.setText("");
+            txtKunciB.setText("");
+            txtNilaiB.setText("");
+            txtKunciC.setText("");
+            txtNilaiC.setText("");
+            txtKunciD.setText("");
+            txtNilaiD.setText("");
 
             btnBatal.setEnabled(true);
             btnBatal.setText("Bersihkan");
@@ -449,11 +568,32 @@ public class SoalView extends javax.swing.JInternalFrame {
                     if (txtAreaSoal.getText().equals("")){
                         JOptionPane.showMessageDialog(this, "Isi'i bujur2 soalnya nang");
                         txtAreaSoal.requestFocus();
+                    } else if (txtKunciA.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kunci dulu say!");
+                        txtKunciA.requestFocus();
                     } else if (txtNilaiA.getText().equals("")) {
                         JOptionPane.showMessageDialog(this, "Lengkapi Data Nilai dulu say!");
                         txtNilaiA.requestFocus();
+                    } else if (txtKunciB.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kunci dulu say!");
+                        txtKunciB.requestFocus();
+                    } else if (txtNilaiB.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nilai dulu say!");
+                        txtNilaiB.requestFocus();
+                    } else if (txtKunciC.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kunci dulu say!");
+                        txtKunciC.requestFocus();
+                    } else if (txtNilaiC.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nilai dulu say!");
+                        txtNilaiC.requestFocus();
+                    } else if (txtKunciD.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kunci dulu say!");
+                        txtKunciD.requestFocus();
+                    } else if (txtNilaiD.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nilai dulu say!");
+                        txtNilaiD.requestFocus();
                     } else if (txtNamaFakultas.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Fakultas!");
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Fakultas dan Program Studi!");
                         btnCariProdi.doClick();
                     } else {
                         insertSoal();
@@ -476,11 +616,32 @@ public class SoalView extends javax.swing.JInternalFrame {
                     if (txtAreaSoal.getText().equals("")){
                         JOptionPane.showMessageDialog(this, "Isi'i bujur2 soalnya nang");
                         txtAreaSoal.requestFocus();
+                    } else if (txtKunciA.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kunci dulu say!");
+                        txtKunciA.requestFocus();
                     } else if (txtNilaiA.getText().equals("")) {
                         JOptionPane.showMessageDialog(this, "Lengkapi Data Nilai dulu say!");
                         txtNilaiA.requestFocus();
+                    } else if (txtKunciB.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kunci dulu say!");
+                        txtKunciB.requestFocus();
+                    } else if (txtNilaiB.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nilai dulu say!");
+                        txtNilaiB.requestFocus();
+                    } else if (txtKunciC.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kunci dulu say!");
+                        txtKunciC.requestFocus();
+                    } else if (txtNilaiC.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nilai dulu say!");
+                        txtNilaiC.requestFocus();
+                    } else if (txtKunciD.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Kunci dulu say!");
+                        txtKunciD.requestFocus();
+                    } else if (txtNilaiD.getText().equals("")) {
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Nilai dulu say!");
+                        txtNilaiD.requestFocus();
                     } else if (txtNamaFakultas.getText().equals("")) {
-                        JOptionPane.showMessageDialog(this, "Lengkapi Data Fakultas!");
+                        JOptionPane.showMessageDialog(this, "Lengkapi Data Fakultas dan Program Studi!");
                         btnCariProdi.doClick();
                     } else {
                         updateSoal();
@@ -508,7 +669,14 @@ public class SoalView extends javax.swing.JInternalFrame {
             Soal soal = new Soal();
             
             soal.setSoal(txtAreaSoal.getText());
-            soal.setNilai(Integer.parseInt(txtNilaiA.getText()));
+            soal.setA(txtKunciA.getText());
+            soal.setNilaiA(Integer.parseInt(txtNilaiA.getText()));
+            soal.setB(txtKunciB.getText());
+            soal.setNilaiB(Integer.parseInt(txtNilaiB.getText()));
+            soal.setC(txtKunciC.getText());
+            soal.setNilaiC(Integer.parseInt(txtNilaiC.getText()));
+            soal.setD(txtKunciD.getText());
+            soal.setNilaiD(Integer.parseInt(txtNilaiD.getText()));
             soal.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
             soal.setNamaFakultas(txtNamaFakultas.getText());
             soal.setIdProdi(Integer.parseInt(txtKodeProdi.getText()));
@@ -527,7 +695,14 @@ public class SoalView extends javax.swing.JInternalFrame {
             Soal soal = new Soal();
             
             soal.setSoal(txtAreaSoal.getText());
-            soal.setNilai(Integer.parseInt(txtNilaiA.getText()));
+            soal.setA(txtKunciA.getText());
+            soal.setNilaiA(Integer.parseInt(txtNilaiA.getText()));
+            soal.setB(txtKunciB.getText());
+            soal.setNilaiB(Integer.parseInt(txtNilaiB.getText()));
+            soal.setC(txtKunciC.getText());
+            soal.setNilaiC(Integer.parseInt(txtNilaiC.getText()));
+            soal.setD(txtKunciD.getText());
+            soal.setNilaiD(Integer.parseInt(txtNilaiD.getText()));
             soal.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
             soal.setNamaFakultas(txtNamaFakultas.getText());
             soal.setIdProdi(Integer.parseInt(txtKodeProdi.getText()));
@@ -582,9 +757,18 @@ public class SoalView extends javax.swing.JInternalFrame {
             btnCariProdi.setEnabled(true);
             
             txtKodeProdi.setText("");
-            txtNamaProdi.setText("");
             txtKodeFakultas.setText("");
             txtNamaFakultas.setText("");
+            txtNamaProdi.setText("");
+            txtAreaSoal.setText("");
+            txtKunciA.setText("");
+            txtNilaiA.setText("");
+            txtKunciB.setText("");
+            txtNilaiB.setText("");
+            txtKunciC.setText("");
+            txtNilaiC.setText("");
+            txtKunciD.setText("");
+            txtNilaiD.setText("");
 
             btnBatal.setEnabled(true);
             btnBatal.setText("Batal");
@@ -653,7 +837,14 @@ public class SoalView extends javax.swing.JInternalFrame {
                     Soal soal = soaltabmod.get(row);
                     
                     txtAreaSoal.setText(soal.getSoal());
-                    txtNilaiA.setText(Integer.toString(soal.getNilai()));
+                    txtNilaiA.setText(soal.getA());
+                    txtKunciA.setText(Integer.toString(soal.getNilaiA()));
+                    txtNilaiA.setText(soal.getA());
+                    txtKunciA.setText(Integer.toString(soal.getNilaiA()));
+                    txtNilaiA.setText(soal.getA());
+                    txtKunciA.setText(Integer.toString(soal.getNilaiA()));
+                    txtNilaiA.setText(soal.getA());
+                    txtKunciA.setText(Integer.toString(soal.getNilaiA()));
                     txtKodeProdi.setText(Integer.toString(soal.getIdProdi()));
                     txtNamaProdi.setText(soal.getNamaProdi());
                     txtKodeFakultas.setText(Integer.toString(soal.getIdFakultas()));
@@ -679,7 +870,9 @@ public class SoalView extends javax.swing.JInternalFrame {
             } else if (ComboBoxCari.getSelectedIndex() == 1) {
                 sqlParameter = "soal";
             } else if (ComboBoxCari.getSelectedIndex() == 2) {
-                sqlParameter = "nilai_soal";
+                sqlParameter = "tb_fakultas.fakultas";
+            } else if (ComboBoxCari.getSelectedIndex() == 3) {
+                sqlParameter = "tb_prodi.nama_prodi";
             }
             searchParameter = txtCari.getText();
             List<Soal> list = soalimpl.getSoalParameter(sqlParameter, searchParameter);
