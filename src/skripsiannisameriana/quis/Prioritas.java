@@ -5,7 +5,10 @@
  */
 package skripsiannisameriana.quis;
 
+import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
+import skripsiannisameriana.connect.Connect;
+import skripsiannisameriana.login.LoginMhs;
 import skripsiannisameriana.quis.CariProdiView;
 
 /**
@@ -14,13 +17,21 @@ import skripsiannisameriana.quis.CariProdiView;
  */
 public class Prioritas extends javax.swing.JInternalFrame {
     
-    //ProdiTabelModel prodiTabelModel = new ProdiTabelModel();
-    //ProdiImplements prodiImplements = new ProdiImplements();
     /**
      * Creates new form Prioritas
      */
+    PreparedStatement ps;
+    public static int id;
+    
+    public static int idfak[] = new int[6];
+    public static int idprodi[] = new int[6];
+    public static int prio[] = new int[6];
+    
     public Prioritas() {
         initComponents();
+//        LoginMhs loginMhs = new LoginMhs();
+//        //loginMhs.getId();
+//        txtPilihFak1.setText(Integer.toString(id));
     }
 
     /**
@@ -201,7 +212,26 @@ public class Prioritas extends javax.swing.JInternalFrame {
 
     private void btnIkutTesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIkutTesActionPerformed
         // TODO add your handling code here:
-        
+        String sql = "INSERT INTO tb_pilihan (id_pendaftar, id_fakultas, id_prodi, prioritas)VALUES (?, ?, ?, ?)";
+        try {
+            ps = Connect.getConnection().prepareStatement(sql);
+      
+            for (int i=0;i<6;i++){
+                
+                //ps.setInt(1, 1);
+                ps.setInt(1, id);
+                ps.setInt(2, idfak[i]);
+                ps.setInt(3, idprodi[i]);
+                ps.setInt(4, prio[i]);
+                ps.executeUpdate();
+                
+//                System.out.println(idfak[i]);
+//                System.out.println(idprodi[i]);
+            }
+        } catch (Exception err) {
+            System.out.println("Salah cyin" + err);
+            JOptionPane.showMessageDialog(null, "Terjadi Kesalahan Saat Menginput Data! ");
+        }
     }//GEN-LAST:event_btnIkutTesActionPerformed
 
 

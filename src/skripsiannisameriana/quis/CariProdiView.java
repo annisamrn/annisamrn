@@ -267,23 +267,41 @@ public class CariProdiView extends javax.swing.JDialog {
 //                    SoalView.txtNamaProdi.setText(prodi.getNamaProdi());
 
                     if (getId_mhs() == 1) {
+                        Prioritas.idfak[0] = prodi.getIdFakultas();
                         Prioritas.txtPilihFak1.setText(prodi.getNamaFakultas());
+                        Prioritas.idprodi[0] = prodi.getIdProdi();
                         Prioritas.txtPilihProdi1.setText(prodi.getNamaProdi());
+                        Prioritas.prio[0] = 1;
                     }else if(getId_mhs() == 2) {
+                        Prioritas.idfak[1] = prodi.getIdFakultas();
                         Prioritas.txtPilihFak2.setText(prodi.getNamaFakultas());
+                        Prioritas.idprodi[1] = prodi.getIdProdi();
                         Prioritas.txtPilihProdi2.setText(prodi.getNamaProdi());
+                        Prioritas.prio[1] = 2;
                     }else if(getId_mhs() == 3) {
+                        Prioritas.idfak[2] = prodi.getIdFakultas();
                         Prioritas.txtPilihFak3.setText(prodi.getNamaFakultas());
+                        Prioritas.idprodi[2] = prodi.getIdProdi();
                         Prioritas.txtPilihProdi3.setText(prodi.getNamaProdi());
+                        Prioritas.prio[2] = 3;
                     }else if(getId_mhs() == 4) {
+                        Prioritas.idfak[3] = prodi.getIdFakultas();
                         Prioritas.txtPilihFak4.setText(prodi.getNamaFakultas());
+                        Prioritas.idprodi[3] = prodi.getIdProdi();
                         Prioritas.txtPilihProdi4.setText(prodi.getNamaProdi());
+                        Prioritas.prio[3] = 4;
                     }else if(getId_mhs() == 5) {
+                        Prioritas.idfak[4] = prodi.getIdFakultas();
                         Prioritas.txtPilihFak5.setText(prodi.getNamaFakultas());
+                        Prioritas.idprodi[4] = prodi.getIdProdi();
                         Prioritas.txtPilihProdi5.setText(prodi.getNamaProdi());
+                        Prioritas.prio[4] = 5;
                     }else{
+                        Prioritas.idfak[5] = prodi.getIdFakultas();
                         Prioritas.txtPilihFak6.setText(prodi.getNamaFakultas());
+                        Prioritas.idprodi[5] = prodi.getIdProdi();
                         Prioritas.txtPilihProdi6.setText(prodi.getNamaProdi());
+                        Prioritas.prio[5] = 6;
                     }
 
                     dispose();

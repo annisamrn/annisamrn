@@ -5,12 +5,7 @@
  */
 package skripsiannisameriana.home;
 
-import skripsiannisameriana.cmahasiswa.PendaftarView;
-import skripsiannisameriana.fakultas.FakultasView;
-import skripsiannisameriana.prodi.ProdiView;
 import skripsiannisameriana.quis.Prioritas;
-import skripsiannisameriana.quis.QuisView;
-import skripsiannisameriana.soal.SoalView;
 
 /**
  *
