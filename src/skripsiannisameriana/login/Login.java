@@ -11,6 +11,7 @@ import javax.swing.JOptionPane;
 import skripsiannisameriana.connect.Connect;
 import skripsiannisameriana.home.Home;
 import skripsiannisameriana.home.Home1;
+import skripsiannisameriana.quis.Prioritas;
 
 /**
  *
@@ -18,6 +19,7 @@ import skripsiannisameriana.home.Home1;
  */
 public class Login extends javax.swing.JFrame {
 
+    LoginMhsImplements lmi = new LoginMhsImplements();
     ResultSet rs;
 
     /**
@@ -75,10 +77,10 @@ public class Login extends javax.swing.JFrame {
         btnClose.setText("Close");
 
         Rpilih.add(r1);
-        r1.setSelected(true);
         r1.setText("Admin");
 
         Rpilih.add(r2);
+        r2.setSelected(true);
         r2.setText("Mahasiswa");
 
         btnDaftar.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
@@ -177,43 +179,28 @@ public class Login extends javax.swing.JFrame {
 
     private void btnLoginActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnLoginActionPerformed
         // TODO add your handling code here:
-        String sql1 = "SELECT * FROM tb_user WHERE username = '" + user.getText() + "' AND password = '" + pass.getText() + "'";
-        String sql2 = "SELECT * FROM tb_calon_mhs WHERE email = '" + user.getText() + "' AND password = '" + pass.getText() + "'";
+        String username = user.getText();
+        String password = pass.getText();       
+        
         if (r1.isSelected()) {
-            try {
-
-                Statement s = Connect.getConnection().createStatement();
-                rs = s.executeQuery(sql1);
-
-                if (rs.next()) {
-                    String user = rs.getString("username");
-                    String pass = rs.getString("password");
-                    Home home = new Home();
-                    home.setVisible(true);
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(this, "username dan password tidak ditemukan");
-                }
-                rs.close();
-            } catch (Exception e) {
+            LoginMhs lm = lmi.getAdmin(username, password);
+            if (lm.getUsername().equals("TIDAK ADA")) {
+                JOptionPane.showMessageDialog(this, "Nama pengguna atau password salah");
+            } else {
+                Home home = new Home();
+                home.setVisible(true);
+                this.dispose();
             }
         } else {
-            try {
-
-                Statement s = Connect.getConnection().createStatement();
-                rs = s.executeQuery(sql2);
-
-                if (rs.next()) {
-                    int id = rs.getInt("id_pendaftar");
-                    String pass = rs.getString("password");
-                    Home1 home1 = new Home1();
-                    home1.setVisible(true);
-                    this.dispose();
-                } else {
-                    JOptionPane.showMessageDialog(this, "username dan password tidak ditemukan");
-                }
-                rs.close();
-            } catch (Exception e) {
+            LoginMhs lm1 = lmi.getMhs(username, password);
+            if (lm1.getUsername().equals("TIDAK ADA")) {
+                JOptionPane.showMessageDialog(this, "Nama pengguna atau password salah");
+            } else {
+                
+                Prioritas.id = lm1.getId_mhs();
+                Home1 home = new Home1();
+                home.setVisible(true);
+                this.dispose();
             }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
