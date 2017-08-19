@@ -183,6 +183,9 @@ public class QuisView extends javax.swing.JInternalFrame {
                 }
                 r++;
             }
+            
+            
+            System.out.println(count);
             rs1.close();
         } catch (Exception e) {
         }

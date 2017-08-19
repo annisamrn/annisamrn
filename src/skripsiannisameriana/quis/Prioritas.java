@@ -8,8 +8,10 @@ package skripsiannisameriana.quis;
 import java.sql.PreparedStatement;
 import javax.swing.JOptionPane;
 import skripsiannisameriana.connect.Connect;
+import skripsiannisameriana.home.Home1;
 import skripsiannisameriana.login.LoginMhs;
 import skripsiannisameriana.quis.CariProdiView;
+import skripsiannisameriana.soal.SoalView;
 
 /**
  *
@@ -217,17 +219,16 @@ public class Prioritas extends javax.swing.JInternalFrame {
             ps = Connect.getConnection().prepareStatement(sql);
       
             for (int i=0;i<6;i++){
-                
-                //ps.setInt(1, 1);
                 ps.setInt(1, id);
                 ps.setInt(2, idfak[i]);
                 ps.setInt(3, idprodi[i]);
                 ps.setInt(4, prio[i]);
                 ps.executeUpdate();
-                
-//                System.out.println(idfak[i]);
-//                System.out.println(idprodi[i]);
             }
+            QuisView qv = new QuisView();
+            Home1.jDesktopPane2.add(qv);
+            qv.setVisible(true);
+            this.dispose();;
         } catch (Exception err) {
             System.out.println("Salah cyin" + err);
             JOptionPane.showMessageDialog(null, "Terjadi Kesalahan Saat Menginput Data! ");

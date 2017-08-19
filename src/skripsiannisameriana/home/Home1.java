@@ -111,7 +111,7 @@ public class Home1 extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JDesktopPane jDesktopPane1;
-    private javax.swing.JDesktopPane jDesktopPane2;
+    public static javax.swing.JDesktopPane jDesktopPane2;
     private skripsiannisameriana.home.PanelHeader panelHeader2;
     // End of variables declaration//GEN-END:variables
 }
