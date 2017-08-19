@@ -227,6 +227,7 @@ public class Prioritas extends javax.swing.JInternalFrame {
             }
             QuisView qv = new QuisView();
             Home1.jDesktopPane2.add(qv);
+            QuisView.id = id;
             qv.setVisible(true);
             this.dispose();;
         } catch (Exception err) {

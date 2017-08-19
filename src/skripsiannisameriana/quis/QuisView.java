@@ -5,6 +5,7 @@
  */
 package skripsiannisameriana.quis;
 
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -23,6 +24,12 @@ public class QuisView extends javax.swing.JInternalFrame {
     String jawaban[] = new String[7];
     String jw[] = new String[7];
     int i = 0, p = 0;
+    PreparedStatement ps;
+    public static int id;
+    int hasil[] = new int[6];
+    int id_fak[] = new int[6];
+    int id_pro[] = new int[6];
+    int id_pend[] = new int[6];
 
     /**
      * Creates new form QuisView
@@ -157,20 +164,22 @@ public class QuisView extends javax.swing.JInternalFrame {
             i++;
         }
 
-        String sql3 = "SELECT * FROM tb_pilihan WHERE id_pendaftar = 0";
+        String sql3 = "SELECT * FROM tb_pilihan WHERE id_pendaftar = '"+id+"'";
 
         try {
             Statement s = Connect.getConnection().createStatement();
             rs1 = s.executeQuery(sql3);
 
+            int j = 0;
             while (rs1.next()) {
-                int id_fak = rs1.getInt("id_fakultas");
-                int id_pro = rs1.getInt("id_prodi");
+                id_fak[j] = rs1.getInt("id_fakultas");
+                id_pro[j] = rs1.getInt("id_prodi");
+                id_pend[j] = rs1.getInt("id_pendaftar");
 
-                String sql2 = "SELECT * FROM tb_soal WHERE id_fakultas =" + id_fak + " AND id_prodi = " + id_pro;
+                String sql2 = "SELECT * FROM tb_soal WHERE id_fakultas =" + id_fak[j] + " AND id_prodi = " + id_pro[j];
                 Statement s1 = Connect.getConnection().createStatement();
                 rs2 = s1.executeQuery(sql2);
-                
+
                 int r = 0;
                 int count = 0;
                 while (rs2.next()) {
@@ -180,7 +189,7 @@ public class QuisView extends javax.swing.JInternalFrame {
                     int nilai2 = rs2.getInt("nilai_b");
                     int nilai3 = rs2.getInt("nilai_c");
                     int nilai4 = rs2.getInt("nilai_d");
-                    
+
                     if (jawaban[r].equals("a")) {
                         count = count + nilai1;
                         //System.out.println(count);
@@ -192,13 +201,26 @@ public class QuisView extends javax.swing.JInternalFrame {
                         count = count + nilai4;
                     }
                     r++;
-                    
+
                 }
                 rs2.close();
-                System.out.print(id_fak);
+                System.out.print(id_fak[j]);
                 System.out.println(count);
+//                System.out.print(id_fak);
+                //System.out.println(count);
+                hasil[j] = count;
+                j++;
             }
             rs1.close();
+            String sql4 = "INSERT INTO tb_hasil (hasil, id_pendaftar, id_fakultas, id_prodi)VALUES (?, ?, ?, ?)";
+            ps = Connect.getConnection().prepareStatement(sql4);
+            for (int k = 0; k < 6; k++) {
+                ps.setInt(1, hasil[k]);
+                ps.setInt(2, k);
+                ps.setInt(3, id_fak[k]);
+                ps.setInt(4, id_pro[k]);
+                ps.executeUpdate();
+            }
         } catch (Exception e) {
         }
 
