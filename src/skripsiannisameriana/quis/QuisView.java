@@ -19,10 +19,10 @@ import skripsiannisameriana.connect.Connect;
  */
 public class QuisView extends javax.swing.JInternalFrame {
 
-    ResultSet rs, rs1;
-    String jawaban[] = new String[3];
-    String jw[] = new String[3];
-    int i = 0, p = 0, count = 0;
+    ResultSet rs, rs1, rs2;
+    String jawaban[] = new String[7];
+    String jw[] = new String[7];
+    int i = 0, p = 0;
 
     /**
      * Creates new form QuisView
@@ -156,36 +156,48 @@ public class QuisView extends javax.swing.JInternalFrame {
             jawaban[i] = "d";
             i++;
         }
-        
-        String sql2 = "SELECT * FROM tb_soal";
+
+        String sql3 = "SELECT * FROM tb_pilihan WHERE id_pendaftar = 0";
+
         try {
-
             Statement s = Connect.getConnection().createStatement();
-            rs1 = s.executeQuery(sql2);
-            int r = 0;
-            while (rs1.next()) {
-                String kunci = rs1.getString("kunci");
-                int nilai1 = rs1.getInt("nilai_a");
-                int nilai2 = rs1.getInt("nilai_b");
-                int nilai3 = rs1.getInt("nilai_c");
-                int nilai4 = rs1.getInt("nilai_d");
+            rs1 = s.executeQuery(sql3);
 
-                //System.out.println(kunci);
-                if (jawaban[r].equals("a")) {
-                    count = count + nilai1;
-                    //System.out.println(count);
-                }else if(jawaban[r].equals("b")){
-                    count = count + nilai2;
-                }else if(jawaban[r].equals("c")){
-                    count = count + nilai3;
-                }else{
-                    count = count + nilai4;
+            while (rs1.next()) {
+                int id_fak = rs1.getInt("id_fakultas");
+                int id_pro = rs1.getInt("id_prodi");
+
+                String sql2 = "SELECT * FROM tb_soal WHERE id_fakultas =" + id_fak + " AND id_prodi = " + id_pro;
+                Statement s1 = Connect.getConnection().createStatement();
+                rs2 = s1.executeQuery(sql2);
+                
+                int r = 0;
+                int count = 0;
+                while (rs2.next()) {
+
+                    String kunci = rs2.getString("id_soal");
+                    int nilai1 = rs2.getInt("nilai_a");
+                    int nilai2 = rs2.getInt("nilai_b");
+                    int nilai3 = rs2.getInt("nilai_c");
+                    int nilai4 = rs2.getInt("nilai_d");
+                    
+                    if (jawaban[r].equals("a")) {
+                        count = count + nilai1;
+                        //System.out.println(count);
+                    } else if (jawaban[r].equals("b")) {
+                        count = count + nilai2;
+                    } else if (jawaban[r].equals("c")) {
+                        count = count + nilai3;
+                    } else {
+                        count = count + nilai4;
+                    }
+                    r++;
+                    
                 }
-                r++;
+                rs2.close();
+                System.out.print(id_fak);
+                System.out.println(count);
             }
-            
-            
-            System.out.println(count);
             rs1.close();
         } catch (Exception e) {
         }
