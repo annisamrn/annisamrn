@@ -5,6 +5,7 @@
  */
 package skripsiannisameriana.home;
 
+import skripsiannisameriana.quis.AnalisisSPKView;
 import skripsiannisameriana.quis.Prioritas;
 import skripsiannisameriana.quis.QuisView;
 
@@ -20,13 +21,15 @@ public class Home1 extends javax.swing.JFrame {
     public Home1() {
         initComponents();
         setExtendedState(MAXIMIZED_BOTH);
-        Prioritas p = new Prioritas();
-        jDesktopPane2.add(p);
-        p.setVisible(true);
+//        Prioritas p = new Prioritas();
+//        jDesktopPane2.add(p);
+//        p.setVisible(true);
         
-          //QuisView qv = new QuisView();
-          //jDesktopPane2.add(qv);
-          //qv.setVisible(true);
+//          QuisView qv = new QuisView();
+//          jDesktopPane2.add(qv);
+//          qv.setVisible(true);
+        
+        AnalisisSPKView view = new AnalisisSPKView(this, rootPaneCheckingEnabled);
     }
 
     /**

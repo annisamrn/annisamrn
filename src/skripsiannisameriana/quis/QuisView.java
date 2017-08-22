@@ -26,10 +26,19 @@ public class QuisView extends javax.swing.JInternalFrame {
     int i = 0, p = 0;
     PreparedStatement ps;
     public static int id;
-    int hasil[] = new int[6];
-    int id_fak[] = new int[6];
-    int id_pro[] = new int[6];
-    int id_pend[] = new int[6];
+
+    //save jawaban
+    int id_soal1;
+    int id_fak1;
+    int id_pro1;
+    int id_pend1;
+
+    //save jawaban ke array
+    int hasil[] = new int[7];
+    int id_fak[] = new int[7];
+    int id_pro[] = new int[7];
+    int id_pend[] = new int[7];
+    int id_soal[] = new int[7];
 
     /**
      * Creates new form QuisView
@@ -108,119 +117,110 @@ public class QuisView extends javax.swing.JInternalFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
-        // TODO add your handling code here:
-        try {
-            if (rs.next()) {
-                int id = rs.getInt("id_soal");
-                String soal = rs.getString("soal");
-                String a = rs.getString("a");
-                String b = rs.getString("b");
-                String c = rs.getString("c");
-                String d = rs.getString("d");
+        if (jR1.isSelected()) {
+            jawaban[p] = "a";
+            id_soal[p] = id_soal1;
+            id_fak[p] = id_fak1;
+            id_pro[p] = id_pro1;
+            p++;
+            next_soal();
 
-                jLabel1.setText(soal);
-                jR1.setText(a);
-                jR2.setText(b);
-                jR3.setText(c);
-                jR4.setText(d);
-
-                if (jR1.isSelected()) {
-                    jawaban[i] = "a";
-                    i++;
-                } else if (jR2.isSelected()) {
-                    jawaban[i] = "b";
-                    i++;
-                } else if (jR3.isSelected()) {
-                    jawaban[i] = "c";
-                    i++;
-                } else {
-                    jawaban[i] = "d";
-                    i++;
-                }
-//
-                chek_button();
-            } else {
-                //rs.previous();
-                JOptionPane.showMessageDialog(QuisView.this, "End of File");
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(QuisView.class.getName()).log(Level.SEVERE, null, ex);
+        } else if (jR2.isSelected()) {
+            jawaban[p] = "b";
+            id_soal[p] = id_soal1;
+            id_fak[p] = id_fak1;
+            id_pro[p] = id_pro1;
+            p++;
+            next_soal();
+        } else if (jR3.isSelected()) {
+            jawaban[p] = "c";
+            id_soal[p] = id_soal1;
+            id_fak[p] = id_fak1;
+            id_pro[p] = id_pro1;
+            p++;
+            next_soal();
+        } else {
+            jawaban[p] = "d";
+            id_soal[p] = id_soal1;
+            id_fak[p] = id_fak1;
+            id_pro[p] = id_pro1;
+            p++;
+            next_soal();
         }
     }//GEN-LAST:event_btnNextActionPerformed
 
     private void btnResultActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResultActionPerformed
         // TODO add your handling code here:
         if (jR1.isSelected()) {
-            jawaban[i] = "a";
-            i++;
+            jawaban[p] = "a";
+            id_soal[p] = id_soal1;
+            id_fak[p] = id_fak1;
+            id_pro[p] = id_pro1;
+            p++;
+            next_soal();
         } else if (jR2.isSelected()) {
-            jawaban[i] = "b";
-            i++;
+            jawaban[p] = "b";
+            id_soal[p] = id_soal1;
+            id_fak[p] = id_fak1;
+            id_pro[p] = id_pro1;
+            p++;
+            next_soal();
         } else if (jR3.isSelected()) {
-            jawaban[i] = "c";
-            i++;
+            jawaban[p] = "c";
+            id_soal[p] = id_soal1;
+            id_fak[p] = id_fak1;
+            id_pro[p] = id_pro1;
+            p++;
+            next_soal();
         } else {
-            jawaban[i] = "d";
-            i++;
+            jawaban[p] = "d";
+            id_soal[p] = id_soal1;
+            id_fak[p] = id_fak1;
+            id_pro[p] = id_pro1;
+            p++;
+            next_soal();
         }
 
-        String sql3 = "SELECT * FROM tb_pilihan WHERE id_pendaftar = '"+id+"'";
-
+        String sql1 = "SELECT * FROM tb_soal ORDER BY id_soal";
         try {
-            Statement s = Connect.getConnection().createStatement();
-            rs1 = s.executeQuery(sql3);
 
-            int j = 0;
+            Statement s1 = Connect.getConnection().createStatement();
+            rs1 = s1.executeQuery(sql1);
+
+            int r = 0;
             while (rs1.next()) {
-                id_fak[j] = rs1.getInt("id_fakultas");
-                id_pro[j] = rs1.getInt("id_prodi");
-                id_pend[j] = rs1.getInt("id_pendaftar");
+                int nilai1 = rs1.getInt("nilai_a");
+                int nilai2 = rs1.getInt("nilai_b");
+                int nilai3 = rs1.getInt("nilai_c");
+                int nilai4 = rs1.getInt("nilai_d");
 
-                String sql2 = "SELECT * FROM tb_soal WHERE id_fakultas =" + id_fak[j] + " AND id_prodi = " + id_pro[j];
-                Statement s1 = Connect.getConnection().createStatement();
-                rs2 = s1.executeQuery(sql2);
-
-                int r = 0;
-                int count = 0;
-                while (rs2.next()) {
-
-                    String kunci = rs2.getString("id_soal");
-                    int nilai1 = rs2.getInt("nilai_a");
-                    int nilai2 = rs2.getInt("nilai_b");
-                    int nilai3 = rs2.getInt("nilai_c");
-                    int nilai4 = rs2.getInt("nilai_d");
-
-                    if (jawaban[r].equals("a")) {
-                        count = count + nilai1;
-                        //System.out.println(count);
-                    } else if (jawaban[r].equals("b")) {
-                        count = count + nilai2;
-                    } else if (jawaban[r].equals("c")) {
-                        count = count + nilai3;
-                    } else {
-                        count = count + nilai4;
-                    }
-                    r++;
-
+                if (jawaban[r].equals("a")) {
+                    hasil[r] = nilai1;
+                    id_pend[r] = id;
+                } else if (jawaban[r].equals("b")) {
+                    hasil[r] = nilai2;
+                    id_pend[r] = id;
+                } else if (jawaban[r].equals("c")) {
+                    hasil[r] = nilai3;
+                    id_pend[r] = id;
+                } else {
+                    hasil[r] = nilai4;
+                    id_pend[r] = id;
                 }
-                rs2.close();
-                System.out.print(id_fak[j]);
-                System.out.println(count);
-//                System.out.print(id_fak);
-                //System.out.println(count);
-                hasil[j] = count;
-                j++;
+                r++;
             }
             rs1.close();
-            String sql4 = "INSERT INTO tb_hasil (hasil, id_pendaftar, id_fakultas, id_prodi)VALUES (?, ?, ?, ?)";
+            String sql4 = "INSERT INTO tb_hasil (hasil,id_soal, id_pendaftar, id_fakultas, id_prodi)VALUES (?, ?, ?, ?, ?)";
             ps = Connect.getConnection().prepareStatement(sql4);
-            for (int k = 0; k < 6; k++) {
+            for (int k = 0; k < 7; k++) {
                 ps.setInt(1, hasil[k]);
-                ps.setInt(2, k);
-                ps.setInt(3, id_fak[k]);
-                ps.setInt(4, id_pro[k]);
+                ps.setInt(2, id_soal[k]);
+                ps.setInt(3, id_pend[k]);
+                ps.setInt(4, id_fak[k]);
+                ps.setInt(5, id_pro[k]);
                 ps.executeUpdate();
             }
+
         } catch (Exception e) {
         }
 
@@ -240,7 +240,7 @@ public class QuisView extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void tampil() {
-        String sql = "SELECT * FROM tb_soal";
+        String sql = "SELECT * FROM tb_soal ORDER BY id_soal";
         try {
 
             Statement s = Connect.getConnection().createStatement();
@@ -248,6 +248,9 @@ public class QuisView extends javax.swing.JInternalFrame {
 
             rs.next();
             String soal = rs.getString("soal");
+            id_soal1 = rs.getInt("id_soal");
+            id_fak1 = rs.getInt("id_fakultas");
+            id_pro1 = rs.getInt("id_prodi");
             String a = rs.getString("a");
             String b = rs.getString("b");
             String c = rs.getString("c");
@@ -259,7 +262,34 @@ public class QuisView extends javax.swing.JInternalFrame {
             jR3.setText(c);
             jR4.setText(d);
 
+            i++;
+
         } catch (Exception e) {
+        }
+    }
+
+    //next soal
+    private void next_soal() {
+        try {
+            if (rs.next()) {
+                String soal = rs.getString("soal");
+                id_soal1 = rs.getInt("id_soal");
+                id_fak1 = rs.getInt("id_fakultas");
+                id_pro1 = rs.getInt("id_prodi");
+                String a = rs.getString("a");
+                String b = rs.getString("b");
+                String c = rs.getString("c");
+                String d = rs.getString("d");
+
+                jLabel1.setText(soal);
+                jR1.setText(a);
+                jR2.setText(b);
+                jR3.setText(c);
+                jR4.setText(d);
+                chek_button();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(QuisView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 

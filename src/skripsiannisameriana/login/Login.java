@@ -12,6 +12,7 @@ import skripsiannisameriana.connect.Connect;
 import skripsiannisameriana.home.Home;
 import skripsiannisameriana.home.Home1;
 import skripsiannisameriana.quis.Prioritas;
+import skripsiannisameriana.quis.QuisView;
 
 /**
  *
@@ -197,10 +198,11 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Nama pengguna atau password salah");
             } else {
                 
-                Prioritas.id = lm1.getId_mhs();
+                QuisView.id = lm1.getId_mhs();
                 Home1 home = new Home1();
                 home.setVisible(true);
                 this.dispose();
+                
             }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
