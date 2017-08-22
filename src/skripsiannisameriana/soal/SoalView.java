@@ -482,7 +482,7 @@ public class SoalView extends javax.swing.JInternalFrame {
             btnTambah.setEnabled(true);
             btnTambah.setText("Baru");
             btnTambah.setToolTipText("Baru");
-
+//
             btnTutup.setEnabled(true);
 
             txtCari.setEnabled(true);
