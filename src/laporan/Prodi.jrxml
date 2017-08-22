@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d6799fdf-a37e-4961-89bc-ec93eb31bbc5">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT tb_fakultas.*, tb_prodi.* FROM tb_prodi JOIN tb_fakultas ON tb_fakultas.id_fakultas = tb_prodi.id_fakultas]]>
+	</queryString>
+	<field name="id_fakultas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fakultas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_prodi" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_prodi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="53" splitType="Stretch">
+			<staticText>
+				<reportElement x="172" y="32" width="243" height="20" uuid="4f60ddbf-526e-49fc-ad3b-bfbb7c7e12cc"/>
+				<textElement>
+					<font size="14" isBold="false"/>
+				</textElement>
+				<text><![CDATA[MUHAMMAD ARSYAD AL BANJARI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="76" y="0" width="414" height="32" uuid="a4df8a53-716e-4c8b-ab0a-179b23524fc7"/>
+				<textElement>
+					<font size="24" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSITAS ISLAM KALIMANTAN]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="39" splitType="Stretch">
+			<staticText>
+				<reportElement x="224" y="13" width="116" height="20" uuid="77e6e430-f3aa-4b7b-aa08-cc111c2ad9f8"/>
+				<textElement>
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Data Program Studi]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="76" y="1" width="52" height="21" uuid="79fff3a1-df1d-431d-a4eb-07ce84b68229"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[ID PRODI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="128" y="1" width="186" height="21" uuid="869c653a-2d4c-43bb-9c4b-d2e02ec506ad"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA PROGRAM STUDI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="314" y="0" width="176" height="22" uuid="48548c41-a006-4d73-b7cb-906637b55575"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NAMA FAKULTAS]]></text>
+			</staticText>
+			<line>
+				<reportElement x="76" y="21" width="414" height="1" uuid="5f8c7a1e-1d96-4551-9826-113a1f0a4ae9"/>
+			</line>
+			<line>
+				<reportElement x="76" y="0" width="414" height="1" uuid="1f04ac13-7e8a-41bf-b7fa-1b27a15eaac1"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="76" y="0" width="52" height="20" uuid="59493868-73b1-400c-b137-a49349bd7472"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{id_prodi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="128" y="0" width="186" height="20" uuid="2cd33a2e-97ae-424e-8b86-ab457567d9be"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{nama_prodi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="314" y="1" width="176" height="20" uuid="877c4c3d-83d3-4f95-a52f-259381d04b5c"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{fakultas}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="76" y="21" width="414" height="1" uuid="f1d0e698-774d-4152-8fbe-d759d2fbd9d0"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="42" splitType="Stretch"/>
+	</summary>
+</jasperReport>

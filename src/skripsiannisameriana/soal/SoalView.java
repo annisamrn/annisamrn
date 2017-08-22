@@ -41,7 +41,6 @@ public class SoalView extends javax.swing.JInternalFrame {
         btnUbah = new javax.swing.JButton();
         btnHapus = new javax.swing.JButton();
         btnBatal = new javax.swing.JButton();
-        btnCetak = new javax.swing.JButton();
         btnTutup = new javax.swing.JButton();
         panelIsi = new javax.swing.JPanel();
         txtKodeFakultas = new javax.swing.JTextField();
@@ -94,7 +93,7 @@ public class SoalView extends javax.swing.JInternalFrame {
         panelButton.setBorder(new javax.swing.border.LineBorder(new java.awt.Color(255, 255, 255), 1, true));
         panelButton.setForeground(new java.awt.Color(255, 255, 255));
         panelButton.setOpaque(false);
-        panelButton.setLayout(new java.awt.GridLayout());
+        panelButton.setLayout(new java.awt.GridLayout(1, 0));
 
         btnTambah.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnTambah.setText("Baru");
@@ -131,15 +130,6 @@ public class SoalView extends javax.swing.JInternalFrame {
             }
         });
         panelButton.add(btnBatal);
-
-        btnCetak.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
-        btnCetak.setText("Cetak");
-        btnCetak.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCetakActionPerformed(evt);
-            }
-        });
-        panelButton.add(btnCetak);
 
         btnTutup.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnTutup.setText("Tutup");
@@ -387,10 +377,6 @@ public class SoalView extends javax.swing.JInternalFrame {
         refresh();
     }//GEN-LAST:event_btnBatalActionPerformed
 
-    private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
-        //buttonPrint();
-    }//GEN-LAST:event_btnCetakActionPerformed
-
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
         buttonTutup();
     }//GEN-LAST:event_btnTutupActionPerformed
@@ -414,7 +400,6 @@ public class SoalView extends javax.swing.JInternalFrame {
     private javax.swing.JComboBox ComboBoxCari;
     private javax.swing.JButton btnBatal;
     private javax.swing.JButton btnCariProdi;
-    private javax.swing.JButton btnCetak;
     private javax.swing.ButtonGroup btnGrupKunciJawaban;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnTambah;
@@ -498,7 +483,6 @@ public class SoalView extends javax.swing.JInternalFrame {
             btnTambah.setText("Baru");
             btnTambah.setToolTipText("Baru");
 
-            btnCetak.setEnabled(true);
             btnTutup.setEnabled(true);
 
             txtCari.setEnabled(true);
