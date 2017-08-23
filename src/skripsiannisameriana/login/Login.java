@@ -76,6 +76,11 @@ public class Login extends javax.swing.JFrame {
         });
 
         btnClose.setText("Close");
+        btnClose.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloseActionPerformed(evt);
+            }
+        });
 
         Rpilih.add(r1);
         r1.setText("Admin");
@@ -198,7 +203,8 @@ public class Login extends javax.swing.JFrame {
                 JOptionPane.showMessageDialog(this, "Nama pengguna atau password salah");
             } else {
                 
-                QuisView.id = lm1.getId_mhs();
+                //QuisView.id = lm1.getId_mhs();
+                Prioritas.id = lm1.getId_mhs();
                 Home1 home = new Home1();
                 home.setVisible(true);
                 this.dispose();
@@ -206,6 +212,11 @@ public class Login extends javax.swing.JFrame {
             }
         }
     }//GEN-LAST:event_btnLoginActionPerformed
+
+    private void btnCloseActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloseActionPerformed
+        // TODO add your handling code here:
+        System.exit(0);
+    }//GEN-LAST:event_btnCloseActionPerformed
 
     /**
      * @param args the command line arguments

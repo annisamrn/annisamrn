@@ -229,7 +229,7 @@ public class Prioritas extends javax.swing.JInternalFrame {
             Home1.jDesktopPane2.add(qv);
             QuisView.id = id;
             qv.setVisible(true);
-            this.dispose();;
+            this.dispose();
         } catch (Exception err) {
             System.out.println("Salah cyin" + err);
             JOptionPane.showMessageDialog(null, "Terjadi Kesalahan Saat Menginput Data! ");

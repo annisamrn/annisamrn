@@ -13,6 +13,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import skripsiannisameriana.connect.Connect;
+import skripsiannisameriana.home.Home1;
 
 /**
  *
@@ -20,9 +21,9 @@ import skripsiannisameriana.connect.Connect;
  */
 public class QuisView extends javax.swing.JInternalFrame {
 
-    ResultSet rs, rs1, rs2;
-    String jawaban[] = new String[7];
-    String jw[] = new String[7];
+    ResultSet rs, rs1, rs2, rs3;
+    String[] jawaban;
+    String[] jw;
     int i = 0, p = 0;
     PreparedStatement ps;
     public static int id;
@@ -34,11 +35,11 @@ public class QuisView extends javax.swing.JInternalFrame {
     int id_pend1;
 
     //save jawaban ke array
-    int hasil[] = new int[7];
-    int id_fak[] = new int[7];
-    int id_pro[] = new int[7];
-    int id_pend[] = new int[7];
-    int id_soal[] = new int[7];
+    int[] hasil;
+    int[] id_fak;
+    int[] id_pro;
+    int[] id_pend;
+    int[] id_soal;
 
     /**
      * Creates new form QuisView
@@ -210,9 +211,17 @@ public class QuisView extends javax.swing.JInternalFrame {
                 r++;
             }
             rs1.close();
+            
+            String sql = "SELECT * FROM tb_soal ORDER BY id_soal";
+            Statement s2 = Connect.getConnection().createStatement();
+            rs3 = s2.executeQuery(sql);
+            int jml = 0;
+            while (rs3.next()) {
+                jml++;
+            }
             String sql4 = "INSERT INTO tb_hasil (hasil,id_soal, id_pendaftar, id_fakultas, id_prodi)VALUES (?, ?, ?, ?, ?)";
             ps = Connect.getConnection().prepareStatement(sql4);
-            for (int k = 0; k < 7; k++) {
+            for (int k = 0; k < jml; k++) {
                 ps.setInt(1, hasil[k]);
                 ps.setInt(2, id_soal[k]);
                 ps.setInt(3, id_pend[k]);
@@ -220,6 +229,12 @@ public class QuisView extends javax.swing.JInternalFrame {
                 ps.setInt(5, id_pro[k]);
                 ps.executeUpdate();
             }
+            
+            Home1 home1 = new Home1();
+            home1.dispose();
+            
+            AnalisisSPKView analisisSPKView = new AnalisisSPKView(home1, closable);
+            analisisSPKView.setEnabled(true);
 
         } catch (Exception e) {
         }
@@ -263,6 +278,21 @@ public class QuisView extends javax.swing.JInternalFrame {
             jR4.setText(d);
 
             i++;
+
+            Statement s1 = Connect.getConnection().createStatement();
+            rs2 = s1.executeQuery(sql);
+            int jml_kriteria = 0;
+            while (rs2.next()) {
+                jml_kriteria++;
+            }
+
+            hasil = new int[jml_kriteria];
+            id_fak = new int[jml_kriteria];
+            id_pro = new int[jml_kriteria];
+            id_pend = new int[jml_kriteria];
+            id_soal = new int[jml_kriteria];
+            jawaban = new String[jml_kriteria];
+            jw = new String[jml_kriteria];
 
         } catch (Exception e) {
         }

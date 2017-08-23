@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-
 package skripsiannisameriana.quis;
 
 import java.math.BigDecimal;
 import java.sql.ResultSet;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
+import skripsiannisameriana.connect.Connect;
 
 /**
  *
@@ -20,20 +20,206 @@ public class AnalisisSPKView extends javax.swing.JDialog {
     /**
      * Creates new form AnalisisSPKView
      */
+    Connect k = new Connect();
     ResultSet rs = null;
-    
+    String[] alternatif;
+    String[] id_alternatif;
+    String[] kriteria;
+    String[] id_kriteria;
+    String[] costbenefit;
+    double[] kepentingan;
+    double[][] alternatifkriteria;
+
     public AnalisisSPKView(java.awt.Frame parent, boolean modal) {
         super(parent, modal);
         initComponents();
-        
+
         try {
             int c = -1;
-            
+            rs = k.select("select * from tb_prodi");
+            int jml_alternatif = 0;
+            while (rs.next()) {
+                jml_alternatif++;
+            }
+            alternatif = new String[jml_alternatif];
+            id_alternatif = new String[jml_alternatif];
+            rs = k.select("select * from tb_prodi");
+            c = -1;
+            while (rs.next()) {
+                c++;
+                alternatif[c] = rs.getString("nama_prodi");
+                id_alternatif[c] = rs.getString("id_prodi");
+            }
+
+            rs = k.select("select * from tb_pilihan");
+            int jml_kriteria = 0;
+            while (rs.next()) {
+                jml_kriteria++;
+            }
+
+            kriteria = new String[jml_kriteria];
+            id_kriteria = new String[jml_kriteria];
+            costbenefit = new String[jml_kriteria];
+            kepentingan = new double[jml_kriteria];
+            rs = k.select("select * from tb_pilihan");
+            c = -1;
+            while (rs.next()) {
+                c++;
+                kriteria[c] = rs.getString("id_prodi");
+                //id_kriteria[c] = rs.getString("id_soal");
+                //costbenefit[c] = rs.getString("costbenefit");
+                kepentingan[c] = rs.getDouble("prioritas");
+            }
+
+            alternatifkriteria = new double[jml_alternatif][jml_kriteria];
+            for (int i = 0; i < alternatif.length; i++) {
+                for (int j = 0; j < kriteria.length; j++) {
+                    //rs = k.select("select * from tb_hasil where id_prodi = '" + id_alternatif[i] + "' and id_soal = '" + id_kriteria[j] + "'");
+                    rs = k.select("select * from tb_hasil where id_prodi = '" + id_alternatif[i] + "'");
+                    while (rs.next()) {
+                        alternatifkriteria[i][j] = rs.getDouble("hasil");
+                    }
+                }
+            }
         } catch (Exception e) {
+
+        }
+
+        double[] pembagi = new double[kriteria.length];
+
+        for (int i = 0; i < kriteria.length; i++) {
+            pembagi[i] = 0.0D;
+            for (int j = 0; j < alternatif.length; j++) {
+                pembagi[i] += alternatifkriteria[j][i] * alternatifkriteria[j][i];
+            }
+            pembagi[i] = Math.sqrt(pembagi[i]);
+        }
+
+        double[][] normalisasi = new double[alternatif.length][kriteria.length];
+
+        for (int i = 0; i < alternatif.length; i++) {
+            for (int j = 0; j < kriteria.length; j++) {
+                normalisasi[i][j] = (alternatifkriteria[i][j] / pembagi[j]);
+                
+            }
+        }
+
+        double[][] terbobot = new double[alternatif.length][kriteria.length];
+
+        for (int i = 0; i < alternatif.length; i++) {
+            for (int j = 0; j < kriteria.length; j++) {
+                normalisasi[i][j] *= kepentingan[j];
+                //System.out.println(normalisasi[i][j]);
+            }
+        }
+
+        double[] aplus = new double[kriteria.length];
+
+        for (int i = 0; i < kriteria.length; i++) {
+            for (int j = 0; j < alternatif.length; j++) {
+                if (j == 0) {
+                    aplus[i] = terbobot[j][i];
+
+                } else if (aplus[i] < terbobot[j][i]) {
+                    aplus[i] = terbobot[j][i];
+                }
+            }
+        }
+
+        double[] amin = new double[kriteria.length];
+
+        for (int i = 0; i < kriteria.length; i++) {
+            for (int j = 0; j < alternatif.length; j++) {
+                if (j == 0) {
+                    amin[i] = terbobot[j][i];
+
+                } else if (amin[i] > terbobot[j][i]) {
+                    amin[i] = terbobot[j][i];
+                }
+            }
         }
         
-        //tampilbaris(tabelDMin, data);
+        double[] dplus = new double[alternatif.length];
+
+        for (int i = 0; i < alternatif.length; i++) {
+            dplus[i] = 0.0D;
+            for (int j = 0; j < kriteria.length; j++) {
+                dplus[i] += (aplus[j] - terbobot[i][j]) * (aplus[j] - terbobot[i][j]);
+            }
+            dplus[i] = Math.sqrt(dplus[i]);
+        }
+        
+        double[] dmin = new double[alternatif.length];
+
+        for (int i = 0; i < alternatif.length; i++) {
+            dmin[i] = 0.0D;
+            for (int j = 0; j < kriteria.length; j++) {
+                dmin[i] += (terbobot[i][j] - amin[j]) * (terbobot[i][j] - amin[j]);
+            }
+            dmin[i] = Math.sqrt(dmin[i]);
+        }
+        
+        //error
+        double[] hasil = new double[alternatif.length];
+
+//        for (int i = 0; i < alternatif.length; i++) {
+//            dmin[i] /= (dmin[i] + dplus[i]);
+//        }
+        
+        String[] alternatifrangking = new String[alternatif.length];
+        double[] hasilrangking = new double[alternatif.length];
+
+        for (int i = 0; i < alternatif.length; i++) {
+            hasilrangking[i] = hasil[i];
+            alternatifrangking[i] = alternatif[i];
+        }
+
+        for (int i = 0; i < alternatif.length; i++) {
+            for (int j = i; j < alternatif.length; j++) {
+                if (hasilrangking[j] > hasilrangking[i]) {
+                    double tmphasil = hasilrangking[i];
+                    String tmpalternatif = alternatifrangking[i];
+                    hasilrangking[i] = hasilrangking[j];
+                    alternatifrangking[i] = alternatifrangking[j];
+                    hasilrangking[j] = tmphasil;
+                    alternatifrangking[j] = tmpalternatif;
+                }
+            }
+        }
+        
+        labelAlternatifTerbaik.setText(alternatifrangking[0]);
+        labelNilaiTerbesar.setText(BigDecimal.valueOf(hasilrangking[0]).toPlainString());
+
         tabelAlternatif.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelKriteria.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelKepentingan.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelAlternatifKriteria.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelPembagi.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelNormalisasi.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelTerbobot.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelAPlus.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelAMinimal.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelDPlus.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelDMin.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelHasil.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelHasilRanking.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+        tabelAlternatifRanking.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
+
+        tampilbaris(tabelAlternatif, alternatif);
+        tampilbaris(tabelKriteria, kriteria);
+        tampilbaris1(tabelKepentingan, kepentingan);
+        tampiltabel(tabelAlternatifKriteria, alternatifkriteria);
+        tampilbaris1(tabelPembagi, pembagi);
+        tampiltabel(tabelNormalisasi, normalisasi);
+        tampiltabel(tabelTerbobot, terbobot);
+        tampilbaris1(tabelAPlus, aplus);
+        tampilbaris1(tabelAMinimal, amin);
+        tampilkolom(tabelDPlus, dplus);
+        tampilkolom(tabelDMin, dmin);
+        tampilkolom(tabelHasil, hasil);
+        tampilkolom(tabelHasilRanking, hasilrangking);
+        tampilkolom1(tabelAlternatifRanking, alternatifrangking);
+
     }
 
     /**
@@ -146,6 +332,8 @@ public class AnalisisSPKView extends javax.swing.JDialog {
 
         jLabel7.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jLabel7.setText("Kriteria");
+
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
 
         tabelKriteria.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -619,8 +807,30 @@ public class AnalisisSPKView extends javax.swing.JDialog {
     private javax.swing.JTable tabelPembagi;
     private javax.swing.JTable tabelTerbobot;
     // End of variables declaration//GEN-END:variables
-    
-    public void tampilbaris(JTable tbl, double[] data) {
+
+    public void tampilbaris(JTable tbl, String[] data) {
+        DefaultTableModel model = null;
+
+        String[] kolom = new String[data.length];
+        for (int i = 0; i < data.length; i++) {
+            kolom[i] = "";
+        }
+
+        model = new DefaultTableModel((Object[][]) null, kolom);
+        tbl.setModel(model);
+
+        while (model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
+
+        String[] row = new String[data.length];
+        for (int i = 0; i < data.length; i++) {
+            row[i] = data[i];
+        }
+        model.addRow(row);
+    }
+
+    public void tampilbaris1(JTable tbl, double[] data) {
         DefaultTableModel model = null;
 
         String[] kolom = new String[data.length];
@@ -641,6 +851,68 @@ public class AnalisisSPKView extends javax.swing.JDialog {
         }
         model.addRow(row);
     }
+
+    public void tampiltabel(JTable tbl, double[][] data) {
+        DefaultTableModel model = null;
+
+        String[] kolom = new String[data.length];
+        for (int i = 0; i < data.length; i++) {
+            kolom[i] = "";
+        }
+
+        model = new DefaultTableModel((Object[][]) null, kolom);
+        tbl.setModel(model);
+
+        while (model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
+
+        for (int i = 0; i < data.length; i++) {
+            String[] row = new String[data[0].length];
+            for (int j = 0; j < data[0].length; j++) {
+                row[j] = BigDecimal.valueOf(data[i][j]).toPlainString();
+            }
+            model.addRow(row);
+        }
+    }
     
+    public void tampilkolom(JTable tbl, double[] data) {
+        DefaultTableModel model = null;
+
+        String[] kolom = new String[1];
+        kolom[0] = "";
+
+        model = new DefaultTableModel((Object[][]) null, kolom);
+        tbl.setModel(model);
+
+        while (model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
+
+        for (int i = 0; i < data.length; i++) {
+            String[] row = new String[1];
+            row[0] = BigDecimal.valueOf(data[i]).toPlainString();
+            model.addRow(row);
+        }
+    }
     
+    public void tampilkolom1(JTable tbl, String[] data) {
+        DefaultTableModel model = null;
+
+        String[] kolom = new String[1];
+        kolom[0] = "";
+
+        model = new DefaultTableModel((Object[][]) null, kolom);
+        tbl.setModel(model);
+
+        while (model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
+
+        for (int i = 0; i < data.length; i++) {
+            String[] row = new String[1];
+            row[0] = data[i];
+            model.addRow(row);
+        }
+    }
 }
