@@ -21,7 +21,7 @@ import skripsiannisameriana.connect.Connect;
  */
 public class SoalImplements {
     public void insertSoal(Soal soal) throws Exception {
-        String sqlInsert = "INSERT INTO tb_soal VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        String sqlInsert = "INSERT INTO tb_soal VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = Connect.getConnection().prepareStatement(sqlInsert);
@@ -32,12 +32,13 @@ public class SoalImplements {
             preparedStatement.setString(4, soal.getB());
             preparedStatement.setString(5, soal.getC());
             preparedStatement.setString(6, soal.getD());
-            preparedStatement.setInt(7, soal.getNilaiA());
-            preparedStatement.setInt(8, soal.getNilaiB());
-            preparedStatement.setInt(9, soal.getNilaiC());
-            preparedStatement.setInt(10, soal.getNilaiD());
-            preparedStatement.setInt(11, soal.getIdFakultas());
-            preparedStatement.setInt(12, soal.getIdProdi());
+            preparedStatement.setInt(7, soal.getKepentingan());
+            preparedStatement.setInt(8, soal.getNilaiA());
+            preparedStatement.setInt(9, soal.getNilaiB());
+            preparedStatement.setInt(10, soal.getNilaiC());
+            preparedStatement.setInt(11, soal.getNilaiD());
+            preparedStatement.setInt(12, soal.getIdFakultas());
+            preparedStatement.setInt(13, soal.getIdProdi());
             preparedStatement.executeUpdate();
 
         } catch (Exception err) {
@@ -47,23 +48,24 @@ public class SoalImplements {
     }
 
     public void updateSoal(Soal soal) throws Exception {
-        String sqlUpdate = "UPDATE tb_soal SET soal = ?, a = ?, b = ?, c = ?, d = ?, nilai_a = ?, nilai_b = ?, nilai_c = ?, nilai_d = ?, id_fakultas = ?, id_prodi = ? WHERE id_soal = ?";
+        String sqlUpdate = "UPDATE tb_soal SET soal = ?, a = ?, b = ?, c = ?, d = ?, kepentingan = ?, nilai_a = ?, nilai_b = ?, nilai_c = ?, nilai_d = ?, id_fakultas = ?, id_prodi = ? WHERE id_soal = ?";
         PreparedStatement preparedStatement;
         try {
             preparedStatement = Connect.getConnection().prepareStatement(sqlUpdate);
 
-            preparedStatement.setInt(12, soal.getIdSoal());
+            preparedStatement.setInt(13, soal.getIdSoal());
             preparedStatement.setString(1, soal.getSoal());
             preparedStatement.setString(2, soal.getA());
             preparedStatement.setString(3, soal.getB());
             preparedStatement.setString(4, soal.getC());
-            preparedStatement.setString(5, soal.getD());            
-            preparedStatement.setInt(6, soal.getNilaiA());            
-            preparedStatement.setInt(7, soal.getNilaiB());            
-            preparedStatement.setInt(8, soal.getNilaiC());            
-            preparedStatement.setInt(9, soal.getNilaiD());
-            preparedStatement.setInt(10, soal.getIdFakultas());
-            preparedStatement.setInt(11, soal.getIdProdi());
+            preparedStatement.setString(5, soal.getD());
+            preparedStatement.setInt(6, soal.getKepentingan());
+            preparedStatement.setInt(7, soal.getNilaiA());            
+            preparedStatement.setInt(8, soal.getNilaiB());            
+            preparedStatement.setInt(9, soal.getNilaiC());            
+            preparedStatement.setInt(10, soal.getNilaiD());
+            preparedStatement.setInt(11, soal.getIdFakultas());
+            preparedStatement.setInt(12, soal.getIdProdi());
             preparedStatement.executeUpdate();
 
         } catch (Exception err) {
@@ -108,6 +110,7 @@ public class SoalImplements {
                 soal.setB(resultSet.getString("b"));
                 soal.setC(resultSet.getString("c"));
                 soal.setD(resultSet.getString("d"));
+                soal.setKepentingan(resultSet.getInt("kepentingan"));
                 soal.setNilaiA(resultSet.getInt("nilai_a"));
                 soal.setNilaiB(resultSet.getInt("nilai_b"));
                 soal.setNilaiC(resultSet.getInt("nilai_c"));
@@ -157,6 +160,7 @@ public class SoalImplements {
                 soal.setB(resultSet.getString("b"));
                 soal.setC(resultSet.getString("c"));
                 soal.setD(resultSet.getString("d"));
+                soal.setKepentingan(resultSet.getInt("kepentingan"));
                 soal.setNilaiA(resultSet.getInt("nilai_a"));
                 soal.setNilaiB(resultSet.getInt("nilai_b"));
                 soal.setNilaiC(resultSet.getInt("nilai_c"));

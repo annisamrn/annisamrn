@@ -10,7 +10,7 @@ package skripsiannisameriana.soal;
  * @author USER
  */
 public class Soal {
-    int idSoal, idFakultas, idProdi, nilaiA, nilaiB, nilaiC, nilaiD;
+    int idSoal, idFakultas, idProdi, nilaiA, nilaiB, nilaiC, nilaiD, kepentingan;
     String Soal, namaFakultas, namaProdi, a, b, c, d;
 
     public int getIdSoal() {
@@ -67,6 +67,14 @@ public class Soal {
 
     public void setNilaiD(int nilaiD) {
         this.nilaiD = nilaiD;
+    }
+
+    public int getKepentingan() {
+        return kepentingan;
+    }
+
+    public void setKepentingan(int kepentingan) {
+        this.kepentingan = kepentingan;
     }
 
     public String getSoal() {
