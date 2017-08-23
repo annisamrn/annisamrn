@@ -96,7 +96,7 @@ public class AnalisisSPKView extends javax.swing.JDialog {
         }
 
         double[][] normalisasi = new double[alternatif.length][kriteria.length];
-
+        
         for (int i = 0; i < alternatif.length; i++) {
             for (int j = 0; j < kriteria.length; j++) {
                 normalisasi[i][j] = (alternatifkriteria[i][j] / pembagi[j]);
@@ -108,8 +108,7 @@ public class AnalisisSPKView extends javax.swing.JDialog {
 
         for (int i = 0; i < alternatif.length; i++) {
             for (int j = 0; j < kriteria.length; j++) {
-                normalisasi[i][j] *= kepentingan[j];
-                //System.out.println(normalisasi[i][j]);
+                terbobot[i][j] = normalisasi[i][j] * kepentingan[j];
             }
         }
 
@@ -162,9 +161,9 @@ public class AnalisisSPKView extends javax.swing.JDialog {
         //error
         double[] hasil = new double[alternatif.length];
 
-//        for (int i = 0; i < alternatif.length; i++) {
-//            dmin[i] /= (dmin[i] + dplus[i]);
-//        }
+        for (int i = 0; i < alternatif.length; i++) {
+            hasil[i] = (dmin[i] + dplus[i])  ;
+        }
         
         String[] alternatifrangking = new String[alternatif.length];
         double[] hasilrangking = new double[alternatif.length];
@@ -185,6 +184,23 @@ public class AnalisisSPKView extends javax.swing.JDialog {
                     alternatifrangking[j] = tmpalternatif;
                 }
             }
+        }
+        
+        DefaultTableModel model = null;
+
+        String[] kolom = {"Alternatif", "Nilai"};
+
+        model = new DefaultTableModel((Object[][]) null, kolom);
+        tabelHasilRangking.setModel(model);
+        while (model.getRowCount() > 0) {
+            model.removeRow(0);
+        }
+
+        for (int i = 0; i < alternatifrangking.length; i++) {
+            String[] row = new String[2];
+            row[0] = alternatifrangking[i];
+            row[1] = BigDecimal.valueOf(hasilrangking[i]).toPlainString();
+            model.addRow(row);
         }
         
         labelAlternatifTerbaik.setText(alternatifrangking[0]);
@@ -899,8 +915,9 @@ public class AnalisisSPKView extends javax.swing.JDialog {
     public void tampilkolom1(JTable tbl, String[] data) {
         DefaultTableModel model = null;
 
-        String[] kolom = new String[1];
-        kolom[0] = "";
+        String[] kolom = new String[2];
+        kolom[0] = "Prodi";
+        kolom[1] = "Rank";
 
         model = new DefaultTableModel((Object[][]) null, kolom);
         tbl.setModel(model);
@@ -909,9 +926,10 @@ public class AnalisisSPKView extends javax.swing.JDialog {
             model.removeRow(0);
         }
 
-        for (int i = 0; i < data.length; i++) {
-            String[] row = new String[1];
+        for (int i = 0, r = 1; i < data.length; i++, r++) {
+            String[] row = new String[2];
             row[0] = data[i];
+            row[1] = Integer.toString(r);
             model.addRow(row);
         }
     }

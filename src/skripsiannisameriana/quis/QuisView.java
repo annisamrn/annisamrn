@@ -231,10 +231,10 @@ public class QuisView extends javax.swing.JInternalFrame {
             }
             
             Home1 home1 = new Home1();
-            home1.dispose();
+            home1.setVisible(false);
             
             AnalisisSPKView analisisSPKView = new AnalisisSPKView(home1, closable);
-            analisisSPKView.setEnabled(true);
+            analisisSPKView.setVisible(true);
 
         } catch (Exception e) {
         }
