@@ -329,7 +329,8 @@ public class ProdiView extends javax.swing.JInternalFrame {
         // TODO add your handling code here:
         setTableModel();
         refresh();
-        loadDatabase();
+        tableProdiAction();
+        //loadDatabase();
     }//GEN-LAST:event_formInternalFrameOpened
 
 
@@ -623,6 +624,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
                     btnUbah.setToolTipText("Ubah");
                     btnHapus.setEnabled(true);
                     btnUbah.requestFocus();
+                    System.out.println("haa");
                 }
             }
         });

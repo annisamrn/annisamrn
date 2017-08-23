@@ -5,7 +5,7 @@
 	<property name="ireport.y" value="0"/>
 	<parameter name="id_jur" class="java.lang.Integer"/>
 	<queryString>
-		<![CDATA[SELECT * FROM tb_prodi JOIN tb_fakultas WHERE id_prodi = $P{id_jur}]]>
+		<![CDATA[SELECT * FROM tb_prodi JOIN tb_fakultas ON tb_prodi.id_fakultas = tb_fakultas.id_fakultas WHERE id_prodi = $P{id_jur}]]>
 	</queryString>
 	<field name="id_prodi" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
