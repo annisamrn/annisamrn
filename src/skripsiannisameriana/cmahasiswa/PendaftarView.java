@@ -9,6 +9,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -322,7 +324,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
-        //        buttonPrint();
+        buttonPrint();
     }//GEN-LAST:event_btnCetakActionPerformed
 
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
@@ -691,6 +693,20 @@ public class PendaftarView extends javax.swing.JInternalFrame {
             cMahasiswaTabelModel.setData(list);
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
+        }
+    }
+    
+    public void buttonPrint() {
+
+        int row = tabelPendaftar.getRowCount();
+        if (row == 0) {
+            JOptionPane.showMessageDialog(this, "Tidak Ada Data Yang Di Cetak !");
+        } else {
+            try {
+                JasperPrint jasperPrint = cMahasiswaImplements.cetakPendaftar();
+                JasperViewer.viewReport(jasperPrint, false);
+            } catch (Exception e) {
+            }
         }
     }
 

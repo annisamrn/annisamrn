@@ -9,6 +9,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -304,7 +306,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
-        //buttonPrint();
+        buttonPrint();
     }//GEN-LAST:event_btnCetakActionPerformed
 
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
@@ -646,8 +648,8 @@ public class ProdiView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Tidak Ada Data Yang Di Cetak !");
         } else {
             try {
-                //JasperPrint jasperPrint = kelasImplements.cetakKelas();
-                //JasperViewer.viewReport(jasperPrint, false);
+                JasperPrint jasperPrint = prodiImplements.cetakProdi();
+                JasperViewer.viewReport(jasperPrint, false);
             } catch (Exception e) {
             }
         }

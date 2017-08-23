@@ -13,6 +13,9 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import net.sf.jasperreports.engine.JRException;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
 import skripsiannisameriana.connect.Connect;
 
 /**
@@ -138,9 +141,9 @@ public class FakultasImplements {
         }
     }
     
-    /*public JasperPrint cetakFakultas() {
+    public JasperPrint cetakFakultas() {
         try {
-            JasperPrint jasperPrint = JasperFillManager.fillReport(getClass().getResourceAsStream("/Laporan/Jurusan.jasper"), null, Connect.getConnection());
+            JasperPrint jasperPrint = JasperFillManager.fillReport(getClass().getResourceAsStream("src/laporan/Fakultas.jasper"), null, Connect.getConnection());
             return jasperPrint;
         } catch (JRException exception) {
             System.out.println("Terjadi Kesalahan Cetak : " + exception);
@@ -149,6 +152,6 @@ public class FakultasImplements {
             System.out.println("Terjadi Kesalahan Cetak 1 : " + exception);
             return null;
         }
-    }*/
+    }
 
 }

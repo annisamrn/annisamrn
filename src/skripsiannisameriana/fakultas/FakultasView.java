@@ -9,6 +9,8 @@ import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -275,7 +277,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
-//        buttonPrint();
+        buttonPrint();
     }//GEN-LAST:event_btnCetakActionPerformed
 
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
@@ -584,4 +586,17 @@ public class FakultasView extends javax.swing.JInternalFrame {
         }
     }
     
+    public void buttonPrint() {
+
+        int row = tabelFakultas.getRowCount();
+        if (row == 0) {
+            JOptionPane.showMessageDialog(this, "Tidak Ada Data Yang Di Cetak !");
+        } else {
+            try {
+                JasperPrint jasperPrint = fakultasImplements.cetakFakultas();
+                JasperViewer.viewReport(jasperPrint, false);
+            } catch (Exception e) {
+            }
+        }
+    }
 }
