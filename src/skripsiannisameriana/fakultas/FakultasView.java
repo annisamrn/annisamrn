@@ -5,20 +5,25 @@
  */
 package skripsiannisameriana.fakultas;
 
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
+import skripsiannisameriana.connect.Connect;
 
 /**
  *
  * @author USER
  */
 public class FakultasView extends javax.swing.JInternalFrame {
+
     private FakultasImplements fakultasImplements = new FakultasImplements();
     private FakultasTabelModel fakultasTabelModel = new FakultasTabelModel();
+
     /**
      * Creates new form FakultasView
      */
@@ -293,7 +298,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
         setTableModel();
         refresh();
         tableFakultasAction();
- //       loadDatabase();
+        //       loadDatabase();
     }//GEN-LAST:event_formInternalFrameOpened
 
 
@@ -326,7 +331,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
     }
-    
+
     public void setTableModel() {
         try {
             tabelFakultas.setModel(fakultasTabelModel);
@@ -334,12 +339,12 @@ public class FakultasView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
     }
-    
+
     public void refresh() {
         try {
             loadDatabase();
             txtNamaFakultas.setEnabled(true);
-            txtKodeFakultas.setEnabled(false);            
+            txtKodeFakultas.setEnabled(false);
             txtKodeFakultas.setText("");
             txtNamaFakultas.setText("");
 
@@ -435,7 +440,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
             fakultas.setNamaFakultas(txtNamaFakultas.getText());
 
             fakultasImplements.insertFakultas(fakultas);
-            JOptionPane.showMessageDialog(null, "Nama Fakultas"+ txtNamaFakultas.getText() + "Berhasil Disimpan!");
+            JOptionPane.showMessageDialog(null, "Nama Fakultas" + txtNamaFakultas.getText() + "Berhasil Disimpan!");
             refresh();
         } catch (Exception error) {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan!");
@@ -445,7 +450,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
     public void ubahFakultas() {
         try {
             Fakultas fakultas = new Fakultas();
-            
+
             fakultas.setIdFakultas(Integer.parseInt(txtKodeFakultas.getText()));
             fakultas.setNamaFakultas(txtNamaFakultas.getText());
 
@@ -465,7 +470,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
                 JOptionPane.showMessageDialog(this, "Silahkan seleksi data yang ingin dihapus!");
             } else {
                 int confirm = JOptionPane.showConfirmDialog(this, "Anda Yakin Mau Menghapus Fakultas "
-                        + fakultasTabelModel.get(row).getNamaFakultas()+ "? \n", "Konfirmasi",
+                        + fakultasTabelModel.get(row).getNamaFakultas() + "? \n", "Konfirmasi",
                         JOptionPane.YES_NO_OPTION, JOptionPane.PLAIN_MESSAGE);
 
                 //Periksa Jawaban yang dipilih
@@ -490,7 +495,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
         try {
             txtKodeFakultas.setEnabled(true);
             txtNamaFakultas.setEnabled(true);
-            
+
             txtKodeFakultas.setText("");
             txtKodeFakultas.setText("");
 
@@ -555,7 +560,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
                 //CEK APAKAH BARIS BENAR2 TERSELEKSI
                 if (row != -1) {
                     Fakultas fakultas = fakultasTabelModel.get(row);
-                    
+
                     txtKodeFakultas.setText(Integer.toString(fakultas.getIdFakultas()));
                     txtNamaFakultas.setText(fakultas.getNamaFakultas());
 
@@ -585,18 +590,34 @@ public class FakultasView extends javax.swing.JInternalFrame {
             JOptionPane.showMessageDialog(this, "Terjadi Kesalahan !");
         }
     }
-    
+
     public void buttonPrint() {
 
-        int row = tabelFakultas.getRowCount();
-        if (row == 0) {
-            JOptionPane.showMessageDialog(this, "Tidak Ada Data Yang Di Cetak !");
-        } else {
-            try {
-                JasperPrint jasperPrint = fakultasImplements.cetakFakultas();
-                JasperViewer.viewReport(jasperPrint, false);
-            } catch (Exception e) {
-            }
+//        int row = tabelFakultas.getRowCount();
+//        if (row == 0) {
+//            JOptionPane.showMessageDialog(this, "Tidak Ada Data Yang Di Cetak !");
+//        } else {
+//            try {
+                //JasperPrint jasperPrint = fakultasImplements.cetakFakultas();
+//                JasperViewer.viewReport(jasperPrint, false);
+//            } catch (Exception e) {
+//            }
+//        }
+        try {
+            HashMap parameter = new HashMap();
+            String path="src/laporan/Fakultas.jasper"; 
+            //int id = txtKodeFakultas.getText();
+            parameter.put("id_jur", Integer.parseInt(txtKodeFakultas.getText()));
+            
+            //JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+            JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+
+            JasperViewer.viewReport(print, false);
+
+        } catch (Exception ex) {
+
+            JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada " + ex);
+
         }
     }
 }

@@ -5,12 +5,16 @@
  */
 package skripsiannisameriana.prodi;
 
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
+import skripsiannisameriana.connect.Connect;
+import static skripsiannisameriana.fakultas.FakultasView.txtKodeFakultas;
 
 /**
  *
@@ -643,15 +647,21 @@ public class ProdiView extends javax.swing.JInternalFrame {
 
     public void buttonPrint() {
 
-        int row = tabelProdi.getRowCount();
-        if (row == 0) {
-            JOptionPane.showMessageDialog(this, "Tidak Ada Data Yang Di Cetak !");
-        } else {
-            try {
-                JasperPrint jasperPrint = prodiImplements.cetakProdi();
-                JasperViewer.viewReport(jasperPrint, false);
-            } catch (Exception e) {
-            }
+        try {
+            HashMap parameter = new HashMap();
+            String path="src/laporan/Prodi.jasper"; 
+            //int id = txtKodeFakultas.getText();
+            parameter.put("id_jur", Integer.parseInt(txtKodeProdi.getText()));
+            
+            //JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+            JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+
+            JasperViewer.viewReport(print, false);
+
+        } catch (Exception ex) {
+
+            JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada " + ex);
+
         }
     }
 

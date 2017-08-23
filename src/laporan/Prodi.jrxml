@@ -1,115 +1,111 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="d6799fdf-a37e-4961-89bc-ec93eb31bbc5">
-	<property name="ireport.zoom" value="1.0"/>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6fab7a50-eb9b-47d2-802e-43b1c4659d8e">
+	<property name="ireport.zoom" value="0.75"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<queryString language="SQL">
-		<![CDATA[SELECT tb_fakultas.*, tb_prodi.* FROM tb_prodi JOIN tb_fakultas ON tb_fakultas.id_fakultas = tb_prodi.id_fakultas]]>
+	<parameter name="id_jur" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT * FROM tb_prodi JOIN tb_fakultas WHERE id_prodi = $P{id_jur}]]>
 	</queryString>
-	<field name="id_fakultas" class="java.lang.Integer">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
-	<field name="fakultas" class="java.lang.String">
-		<fieldDescription><![CDATA[]]></fieldDescription>
-	</field>
 	<field name="id_prodi" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="nama_prodi" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
+	<field name="id_fakultas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fakultas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="53" splitType="Stretch">
+		<band height="137" splitType="Stretch">
 			<staticText>
-				<reportElement x="172" y="32" width="243" height="20" uuid="4f60ddbf-526e-49fc-ad3b-bfbb7c7e12cc"/>
-				<textElement>
-					<font size="14" isBold="false"/>
+				<reportElement x="66" y="14" width="345" height="20" uuid="bcb614aa-0dee-4dce-b3cb-19fba68ee2dd"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[MUHAMMAD ARSYAD AL BANJARI]]></text>
+				<text><![CDATA[PEMERINTAH PROVINSI KALIMANTAN SELATAN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="76" y="0" width="414" height="32" uuid="a4df8a53-716e-4c8b-ab0a-179b23524fc7"/>
-				<textElement>
-					<font size="24" isBold="true"/>
+				<reportElement x="66" y="34" width="345" height="20" uuid="91630099-d176-4c38-9e74-e38084d5497f"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[UNIVERSITAS ISLAM KALIMANTAN]]></text>
+				<text><![CDATA[DINAS PENDIDIKAN DAN KEBUDAYAAN]]></text>
 			</staticText>
+			<staticText>
+				<reportElement x="66" y="54" width="345" height="20" uuid="85c713c8-9b42-4403-8187-52af658f896e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SMK NEGERI 4 BANJARMASIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="66" y="74" width="345" height="20" uuid="cbc3d738-8bc7-4ab5-8222-3f869f24686b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Jalan Brigen H.Hasan Basri No.07 Telepon 0511-3305054 Banjarmasin]]></text>
+			</staticText>
+			<line>
+				<reportElement x="2" y="114" width="552" height="1" uuid="4b90c096-789c-4d48-93f7-e26301f2c102"/>
+			</line>
+			<image>
+				<reportElement x="6" y="14" width="60" height="80" uuid="24fed530-ef83-45f8-a2ee-eafca2b7ef79"/>
+				<imageExpression><![CDATA["http://localhost/nis/prv.gif"]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="411" y="14" width="138" height="80" uuid="195e7e3c-9f83-463a-bad7-09f3a6f2a333"/>
+				<imageExpression><![CDATA["http://localhost/nis/logo_iso.jpg"]]></imageExpression>
+			</image>
 		</band>
 	</title>
 	<pageHeader>
-		<band height="39" splitType="Stretch">
+		<band height="50">
 			<staticText>
-				<reportElement x="224" y="13" width="116" height="20" uuid="77e6e430-f3aa-4b7b-aa08-cc111c2ad9f8"/>
-				<textElement>
-					<font size="12" isBold="true"/>
+				<reportElement x="184" y="12" width="215" height="20" uuid="e39f912e-9d74-4b70-bbcc-68a8038713a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Data Program Studi]]></text>
+				<text><![CDATA[LAPORAN PROGRAM STUDI]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="22" splitType="Stretch">
+		<band height="29" splitType="Stretch">
 			<staticText>
-				<reportElement x="76" y="1" width="52" height="21" uuid="79fff3a1-df1d-431d-a4eb-07ce84b68229"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[ID PRODI]]></text>
+				<reportElement x="268" y="1" width="100" height="20" uuid="e4f52c73-9c28-455a-ae21-9ff0dcb28659"/>
+				<text><![CDATA[fakultas]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="128" y="1" width="186" height="21" uuid="869c653a-2d4c-43bb-9c4b-d2e02ec506ad"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[NAMA PROGRAM STUDI]]></text>
+				<reportElement x="62" y="1" width="100" height="20" uuid="7cb46883-732f-457d-90fd-19d8e96e6184"/>
+				<text><![CDATA[id_prodi]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="314" y="0" width="176" height="22" uuid="48548c41-a006-4d73-b7cb-906637b55575"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle">
-					<font isBold="true"/>
-				</textElement>
-				<text><![CDATA[NAMA FAKULTAS]]></text>
+				<reportElement x="166" y="1" width="100" height="20" uuid="82614f57-399f-48f4-b7ce-40924a1d77b4"/>
+				<text><![CDATA[nama_prodi]]></text>
 			</staticText>
-			<line>
-				<reportElement x="76" y="21" width="414" height="1" uuid="5f8c7a1e-1d96-4551-9826-113a1f0a4ae9"/>
-			</line>
-			<line>
-				<reportElement x="76" y="0" width="414" height="1" uuid="1f04ac13-7e8a-41bf-b7fa-1b27a15eaac1"/>
-			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement x="76" y="0" width="52" height="20" uuid="59493868-73b1-400c-b137-a49349bd7472"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<reportElement x="268" y="0" width="100" height="20" uuid="60902fa3-d382-4407-be66-a5dfca3cd109"/>
+				<textFieldExpression><![CDATA[$F{fakultas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="62" y="0" width="100" height="20" uuid="e23c4eff-2dc9-4977-81f1-1f264e0b7d94"/>
 				<textFieldExpression><![CDATA[$F{id_prodi}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="128" y="0" width="186" height="20" uuid="2cd33a2e-97ae-424e-8b86-ab457567d9be"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
+				<reportElement x="166" y="0" width="100" height="20" uuid="1d297341-b0a7-4dc3-b250-63cac544c392"/>
 				<textFieldExpression><![CDATA[$F{nama_prodi}]]></textFieldExpression>
 			</textField>
-			<textField>
-				<reportElement x="314" y="1" width="176" height="20" uuid="877c4c3d-83d3-4f95-a52f-259381d04b5c"/>
-				<textElement textAlignment="Justified" verticalAlignment="Middle"/>
-				<textFieldExpression><![CDATA[$F{fakultas}]]></textFieldExpression>
-			</textField>
-			<line>
-				<reportElement x="76" y="21" width="414" height="1" uuid="f1d0e698-774d-4152-8fbe-d759d2fbd9d0"/>
-			</line>
 		</band>
 	</detail>
-	<columnFooter>
-		<band height="45" splitType="Stretch"/>
-	</columnFooter>
-	<pageFooter>
-		<band height="54" splitType="Stretch"/>
-	</pageFooter>
-	<summary>
-		<band height="42" splitType="Stretch"/>
-	</summary>
 </jasperReport>
