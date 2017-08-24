@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6fab7a50-eb9b-47d2-802e-43b1c4659d8e">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT * FROM tb_pilihan JOIN tb_fakultas ON tb_pilihan.id_fakultas = tb_fakultas.id_fakultas JOIN tb_prodi ON tb_pilihan.id_prodi = tb_prodi.id_prodi JOIN tb_calon_mhs ON tb_pilihan.id_pendaftar = tb_calon_mhs.id_pendaftar]]>
+	</queryString>
+	<field name="id_pilihan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_pendaftar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_fakultas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_prodi" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="prioritas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fakultas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_prodi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="asal_sekolah" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telepon" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="password" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="137" splitType="Stretch">
+			<line>
+				<reportElement x="2" y="114" width="552" height="1" uuid="4b90c096-789c-4d48-93f7-e26301f2c102"/>
+			</line>
+			<staticText>
+				<reportElement x="102" y="26" width="345" height="20" uuid="dcbf2908-53fd-47e0-9bd7-0b8b7149a5b7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSITAS ISLAM KALIMANTAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="66" width="345" height="20" uuid="1e6d13a2-ca4d-4fe6-930d-2a7b831c3a75"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANJARMASIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="86" width="345" height="20" uuid="0dd09279-3b38-479b-8ee3-844f33126464"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Jl. Adhyaksa No.2 Kayutangi FAX : 0511-3305834 Email : admin@uniska-bjm.ac.id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="46" width="345" height="20" uuid="e0d0b1f2-eda1-4250-9e68-695f3bfb5e15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MUHAMMAD ARSYAD AL BANJARI]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="455" height="99" uuid="26d30e53-bbaf-4f42-9203-f62a1a3253cb"/>
+				<imageExpression><![CDATA["C:\\Users\\USER\\Documents\\NetBeansProjects\\SkripsiAnnisaMeriana\\src\\laporan\\Logo-UNISKA-Baru-kcl.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="87">
+			<staticText>
+				<reportElement x="177" y="0" width="203" height="20" uuid="e39f912e-9d74-4b70-bbcc-68a8038713a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HASIL TES PEMINATAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="36" width="100" height="20" uuid="865d9532-a803-4905-b2d2-0b02205c632c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Pendaftar    :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="145" y="36" width="100" height="20" uuid="e4edfb08-21b3-48af-bcc0-03ee5a77ef26"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="45" y="56" width="100" height="20" uuid="c1d979a8-73d7-4d1a-b088-0cd374d3538b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Asal Sekolah          :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="144" y="54" width="100" height="20" uuid="299f5d40-6fda-4ee0-adcb-4f542577e7e2"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{asal_sekolah}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="22" splitType="Stretch">
+			<staticText>
+				<reportElement x="24" y="1" width="187" height="20" uuid="423e477a-730d-4284-8004-4cb6e6c82e01"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Fakultas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="211" y="2" width="164" height="20" uuid="e32b15f4-ffb1-433c-895f-8d7bb0566766"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Program Studi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="375" y="1" width="157" height="20" uuid="ba7239b4-8a7d-4abd-9afd-639bafc20606"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hasil Perankingan Program Studi]]></text>
+			</staticText>
+			<line>
+				<reportElement x="19" y="19" width="525" height="1" uuid="7eb8ee7d-21ef-4dc6-9a01-70b7b92f75ba"/>
+			</line>
+			<line>
+				<reportElement x="15" y="0" width="525" height="1" uuid="f27ad313-ce46-4239-84a0-920ec10df8d0"/>
+			</line>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<textField>
+				<reportElement x="24" y="1" width="187" height="20" uuid="069f9d36-8a66-4168-b4c5-b217c6bf3538"/>
+				<textFieldExpression><![CDATA[$F{fakultas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="211" y="1" width="164" height="20" uuid="3e1d95e8-fb1b-4b89-a8c9-59367e502537"/>
+				<textFieldExpression><![CDATA[$F{nama_prodi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="375" y="1" width="157" height="20" uuid="c583631a-035a-47f5-bd6e-3e154d63b372"/>
+				<textFieldExpression><![CDATA[$F{prioritas}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="19" y="22" width="525" height="1" uuid="dd4d68e1-363f-4c32-9a84-27e5d76cb7ff"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

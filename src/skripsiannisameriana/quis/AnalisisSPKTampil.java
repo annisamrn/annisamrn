@@ -17,13 +17,9 @@ import skripsiannisameriana.connect.Connect;
 
 /**
  *
- * @author phantom
+ * @author USER
  */
-public class AnalisisSPKView extends javax.swing.JDialog {
-
-    /**
-     * Creates new form AnalisisSPKView
-     */
+public class AnalisisSPKTampil extends javax.swing.JInternalFrame {
     Connect k = new Connect();
     ResultSet rs = null;
     String[] alternatif;
@@ -34,10 +30,11 @@ public class AnalisisSPKView extends javax.swing.JDialog {
     double[] kepentingan;
     double[][] alternatifkriteria;
 
-    public AnalisisSPKView(java.awt.Frame parent, boolean modal) {
-        super(parent, modal);
+    /**
+     * Creates new form AnalisisSPKTampil
+     */
+    public AnalisisSPKTampil() {
         initComponents();
-
         try {
             int c = -1;
             rs = k.select("select * from tb_prodi");
@@ -239,7 +236,7 @@ public class AnalisisSPKView extends javax.swing.JDialog {
         tampilkolom(tabelHasil, hasil);
         tampilkolom(tabelHasilRanking, hasilrangking);
         tampilkolom1(tabelAlternatifRanking, alternatifrangking);
-
+        
     }
 
     /**
@@ -251,286 +248,57 @@ public class AnalisisSPKView extends javax.swing.JDialog {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        btnTutup = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        tabelHasilRangking = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        labelAlternatifTerbaik = new javax.swing.JLabel();
-        labelNilaiTerbesar = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        tabelAlternatif = new javax.swing.JTable();
-        jLabel7 = new javax.swing.JLabel();
-        jScrollPane3 = new javax.swing.JScrollPane();
-        tabelKriteria = new javax.swing.JTable();
-        jLabel8 = new javax.swing.JLabel();
-        jScrollPane4 = new javax.swing.JScrollPane();
-        tabelPembagi = new javax.swing.JTable();
-        jLabel9 = new javax.swing.JLabel();
-        jScrollPane5 = new javax.swing.JScrollPane();
-        tabelKepentingan = new javax.swing.JTable();
-        jLabel10 = new javax.swing.JLabel();
-        jScrollPane6 = new javax.swing.JScrollPane();
-        tabelAlternatifKriteria = new javax.swing.JTable();
-        jLabel11 = new javax.swing.JLabel();
-        jScrollPane7 = new javax.swing.JScrollPane();
-        tabelNormalisasi = new javax.swing.JTable();
-        jLabel12 = new javax.swing.JLabel();
-        jScrollPane8 = new javax.swing.JScrollPane();
-        tabelTerbobot = new javax.swing.JTable();
-        jLabel13 = new javax.swing.JLabel();
-        jScrollPane9 = new javax.swing.JScrollPane();
-        tabelAPlus = new javax.swing.JTable();
-        jLabel14 = new javax.swing.JLabel();
-        jScrollPane10 = new javax.swing.JScrollPane();
-        tabelAMinimal = new javax.swing.JTable();
-        jLabel15 = new javax.swing.JLabel();
-        jScrollPane11 = new javax.swing.JScrollPane();
-        tabelDPlus = new javax.swing.JTable();
-        jLabel16 = new javax.swing.JLabel();
-        jScrollPane12 = new javax.swing.JScrollPane();
-        tabelDMin = new javax.swing.JTable();
-        jLabel17 = new javax.swing.JLabel();
-        jScrollPane13 = new javax.swing.JScrollPane();
-        tabelHasil = new javax.swing.JTable();
-        jLabel18 = new javax.swing.JLabel();
         jScrollPane14 = new javax.swing.JScrollPane();
         tabelHasilRanking = new javax.swing.JTable();
         jScrollPane15 = new javax.swing.JScrollPane();
         tabelAlternatifRanking = new javax.swing.JTable();
+        jLabel12 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jScrollPane8 = new javax.swing.JScrollPane();
+        tabelTerbobot = new javax.swing.JTable();
         jLabel19 = new javax.swing.JLabel();
+        labelAlternatifTerbaik = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-
-        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-
-        jLabel1.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel1.setText("Hasil Ranking");
-
-        btnTutup.setText("Tutup");
-
-        tabelHasilRangking.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane1.setViewportView(tabelHasilRangking);
-
-        jLabel2.setFont(new java.awt.Font("Noto Sans", 3, 12)); // NOI18N
-        jLabel2.setText("Alternatif Terbaik        :");
-
-        jLabel3.setFont(new java.awt.Font("Noto Sans", 3, 12)); // NOI18N
-        jLabel3.setText("Nilai Terbesar              :");
-
-        labelAlternatifTerbaik.setFont(new java.awt.Font("Noto Sans", 3, 12)); // NOI18N
-        labelAlternatifTerbaik.setText("jLabel4");
-
-        labelNilaiTerbesar.setFont(new java.awt.Font("Noto Sans", 3, 12)); // NOI18N
-        labelNilaiTerbesar.setText("jLabel5");
-
-        jLabel6.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel6.setText("Alternatif");
-
-        tabelAlternatif.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane2.setViewportView(tabelAlternatif);
-
-        jLabel7.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel7.setText("Kriteria");
-
-        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
-
-        tabelKriteria.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane3.setViewportView(tabelKriteria);
-
-        jLabel8.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel8.setText("Pembagi");
-
-        tabelPembagi.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane4.setViewportView(tabelPembagi);
-
-        jLabel9.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel9.setText("Kepentingan");
-
-        tabelKepentingan.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane5.setViewportView(tabelKepentingan);
-
-        jLabel10.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel10.setText("Alternatif Kriteria");
-
-        tabelAlternatifKriteria.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane6.setViewportView(tabelAlternatifKriteria);
-
-        jLabel11.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel11.setText("Normalisasi");
-
-        tabelNormalisasi.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane7.setViewportView(tabelNormalisasi);
-
-        jLabel12.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel12.setText("Terbobot");
-
-        tabelTerbobot.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane8.setViewportView(tabelTerbobot);
-
-        jLabel13.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel13.setText("A+");
-
-        tabelAPlus.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane9.setViewportView(tabelAPlus);
-
-        jLabel14.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel14.setText("A-");
-
-        tabelAMinimal.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane10.setViewportView(tabelAMinimal);
-
-        jLabel15.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel15.setText("D+");
-
-        tabelDPlus.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane11.setViewportView(tabelDPlus);
-
-        jLabel16.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel16.setText("D-");
-
-        tabelDMin.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane12.setViewportView(tabelDMin);
-
-        jLabel17.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel17.setText("Hasil");
-
-        tabelHasil.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        jScrollPane13.setViewportView(tabelHasil);
-
-        jLabel18.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
-        jLabel18.setText("Hasil Ranking");
+        labelNilaiTerbesar = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jScrollPane9 = new javax.swing.JScrollPane();
+        tabelAPlus = new javax.swing.JTable();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        tabelAlternatif = new javax.swing.JTable();
+        jLabel14 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jScrollPane10 = new javax.swing.JScrollPane();
+        tabelAMinimal = new javax.swing.JTable();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        tabelKriteria = new javax.swing.JTable();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel15 = new javax.swing.JLabel();
+        jScrollPane11 = new javax.swing.JScrollPane();
+        tabelDPlus = new javax.swing.JTable();
+        jScrollPane4 = new javax.swing.JScrollPane();
+        tabelPembagi = new javax.swing.JTable();
+        jLabel16 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jScrollPane12 = new javax.swing.JScrollPane();
+        tabelDMin = new javax.swing.JTable();
+        jScrollPane5 = new javax.swing.JScrollPane();
+        tabelKepentingan = new javax.swing.JTable();
+        jLabel17 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jScrollPane13 = new javax.swing.JScrollPane();
+        tabelHasil = new javax.swing.JTable();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        tabelAlternatifKriteria = new javax.swing.JTable();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel18 = new javax.swing.JLabel();
+        btnTutup = new javax.swing.JButton();
+        jLabel11 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tabelHasilRangking = new javax.swing.JTable();
+        jScrollPane7 = new javax.swing.JScrollPane();
+        tabelNormalisasi = new javax.swing.JTable();
+        jLabel2 = new javax.swing.JLabel();
 
         tabelHasilRanking.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -558,8 +326,30 @@ public class AnalisisSPKView extends javax.swing.JDialog {
         ));
         jScrollPane15.setViewportView(tabelAlternatifRanking);
 
+        jLabel12.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel12.setText("Terbobot");
+
+        jLabel3.setFont(new java.awt.Font("Noto Sans", 3, 12)); // NOI18N
+        jLabel3.setText("Nilai Terbesar              :");
+
+        tabelTerbobot.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane8.setViewportView(tabelTerbobot);
+
         jLabel19.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
         jLabel19.setText("Alternatif Ranking");
+
+        labelAlternatifTerbaik.setFont(new java.awt.Font("Noto Sans", 3, 12)); // NOI18N
+        labelAlternatifTerbaik.setText("jLabel4");
 
         jButton1.setText("Cetak Hasil");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -567,6 +357,211 @@ public class AnalisisSPKView extends javax.swing.JDialog {
                 jButton1ActionPerformed(evt);
             }
         });
+
+        labelNilaiTerbesar.setFont(new java.awt.Font("Noto Sans", 3, 12)); // NOI18N
+        labelNilaiTerbesar.setText("jLabel5");
+
+        jLabel13.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel13.setText("A+");
+
+        jLabel6.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel6.setText("Alternatif");
+
+        tabelAPlus.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane9.setViewportView(tabelAPlus);
+
+        tabelAlternatif.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane2.setViewportView(tabelAlternatif);
+
+        jLabel14.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel14.setText("A-");
+
+        jLabel7.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel7.setText("Kriteria");
+
+        tabelAMinimal.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane10.setViewportView(tabelAMinimal);
+
+        jScrollPane3.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+        tabelKriteria.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane3.setViewportView(tabelKriteria);
+
+        jLabel8.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel8.setText("Pembagi");
+
+        jLabel15.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel15.setText("D+");
+
+        tabelDPlus.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane11.setViewportView(tabelDPlus);
+
+        tabelPembagi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane4.setViewportView(tabelPembagi);
+
+        jLabel16.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel16.setText("D-");
+
+        jLabel9.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel9.setText("Kepentingan");
+
+        tabelDMin.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane12.setViewportView(tabelDMin);
+
+        tabelKepentingan.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane5.setViewportView(tabelKepentingan);
+
+        jLabel17.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel17.setText("Hasil");
+
+        jLabel10.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel10.setText("Alternatif Kriteria");
+
+        tabelHasil.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane13.setViewportView(tabelHasil);
+
+        tabelAlternatifKriteria.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane6.setViewportView(tabelAlternatifKriteria);
+
+        jLabel1.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel1.setText("Hasil Ranking");
+
+        jLabel18.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel18.setText("Hasil Ranking");
+
+        btnTutup.setText("Tutup");
+
+        jLabel11.setFont(new java.awt.Font("Noto Sans", 1, 12)); // NOI18N
+        jLabel11.setText("Normalisasi");
+
+        tabelHasilRangking.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tabelHasilRangking);
+
+        tabelNormalisasi.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane7.setViewportView(tabelNormalisasi);
+
+        jLabel2.setFont(new java.awt.Font("Noto Sans", 3, 12)); // NOI18N
+        jLabel2.setText("Alternatif Terbaik        :");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -748,57 +743,16 @@ public class AnalisisSPKView extends javax.swing.JDialog {
         // TODO add your handling code here:
         try {
             //(txtNamaPendaftar.getText().isEmpty())
-                String path1 = "src/laporan/Hasil.jasper";
-                JasperPrint print = JasperFillManager.fillReport(path1, null, Connect.getConnection());
+            String path1 = "src/laporan/Hasil.jasper";
+            JasperPrint print = JasperFillManager.fillReport(path1, null, Connect.getConnection());
 
-                JasperViewer.viewReport(print, false);
-            
+            JasperViewer.viewReport(print, false);
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada " + ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(AnalisisSPKView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(AnalisisSPKView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(AnalisisSPKView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(AnalisisSPKView.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the dialog */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                AnalisisSPKView dialog = new AnalisisSPKView(new javax.swing.JFrame(), true);
-                dialog.addWindowListener(new java.awt.event.WindowAdapter() {
-                    @Override
-                    public void windowClosing(java.awt.event.WindowEvent e) {
-                        System.exit(0);
-                    }
-                });
-                dialog.setVisible(true);
-            }
-        });
-    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnTutup;
@@ -853,7 +807,7 @@ public class AnalisisSPKView extends javax.swing.JDialog {
     private javax.swing.JTable tabelPembagi;
     private javax.swing.JTable tabelTerbobot;
     // End of variables declaration//GEN-END:variables
-
+   
     public void tampilbaris(JTable tbl, String[] data) {
         DefaultTableModel model = null;
 

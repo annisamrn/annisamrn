@@ -43,7 +43,7 @@ public class Home extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
         jButton7 = new javax.swing.JButton();
-        jButton8 = new javax.swing.JButton();
+        jButton9 = new javax.swing.JButton();
         panelHeader2 = new skripsiannisameriana.home.PanelHeader();
         jDesktopPane2 = new javax.swing.JDesktopPane();
 
@@ -117,14 +117,14 @@ public class Home extends javax.swing.JFrame {
         jButton7.setMaximumSize(new java.awt.Dimension(180, 31));
         jPanel2.add(jButton7);
 
-        jButton8.setText("Logout");
-        jButton8.setMaximumSize(new java.awt.Dimension(180, 31));
-        jButton8.addActionListener(new java.awt.event.ActionListener() {
+        jButton9.setText("Exit");
+        jButton9.setMaximumSize(new java.awt.Dimension(180, 31));
+        jButton9.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton8ActionPerformed(evt);
+                jButton9ActionPerformed(evt);
             }
         });
-        jPanel2.add(jButton8);
+        jPanel2.add(jButton9);
 
         javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
         jPanel3.setLayout(jPanel3Layout);
@@ -191,10 +191,10 @@ public class Home extends javax.swing.JFrame {
         sv.show();
     }//GEN-LAST:event_jButton4ActionPerformed
 
-    private void jButton8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton8ActionPerformed
+    private void jButton9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton9ActionPerformed
         // TODO add your handling code here:
         System.exit(0);
-    }//GEN-LAST:event_jButton8ActionPerformed
+    }//GEN-LAST:event_jButton9ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -239,7 +239,7 @@ public class Home extends javax.swing.JFrame {
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
-    private javax.swing.JButton jButton8;
+    private javax.swing.JButton jButton9;
     private javax.swing.JDesktopPane jDesktopPane1;
     private javax.swing.JDesktopPane jDesktopPane2;
     private javax.swing.JPanel jPanel2;
