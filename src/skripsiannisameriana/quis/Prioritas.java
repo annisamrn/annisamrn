@@ -6,6 +6,9 @@
 package skripsiannisameriana.quis;
 
 import java.sql.PreparedStatement;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import skripsiannisameriana.connect.Connect;
 import skripsiannisameriana.home.Home1;
@@ -213,9 +216,10 @@ public class Prioritas extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnPilih6ActionPerformed
 
     private void btnIkutTesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIkutTesActionPerformed
-        // TODO add your handling code here:
-        String sql = "INSERT INTO tb_pilihan (id_pendaftar, id_fakultas, id_prodi, prioritas)VALUES (?, ?, ?, ?)";
         try {
+            // TODO add your handling code here:
+            String sql = "INSERT INTO tb_pilihan (id_pendaftar, id_fakultas, id_prodi, prioritas)VALUES (?, ?, ?, ?)";
+            
             ps = Connect.getConnection().prepareStatement(sql);
       
             for (int i=0;i<6;i++){
@@ -230,10 +234,10 @@ public class Prioritas extends javax.swing.JInternalFrame {
             QuisView.id = id;
             qv.setVisible(true);
             this.dispose();
-        } catch (Exception err) {
-            System.out.println("Salah cyin" + err);
-            JOptionPane.showMessageDialog(null, "Terjadi Kesalahan Saat Menginput Data! ");
+        } catch (SQLException ex) {
+            Logger.getLogger(Prioritas.class.getName()).log(Level.SEVERE, null, ex);
         }
+
     }//GEN-LAST:event_btnIkutTesActionPerformed
 
 
