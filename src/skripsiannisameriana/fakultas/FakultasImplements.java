@@ -143,7 +143,7 @@ public class FakultasImplements {
     
     public JasperPrint cetakFakultas() {
         try {
-            JasperPrint jasperPrint = JasperFillManager.fillReport(getClass().getResourceAsStream("src/laporan/Fakultas.jasper"), null, Connect.getConnection());
+            JasperPrint jasperPrint = JasperFillManager.fillReport(getClass().getResourceAsStream("src/laporan/Fakultas_1.jasper"), null, Connect.getConnection());
             return jasperPrint;
         } catch (JRException exception) {
             System.out.println("Terjadi Kesalahan Cetak : " + exception);

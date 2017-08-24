@@ -3,9 +3,8 @@
 	<property name="ireport.zoom" value="0.75"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
-	<parameter name="id_jur" class="java.lang.Integer"/>
 	<queryString>
-		<![CDATA[SELECT * FROM tb_fakultas WHERE id_fakultas = $P{id_jur}]]>
+		<![CDATA[SELECT * FROM tb_fakultas]]>
 	</queryString>
 	<field name="id_fakultas" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
@@ -19,80 +18,88 @@
 	<title>
 		<band height="137" splitType="Stretch">
 			<staticText>
-				<reportElement x="120" y="16" width="345" height="20" uuid="bcb614aa-0dee-4dce-b3cb-19fba68ee2dd"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[UNIVERSITAS ISLAM KALIMANTAN]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="120" y="36" width="345" height="20" uuid="91630099-d176-4c38-9e74-e38084d5497f"/>
+				<reportElement x="112" y="56" width="345" height="20" uuid="b0a9eefd-6381-4778-a938-72baea941e93"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Serif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[MUHAMMAD ARSYAD AL BANJARI]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="120" y="56" width="345" height="20" uuid="85c713c8-9b42-4403-8187-52af658f896e"/>
+				<reportElement x="112" y="76" width="345" height="20" uuid="c8be9f2d-cbbe-4bb3-9a75-f7c168d3551c"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Serif" size="12" isBold="true"/>
 				</textElement>
 				<text><![CDATA[BANJARMASIN]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="120" y="76" width="345" height="20" uuid="cbc3d738-8bc7-4ab5-8222-3f869f24686b"/>
+				<reportElement x="112" y="96" width="345" height="20" uuid="494a2517-1788-46ff-be69-58f0e30af133"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="8"/>
 				</textElement>
 				<text><![CDATA[Jl. Adhyaksa No.2 Kayutangi FAX : 0511-3305834 Email : admin@uniska-bjm.ac.id]]></text>
 			</staticText>
-			<line>
-				<reportElement x="2" y="114" width="552" height="1" uuid="4b90c096-789c-4d48-93f7-e26301f2c102"/>
-			</line>
 			<image>
-				<reportElement x="28" y="0" width="455" height="99" uuid="624269a3-a2dd-463e-9863-3bb3fac779c1"/>
+				<reportElement x="20" y="20" width="455" height="99" uuid="7dd220d6-379f-454d-8d5b-138eb4bcea22"/>
 				<imageExpression><![CDATA["C:\\Users\\USER\\Documents\\NetBeansProjects\\SkripsiAnnisaMeriana\\src\\laporan\\Logo-UNISKA-Baru-kcl.png"]]></imageExpression>
 			</image>
+			<line>
+				<reportElement x="1" y="127" width="552" height="1" uuid="5573e709-c2fc-4be7-8530-d9c8427815f8"/>
+			</line>
+			<staticText>
+				<reportElement x="112" y="36" width="345" height="20" uuid="a375201e-699b-4416-a11a-40adca08d4f0"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSITAS ISLAM KALIMANTAN]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
 		<band height="50">
 			<staticText>
-				<reportElement x="184" y="12" width="155" height="20" uuid="e39f912e-9d74-4b70-bbcc-68a8038713a1"/>
+				<reportElement x="194" y="22" width="215" height="20" uuid="8b973729-5bec-4bd0-9270-ff468fe97452"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="DejaVu Serif" size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[LAPORAN FAKULTAS]]></text>
+				<text><![CDATA[LAPORAN PROGRAM STUDI]]></text>
 			</staticText>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="21" splitType="Stretch">
+		<band height="22" splitType="Stretch">
 			<staticText>
-				<reportElement x="204" y="1" width="209" height="20" uuid="e4f52c73-9c28-455a-ae21-9ff0dcb28659"/>
+				<reportElement x="297" y="2" width="240" height="20" uuid="2fcf2ebc-5baa-48db-a6df-0752ee6a9ff3"/>
 				<text><![CDATA[NAMA FAKULTAS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="132" y="1" width="72" height="20" uuid="009814e1-a39b-4741-b1c9-fdeb811c2475"/>
-				<text><![CDATA[ID FAKULTAS]]></text>
+				<reportElement x="37" y="2" width="100" height="20" uuid="2d308d9e-fc39-44d3-a4d4-fbb03b6a3364"/>
+				<text><![CDATA[ID PROGRAM STUDI	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="137" y="2" width="160" height="20" uuid="03339997-42a4-4add-8422-91460ae3d5d3"/>
+				<text><![CDATA[NAMA PROGRAM STUDI]]></text>
 			</staticText>
 			<line>
-				<reportElement x="194" y="30" width="281" height="1" uuid="c88c91fc-29fe-456c-8d29-47b92b01d8b7"/>
-			</line>
-			<line>
-				<reportElement x="130" y="28" width="293" height="1" uuid="102e66b0-dbdb-449e-99de-a659b3e5d7fe"/>
+				<reportElement x="36" y="0" width="500" height="1" uuid="51991b89-3590-4823-93f9-a34e58e33118"/>
 			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="20" splitType="Stretch">
+		<band height="24" splitType="Stretch">
 			<textField>
-				<reportElement x="204" y="0" width="209" height="20" uuid="60902fa3-d382-4407-be66-a5dfca3cd109"/>
+				<reportElement x="297" y="2" width="240" height="20" uuid="9bcfc532-d018-45d2-83c5-0fca051dbfd9"/>
 				<textFieldExpression><![CDATA[$F{fakultas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="132" y="0" width="72" height="20" uuid="1689f440-c44f-4baf-9ec8-352bcd81bd75"/>
-				<textFieldExpression><![CDATA[$F{id_fakultas}]]></textFieldExpression>
+				<reportElement x="37" y="2" width="100" height="20" uuid="561c4561-6732-4440-b6f5-669601578bb0"/>
+				<textFieldExpression><![CDATA[$F{id_prodi}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="37" y="20" width="499" height="1" uuid="691d82e2-eb44-4824-b8c3-3814e7df0c65"/>
+			</line>
+			<textField>
+				<reportElement x="137" y="2" width="160" height="20" uuid="62bb5885-1ee6-4ed1-94e1-ce0b01e3d44b"/>
+				<textFieldExpression><![CDATA[$F{nama_prodi}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>

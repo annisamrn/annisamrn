@@ -5,12 +5,16 @@
  */
 package skripsiannisameriana.cmahasiswa;
 
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
+import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
 import net.sf.jasperreports.view.JasperViewer;
+import skripsiannisameriana.connect.Connect;
+import static skripsiannisameriana.prodi.ProdiView.txtKodeProdi;
 
 /**
  *
@@ -51,6 +55,8 @@ public class PendaftarView extends javax.swing.JInternalFrame {
         txtAreaAlamat = new javax.swing.JTextArea();
         txtPassword = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        txtKkodePendaftar = new javax.swing.JTextField();
         panelButton = new javax.swing.JPanel();
         btnTambah = new javax.swing.JButton();
         btnUbah = new javax.swing.JButton();
@@ -108,49 +114,58 @@ public class PendaftarView extends javax.swing.JInternalFrame {
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         jLabel6.setText("Password                             :");
 
+        jLabel7.setBackground(new java.awt.Color(204, 204, 204));
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        jLabel7.setText("ID Pendaftar                       :");
+
+        txtKkodePendaftar.setEnabled(false);
+
         javax.swing.GroupLayout panelIsiLayout = new javax.swing.GroupLayout(panelIsi);
         panelIsi.setLayout(panelIsiLayout);
         panelIsiLayout.setHorizontalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
-                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, panelIsiLayout.createSequentialGroup()
+            .addGroup(panelIsiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addComponent(jLabel7)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtKkodePendaftar))
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
                         .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(panelIsiLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel1)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelIsiLayout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jLabel2)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)))
+                            .addComponent(jLabel2, javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.TRAILING))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                             .addComponent(txtAsalSekolah, javax.swing.GroupLayout.DEFAULT_SIZE, 399, Short.MAX_VALUE)
                             .addComponent(txtNamaPendaftar)))
                     .addGroup(panelIsiLayout.createSequentialGroup()
-                        .addContainerGap()
                         .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3)
+                            .addComponent(jLabel4)
+                            .addComponent(jLabel5))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(txtEmail)
                             .addGroup(panelIsiLayout.createSequentialGroup()
-                                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel4)
-                                    .addComponent(jLabel5))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtEmail)
-                                    .addGroup(panelIsiLayout.createSequentialGroup()
-                                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(0, 0, Short.MAX_VALUE))
-                                    .addComponent(txtTelepon)))
-                            .addGroup(panelIsiLayout.createSequentialGroup()
-                                .addComponent(jLabel6)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addComponent(txtPassword)))))
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 399, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE))
+                            .addComponent(txtTelepon)))
+                    .addGroup(panelIsiLayout.createSequentialGroup()
+                        .addComponent(jLabel6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(txtPassword)))
                 .addGap(160, 160, 160))
         );
         panelIsiLayout.setVerticalGroup(
             panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(panelIsiLayout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel7)
+                    .addComponent(txtKkodePendaftar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(panelIsiLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1)
                     .addComponent(txtNamaPendaftar, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
@@ -324,7 +339,27 @@ public class PendaftarView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
-        buttonPrint();
+        //buttonPrint();
+        try {
+            if (txtNamaPendaftar.getText().isEmpty()) {
+                String path1 = "src/laporan/Daftar.jasper";
+                JasperPrint print = JasperFillManager.fillReport(path1, null, Connect.getConnection());
+
+                JasperViewer.viewReport(print, false);
+            } else {
+                HashMap parameter = new HashMap();
+                String path = "src/laporan/Pendaftar.jasper";
+                //int id = txtKodeFakultas.getText();
+                parameter.put("id_jur", Integer.parseInt(txtKkodePendaftar.getText()));
+
+                //JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+                JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+
+                JasperViewer.viewReport(print, false);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada " + ex);
+        }
     }//GEN-LAST:event_btnCetakActionPerformed
 
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
@@ -355,6 +390,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JPanel panelButton;
@@ -365,6 +401,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
     public static javax.swing.JTextField txtAsalSekolah;
     private javax.swing.JTextField txtCari;
     public static javax.swing.JTextField txtEmail;
+    public static javax.swing.JTextField txtKkodePendaftar;
     public static javax.swing.JTextField txtNamaPendaftar;
     public static javax.swing.JTextField txtPassword;
     public static javax.swing.JTextField txtTelepon;
@@ -696,18 +733,25 @@ public class PendaftarView extends javax.swing.JInternalFrame {
         }
     }
     
-    public void buttonPrint() {
-
-        int row = tabelPendaftar.getRowCount();
-        if (row == 0) {
-            JOptionPane.showMessageDialog(this, "Tidak Ada Data Yang Di Cetak !");
-        } else {
-            try {
-                JasperPrint jasperPrint = cMahasiswaImplements.cetakPendaftar();
-                JasperViewer.viewReport(jasperPrint, false);
-            } catch (Exception e) {
-            }
-        }
-    }
+//    public void buttonPrint() {
+//
+//        try {
+//            
+//            HashMap parameter = new HashMap();
+//            String path="src/laporan/Pendaftar.jasper"; 
+//            //int id = txtKodeFakultas.getText();
+//            parameter.put("id_jur", Integer.parseInt(txtKodeProdi.getText()));
+//            
+//            //JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+//            JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+//
+//            JasperViewer.viewReport(print, false);
+//
+//        } catch (Exception ex) {
+//
+//            JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada " + ex);
+//
+//        }
+//    }
 
 }

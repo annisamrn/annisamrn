@@ -310,7 +310,27 @@ public class ProdiView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
-        buttonPrint();
+//        buttonPrint();
+       try {
+            if (txtKodeProdi.getText().isEmpty()) {
+                String path1 = "src/laporan/ProdiCetak.jasper";
+                JasperPrint print = JasperFillManager.fillReport(path1, null, Connect.getConnection());
+
+                JasperViewer.viewReport(print, false);
+            } else {
+                HashMap parameter = new HashMap();
+                String path = "src/laporan/Prodi.jasper";
+                //int id = txtKodeFakultas.getText();
+                parameter.put("id_jur", Integer.parseInt(txtKodeProdi.getText()));
+
+                //JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+                JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+
+                JasperViewer.viewReport(print, false);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada " + ex);
+        }
     }//GEN-LAST:event_btnCetakActionPerformed
 
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed

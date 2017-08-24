@@ -24,45 +24,41 @@
 	</background>
 	<title>
 		<band height="137" splitType="Stretch">
-			<staticText>
-				<reportElement x="66" y="14" width="345" height="20" uuid="bcb614aa-0dee-4dce-b3cb-19fba68ee2dd"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[PEMERINTAH PROVINSI KALIMANTAN SELATAN]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="66" y="34" width="345" height="20" uuid="91630099-d176-4c38-9e74-e38084d5497f"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[DINAS PENDIDIKAN DAN KEBUDAYAAN]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="66" y="54" width="345" height="20" uuid="85c713c8-9b42-4403-8187-52af658f896e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="DejaVu Serif" size="12" isBold="true"/>
-				</textElement>
-				<text><![CDATA[SMK NEGERI 4 BANJARMASIN]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="66" y="74" width="345" height="20" uuid="cbc3d738-8bc7-4ab5-8222-3f869f24686b"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="8"/>
-				</textElement>
-				<text><![CDATA[Jalan Brigen H.Hasan Basri No.07 Telepon 0511-3305054 Banjarmasin]]></text>
-			</staticText>
 			<line>
 				<reportElement x="2" y="114" width="552" height="1" uuid="4b90c096-789c-4d48-93f7-e26301f2c102"/>
 			</line>
+			<staticText>
+				<reportElement x="102" y="26" width="345" height="20" uuid="83f1aacc-7bf2-4bfc-9648-e9f9023d2f2a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSITAS ISLAM KALIMANTAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="86" width="345" height="20" uuid="0e731770-525e-4a61-b27e-cd927f2eef21"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Jl. Adhyaksa No.2 Kayutangi FAX : 0511-3305834 Email : admin@uniska-bjm.ac.id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="66" width="345" height="20" uuid="102dce71-ba0a-4aff-9160-9d6f128aa5be"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANJARMASIN]]></text>
+			</staticText>
 			<image>
-				<reportElement x="6" y="14" width="60" height="80" uuid="24fed530-ef83-45f8-a2ee-eafca2b7ef79"/>
-				<imageExpression><![CDATA["http://localhost/nis/prv.gif"]]></imageExpression>
+				<reportElement x="10" y="10" width="455" height="99" uuid="60d9d09b-9f82-4c29-876f-21c8dda4c31a"/>
+				<imageExpression><![CDATA["C:\\Users\\USER\\Documents\\NetBeansProjects\\SkripsiAnnisaMeriana\\src\\laporan\\Logo-UNISKA-Baru-kcl.png"]]></imageExpression>
 			</image>
-			<image>
-				<reportElement x="411" y="14" width="138" height="80" uuid="195e7e3c-9f83-463a-bad7-09f3a6f2a333"/>
-				<imageExpression><![CDATA["http://localhost/nis/logo_iso.jpg"]]></imageExpression>
-			</image>
+			<staticText>
+				<reportElement x="102" y="46" width="345" height="20" uuid="c725cd09-8de4-4479-9ddf-3b999d7cda02"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MUHAMMAD ARSYAD AL BANJARI]]></text>
+			</staticText>
 		</band>
 	</title>
 	<pageHeader>
@@ -77,35 +73,44 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="29" splitType="Stretch">
+		<band height="22" splitType="Stretch">
 			<staticText>
-				<reportElement x="268" y="1" width="100" height="20" uuid="e4f52c73-9c28-455a-ae21-9ff0dcb28659"/>
-				<text><![CDATA[fakultas]]></text>
+				<reportElement x="287" y="1" width="240" height="20" uuid="e4f52c73-9c28-455a-ae21-9ff0dcb28659"/>
+				<text><![CDATA[NAMA FAKULTAS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="62" y="1" width="100" height="20" uuid="7cb46883-732f-457d-90fd-19d8e96e6184"/>
-				<text><![CDATA[id_prodi]]></text>
+				<reportElement x="27" y="1" width="100" height="20" uuid="7cb46883-732f-457d-90fd-19d8e96e6184"/>
+				<text><![CDATA[ID PROGRAM STUDI	]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="166" y="1" width="100" height="20" uuid="82614f57-399f-48f4-b7ce-40924a1d77b4"/>
-				<text><![CDATA[nama_prodi]]></text>
+				<reportElement x="127" y="1" width="160" height="20" uuid="82614f57-399f-48f4-b7ce-40924a1d77b4"/>
+				<text><![CDATA[NAMA PROGRAM STUDI]]></text>
 			</staticText>
+			<line>
+				<reportElement x="27" y="21" width="500" height="1" uuid="ab45ff48-58cc-4320-8a81-d636323bfec8"/>
+			</line>
+			<line>
+				<reportElement x="26" y="-1" width="500" height="1" uuid="6bca075e-3b82-4d60-a55c-e5b0ec149698"/>
+			</line>
 		</band>
 	</columnHeader>
 	<detail>
 		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement x="268" y="0" width="100" height="20" uuid="60902fa3-d382-4407-be66-a5dfca3cd109"/>
+				<reportElement x="287" y="0" width="240" height="20" uuid="60902fa3-d382-4407-be66-a5dfca3cd109"/>
 				<textFieldExpression><![CDATA[$F{fakultas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="62" y="0" width="100" height="20" uuid="e23c4eff-2dc9-4977-81f1-1f264e0b7d94"/>
+				<reportElement x="27" y="0" width="100" height="20" uuid="e23c4eff-2dc9-4977-81f1-1f264e0b7d94"/>
 				<textFieldExpression><![CDATA[$F{id_prodi}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="166" y="0" width="100" height="20" uuid="1d297341-b0a7-4dc3-b250-63cac544c392"/>
+				<reportElement x="127" y="0" width="160" height="20" uuid="1d297341-b0a7-4dc3-b250-63cac544c392"/>
 				<textFieldExpression><![CDATA[$F{nama_prodi}]]></textFieldExpression>
 			</textField>
+			<line>
+				<reportElement x="27" y="18" width="499" height="1" uuid="cf94af4c-8c7a-49ee-a60f-d22ec75b86f2"/>
+			</line>
 		</band>
 	</detail>
 </jasperReport>

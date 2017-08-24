@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6fab7a50-eb9b-47d2-802e-43b1c4659d8e">
+	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_jur" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[SELECT * FROM tb_calon_mhs WHERE id_pendaftar = $P{id_jur}]]>
+	</queryString>
+	<field name="id_pendaftar" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="asal_sekolah" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telepon" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="email" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="password" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="alamat" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="137" splitType="Stretch">
+			<line>
+				<reportElement x="2" y="114" width="552" height="1" uuid="4b90c096-789c-4d48-93f7-e26301f2c102"/>
+			</line>
+			<staticText>
+				<reportElement x="112" y="76" width="345" height="20" uuid="d5e46e69-c592-481e-a8cd-f705faae62a6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANJARMASIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="112" y="56" width="345" height="20" uuid="aa769990-f8ed-4b73-ae3d-b5d0a0d2d529"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MUHAMMAD ARSYAD AL BANJARI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="112" y="96" width="345" height="20" uuid="16b4ea4a-9c59-48f5-a6c0-cb4f5e29c033"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Jl. Adhyaksa No.2 Kayutangi FAX : 0511-3305834 Email : admin@uniska-bjm.ac.id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="112" y="36" width="345" height="20" uuid="a1945e76-159a-4e63-8017-b9da0717f0db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSITAS ISLAM KALIMANTAN]]></text>
+			</staticText>
+			<image>
+				<reportElement x="19" y="8" width="455" height="99" uuid="289c6b10-cc83-4360-9b90-aa1fb2bb8cce"/>
+				<imageExpression><![CDATA["C:\\Users\\USER\\Documents\\NetBeansProjects\\SkripsiAnnisaMeriana\\src\\laporan\\Logo-UNISKA-Baru-kcl.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="41">
+			<staticText>
+				<reportElement x="184" y="12" width="182" height="20" uuid="e39f912e-9d74-4b70-bbcc-68a8038713a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[LAPORAN PENDAFTAR]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<staticText>
+				<reportElement x="-1" y="1" width="37" height="20" uuid="5a7f249a-7a64-494e-ad34-d5a5dbfc9508"/>
+				<text><![CDATA[ID]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="37" y="1" width="116" height="20" uuid="17f41501-5465-4a85-85de-eb644d4406ad"/>
+				<text><![CDATA[NAMA PENDAFTAR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="153" y="1" width="100" height="20" uuid="9bab0491-269c-411e-802a-1fe2735e775c"/>
+				<text><![CDATA[ASAL SEKOLAH]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="252" y="1" width="71" height="20" uuid="bd6f706f-3b0e-4659-9da8-a7ed1805016b"/>
+				<text><![CDATA[TELEPON]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="324" y="1" width="100" height="20" uuid="1e05f6b9-b967-4e5d-8d38-b6393ab8f40c"/>
+				<text><![CDATA[EMAIL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="1" width="130" height="20" uuid="03ee9d1b-aeda-401f-a350-e4d4523c1f55"/>
+				<text><![CDATA[ALAMAT]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="-1" y="0" width="37" height="20" uuid="c3b89f50-b664-450c-bac6-3afaf5382829"/>
+				<textFieldExpression><![CDATA[$F{id_pendaftar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="37" y="0" width="116" height="20" uuid="800df8d0-6d77-4844-b0f3-92e23dffb54f"/>
+				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="153" y="0" width="100" height="20" uuid="58467934-f5b5-49b9-ab9d-b5518ada6845"/>
+				<textFieldExpression><![CDATA[$F{asal_sekolah}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="252" y="0" width="71" height="20" uuid="dec2e2a6-bebb-494f-9dbf-56cf3a8521b9"/>
+				<textFieldExpression><![CDATA[$F{telepon}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="324" y="0" width="100" height="20" uuid="8e294c32-8ee4-433a-97a7-fcaaf7b44505"/>
+				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="424" y="0" width="130" height="20" uuid="858f63ed-18f9-4924-8c57-4699c9a18a0d"/>
+				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="2" y="19" width="552" height="1" uuid="adb19f92-80fe-4a65-ae64-2711e64445d1"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="0" width="552" height="1" uuid="f8fb591c-b186-4239-b54f-2d07d17417fa"/>
+			</line>
+			<line>
+				<reportElement x="-1" y="-24" width="552" height="1" uuid="4b45d4c3-28c0-4330-9beb-413f181f9f4b"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

@@ -235,7 +235,7 @@ public class FakultasView extends javax.swing.JInternalFrame {
                     .addComponent(ComboBoxCari, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(txtCari, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 163, Short.MAX_VALUE))
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 226, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -282,7 +282,28 @@ public class FakultasView extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_btnBatalActionPerformed
 
     private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
-        buttonPrint();
+  //      buttonPrint();
+        try {
+            if (txtKodeFakultas.getText().isEmpty()) {
+                String path1 = "src/laporan/Jurusan.jasper";
+                JasperPrint print = JasperFillManager.fillReport(path1, null, Connect.getConnection());
+
+                JasperViewer.viewReport(print, false);
+            } else {
+                HashMap parameter = new HashMap();
+                String path = "src/laporan/Fakultas.jasper";
+                //int id = txtKodeFakultas.getText();
+                parameter.put("id_jur", Integer.parseInt(txtKodeFakultas.getText()));
+
+                //JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+                JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+
+                JasperViewer.viewReport(print, false);
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada " + ex);
+        }
+
     }//GEN-LAST:event_btnCetakActionPerformed
 
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
@@ -598,26 +619,32 @@ public class FakultasView extends javax.swing.JInternalFrame {
 //            JOptionPane.showMessageDialog(this, "Tidak Ada Data Yang Di Cetak !");
 //        } else {
 //            try {
-                //JasperPrint jasperPrint = fakultasImplements.cetakFakultas();
+        //JasperPrint jasperPrint = fakultasImplements.cetakFakultas();
 //                JasperViewer.viewReport(jasperPrint, false);
 //            } catch (Exception e) {
 //            }
 //        }
         try {
-            HashMap parameter = new HashMap();
-            String path="src/laporan/Fakultas.jasper"; 
-            //int id = txtKodeFakultas.getText();
-            parameter.put("id_jur", Integer.parseInt(txtKodeFakultas.getText()));
-            
-            //JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
-            JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+            if (txtKodeFakultas.getText() != null) {
+                String path1 = "src/laporan/Jurusan.jasper";
+                JasperPrint print = JasperFillManager.fillReport(path1, null, Connect.getConnection());
 
-            JasperViewer.viewReport(print, false);
-
+                JasperViewer.viewReport(print, false);
+            } else {
+                System.out.println("haha");
+//                HashMap parameter = new HashMap();
+//                String path = "src/laporan/Fakultas.jasper";
+//                //int id = txtKodeFakultas.getText();
+//                parameter.put("id_jur", Integer.parseInt(txtKodeFakultas.getText()));
+//
+//                //JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+//                JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+//
+//                JasperViewer.viewReport(print, false);
+            }
         } catch (Exception ex) {
-
             JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada " + ex);
-
         }
+
     }
 }
