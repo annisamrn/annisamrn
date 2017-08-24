@@ -50,29 +50,6 @@ public class QuisView extends javax.swing.JInternalFrame {
 
         initComponents();
         tampil();
-        try {
-            String sql = "SELECT * FROM tb_soal ORDER BY id_soal";
-            Statement s2 = Connect.getConnection().createStatement();
-            rs3 = s2.executeQuery(sql);
-            int jml = 0;
-            while (rs3.next()) {
-                jml++;
-            }
-
-            rs4 = k.select("SELECT * FROM tb_pilihan");
-            int jlh = 1;
-            while (rs4.next()) {
-                jlh++;
-            }
-            for (int ko = 0; ko < jml; ko++) {
-                for(int jo = 1; jo <= jlh; jo++){
-                    ro[ko] = jo;
-                }
-            }
-
-        } catch (SQLException ex) {
-            Logger.getLogger(QuisView.class.getName()).log(Level.SEVERE, null, ex);
-        }
     }
 
     /**
@@ -253,7 +230,7 @@ public class QuisView extends javax.swing.JInternalFrame {
                     jlh++;
                 }
             }
-            
+            int ro[] = {1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5};
             String sql4 = "INSERT INTO tb_hasil (hasil, id_soal , id_urut, id_pendaftar, id_fakultas, id_prodi)VALUES (?, ?, ?, ?, ?, ?)";
             ps = Connect.getConnection().prepareStatement(sql4);
             for (int k = 0; k < jml; k++) {
