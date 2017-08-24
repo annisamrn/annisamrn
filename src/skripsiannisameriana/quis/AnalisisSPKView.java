@@ -6,7 +6,11 @@
 package skripsiannisameriana.quis;
 
 import java.math.BigDecimal;
+import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
@@ -74,9 +78,8 @@ public class AnalisisSPKView extends javax.swing.JDialog {
                 //costbenefit[c] = rs.getString("costbenefit");
                 kepentingan[c] = rs.getDouble("prioritas");
             }
-            
-            
-           // int[] coba = {1,2,3,4,5,6,7,8,9,10,11,12,13};
+
+            // int[] coba = {1,2,3,4,5,6,7,8,9,10,11,12,13};
             alternatifkriteria = new double[jml_alternatif][jml_kriteria];
             for (int i = 0; i < alternatif.length; i++) {
                 for (int j = 0; j < kriteria.length; j++) {
@@ -102,11 +105,11 @@ public class AnalisisSPKView extends javax.swing.JDialog {
         }
 
         double[][] normalisasi = new double[alternatif.length][kriteria.length];
-        
+
         for (int i = 0; i < alternatif.length; i++) {
             for (int j = 0; j < kriteria.length; j++) {
                 normalisasi[i][j] = (alternatifkriteria[i][j] / pembagi[j]);
-                
+
             }
         }
 
@@ -143,7 +146,7 @@ public class AnalisisSPKView extends javax.swing.JDialog {
                 }
             }
         }
-        
+
         double[] dplus = new double[alternatif.length];
 
         for (int i = 0; i < alternatif.length; i++) {
@@ -153,7 +156,7 @@ public class AnalisisSPKView extends javax.swing.JDialog {
             }
             dplus[i] = Math.sqrt(dplus[i]);
         }
-        
+
         double[] dmin = new double[alternatif.length];
 
         for (int i = 0; i < alternatif.length; i++) {
@@ -163,14 +166,14 @@ public class AnalisisSPKView extends javax.swing.JDialog {
             }
             dmin[i] = Math.sqrt(dmin[i]);
         }
-        
+
         //error
         double[] hasil = new double[alternatif.length];
 
         for (int i = 0; i < alternatif.length; i++) {
-            hasil[i] = (dmin[i] + dplus[i])  ;
+            hasil[i] = (dmin[i] + dplus[i]);
         }
-        
+
         String[] alternatifrangking = new String[alternatif.length];
         double[] hasilrangking = new double[alternatif.length];
 
@@ -191,7 +194,7 @@ public class AnalisisSPKView extends javax.swing.JDialog {
                 }
             }
         }
-        
+
         DefaultTableModel model = null;
 
         String[] kolom = {"Alternatif", "Nilai"};
@@ -208,9 +211,22 @@ public class AnalisisSPKView extends javax.swing.JDialog {
             row[1] = BigDecimal.valueOf(hasilrangking[i]).toPlainString();
             model.addRow(row);
         }
-        
+
         labelAlternatifTerbaik.setText(alternatifrangking[0]);
         labelNilaiTerbesar.setText(BigDecimal.valueOf(hasilrangking[0]).toPlainString());
+
+        try {
+            // TODO add your handling code here:
+            String sql = "INSERT INTO tb_hasil_analisa (alternatif, nilai) VALUES(?, ?)";
+            PreparedStatement ps = Connect.getConnection().prepareStatement(sql);
+            for (int i = 0; i < alternatifrangking.length; i++) {
+                ps.setString(1, alternatifrangking[i]);
+                ps.setString(2, BigDecimal.valueOf(hasilrangking[i]).toPlainString());
+                ps.executeUpdate();
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(AnalisisSPKView.class.getName()).log(Level.SEVERE, null, ex);
+        }
 
         tabelAlternatif.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
         tabelKriteria.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
@@ -755,19 +771,18 @@ public class AnalisisSPKView extends javax.swing.JDialog {
         // TODO add your handling code here:
         try {
             //(txtNamaPendaftar.getText().isEmpty())
-                String path1 = "src/laporan/Hasil.jasper";
-                JasperPrint print = JasperFillManager.fillReport(path1, null, Connect.getConnection());
+            String path1 = "src/laporan/Hasil.jasper";
+            JasperPrint print = JasperFillManager.fillReport(path1, null, Connect.getConnection());
 
-                JasperViewer.viewReport(print, false);
-            
+            JasperViewer.viewReport(print, false);
+
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada " + ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
-        // TODO add your handling code here:
-        dispose();
+
     }//GEN-LAST:event_btnTutupActionPerformed
 
     /**
@@ -933,7 +948,7 @@ public class AnalisisSPKView extends javax.swing.JDialog {
             model.addRow(row);
         }
     }
-    
+
     public void tampilkolom(JTable tbl, double[] data) {
         DefaultTableModel model = null;
 
@@ -953,7 +968,7 @@ public class AnalisisSPKView extends javax.swing.JDialog {
             model.addRow(row);
         }
     }
-    
+
     public void tampilkolom1(JTable tbl, String[] data) {
         DefaultTableModel model = null;
 
