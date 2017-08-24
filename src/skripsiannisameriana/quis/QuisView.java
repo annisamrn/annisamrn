@@ -20,13 +20,15 @@ import skripsiannisameriana.home.Home1;
  * @author USER
  */
 public class QuisView extends javax.swing.JInternalFrame {
-
-    ResultSet rs, rs1, rs2, rs3;
+    
+    Connect k = new Connect();
+    ResultSet rs, rs1, rs2, rs3, rs4;
     String[] jawaban;
     String[] jw;
     int i = 0, p = 0;
     PreparedStatement ps;
     public static int id;
+    int[] ro;
 
     //save jawaban
     int id_soal1;
@@ -219,14 +221,22 @@ public class QuisView extends javax.swing.JInternalFrame {
             while (rs3.next()) {
                 jml++;
             }
-            String sql4 = "INSERT INTO tb_hasil (hasil,id_soal, id_pendaftar, id_fakultas, id_prodi)VALUES (?, ?, ?, ?, ?)";
+            
+            rs4 = k.select("SELECT * FROM tb_pilihan");
+            int jlh = 0;
+            while (rs4.next()){
+                //ro[jlh] = jlh;
+                jlh++;
+            }
+            String sql4 = "INSERT INTO tb_hasil (hasil, id_soal , id_urut, id_pendaftar, id_fakultas, id_prodi)VALUES (?, ?, ?, ?, ?, ?)";
             ps = Connect.getConnection().prepareStatement(sql4);
             for (int k = 0; k < jml; k++) {
                 ps.setInt(1, hasil[k]);
                 ps.setInt(2, id_soal[k]);
-                ps.setInt(3, id_pend[k]);
-                ps.setInt(4, id_fak[k]);
-                ps.setInt(5, id_pro[k]);
+                ps.setInt(3, jlh);
+                ps.setInt(4, id_pend[k]);
+                ps.setInt(5, id_fak[k]);
+                ps.setInt(6, id_pro[k]);
                 ps.executeUpdate();
             }
             

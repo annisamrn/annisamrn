@@ -70,16 +70,18 @@ public class AnalisisSPKView extends javax.swing.JDialog {
             while (rs.next()) {
                 c++;
                 kriteria[c] = rs.getString("id_prodi");
-                //id_kriteria[c] = rs.getString("id_soal");
+                id_kriteria[c] = rs.getString("prioritas");
                 //costbenefit[c] = rs.getString("costbenefit");
                 kepentingan[c] = rs.getDouble("prioritas");
             }
-
+            
+            
+            int[] coba = {1,2,3,4,5,6,7,8,9,10,11,12,13};
             alternatifkriteria = new double[jml_alternatif][jml_kriteria];
             for (int i = 0; i < alternatif.length; i++) {
                 for (int j = 0; j < kriteria.length; j++) {
                     //rs = k.select("select * from tb_hasil where id_prodi = '" + id_alternatif[i] + "' and id_soal = '" + id_kriteria[j] + "'");
-                    rs = k.select("select * from tb_hasil where id_prodi = '" + id_alternatif[i] + "'");
+                    rs = k.select("select * from tb_hasil where id_prodi = '" + id_alternatif[i] + "'and id_urut = '" + id_kriteria[j] + "'");
                     while (rs.next()) {
                         alternatifkriteria[i][j] = rs.getDouble("hasil");
                     }
