@@ -20,7 +20,7 @@ import skripsiannisameriana.home.Home1;
  * @author USER
  */
 public class QuisView extends javax.swing.JInternalFrame {
-    
+
     Connect k = new Connect();
     ResultSet rs, rs1, rs2, rs3, rs4;
     String[] jawaban;
@@ -47,8 +47,32 @@ public class QuisView extends javax.swing.JInternalFrame {
      * Creates new form QuisView
      */
     public QuisView() {
+
         initComponents();
         tampil();
+        try {
+            String sql = "SELECT * FROM tb_soal ORDER BY id_soal";
+            Statement s2 = Connect.getConnection().createStatement();
+            rs3 = s2.executeQuery(sql);
+            int jml = 0;
+            while (rs3.next()) {
+                jml++;
+            }
+
+            rs4 = k.select("SELECT * FROM tb_pilihan");
+            int jlh = 1;
+            while (rs4.next()) {
+                jlh++;
+            }
+            for (int ko = 0; ko < jml; ko++) {
+                for(int jo = 1; jo <= jlh; jo++){
+                    ro[ko] = jo;
+                }
+            }
+
+        } catch (SQLException ex) {
+            Logger.getLogger(QuisView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -213,7 +237,7 @@ public class QuisView extends javax.swing.JInternalFrame {
                 r++;
             }
             rs1.close();
-            
+
             String sql = "SELECT * FROM tb_soal ORDER BY id_soal";
             Statement s2 = Connect.getConnection().createStatement();
             rs3 = s2.executeQuery(sql);
@@ -221,25 +245,27 @@ public class QuisView extends javax.swing.JInternalFrame {
             while (rs3.next()) {
                 jml++;
             }
-            
+
             rs4 = k.select("SELECT * FROM tb_pilihan");
-            int jlh = 0;
-            while (rs4.next()){
-                //ro[jlh] = jlh;
-                jlh++;
+            int jlh = 1;
+            for (int ko = 0; ko < jml; ko++) {
+                while (rs4.next()) {
+                    jlh++;
+                }
             }
+            
             String sql4 = "INSERT INTO tb_hasil (hasil, id_soal , id_urut, id_pendaftar, id_fakultas, id_prodi)VALUES (?, ?, ?, ?, ?, ?)";
             ps = Connect.getConnection().prepareStatement(sql4);
             for (int k = 0; k < jml; k++) {
                 ps.setInt(1, hasil[k]);
                 ps.setInt(2, id_soal[k]);
-                ps.setInt(3, jlh);
+                ps.setInt(3, ro[k]);
                 ps.setInt(4, id_pend[k]);
                 ps.setInt(5, id_fak[k]);
                 ps.setInt(6, id_pro[k]);
                 ps.executeUpdate();
             }
-            
+
             AnalisisSPKTampil tampil3 = new AnalisisSPKTampil();
             Home1.jDesktopPane2.add(tampil3);
             tampil3.setVisible(true);
