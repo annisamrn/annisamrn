@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6fab7a50-eb9b-47d2-802e-43b1c4659d8e">
-	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
-		<![CDATA[SELECT * FROM tb_fakultas]]>
+		<![CDATA[SELECT * FROM tb_prodi JOIN tb_fakultas ON tb_prodi.id_fakultas = tb_fakultas.id_fakultas]]>
 	</queryString>
+	<field name="id_prodi" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_prodi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
 	<field name="id_fakultas" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
@@ -66,39 +72,85 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="22" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<staticText>
-				<reportElement x="297" y="2" width="240" height="20" uuid="2fcf2ebc-5baa-48db-a6df-0752ee6a9ff3"/>
+				<reportElement x="297" y="0" width="240" height="20" uuid="2fcf2ebc-5baa-48db-a6df-0752ee6a9ff3"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[NAMA FAKULTAS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="37" y="2" width="100" height="20" uuid="2d308d9e-fc39-44d3-a4d4-fbb03b6a3364"/>
+				<reportElement x="37" y="0" width="100" height="20" uuid="2d308d9e-fc39-44d3-a4d4-fbb03b6a3364"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[ID PROGRAM STUDI	]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="137" y="2" width="160" height="20" uuid="03339997-42a4-4add-8422-91460ae3d5d3"/>
+				<reportElement x="137" y="0" width="160" height="20" uuid="03339997-42a4-4add-8422-91460ae3d5d3"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[NAMA PROGRAM STUDI]]></text>
 			</staticText>
-			<line>
-				<reportElement x="36" y="0" width="500" height="1" uuid="51991b89-3590-4823-93f9-a34e58e33118"/>
-			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="24" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement x="297" y="2" width="240" height="20" uuid="9bcfc532-d018-45d2-83c5-0fca051dbfd9"/>
+				<reportElement x="297" y="0" width="240" height="20" uuid="9bcfc532-d018-45d2-83c5-0fca051dbfd9"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
 				<textFieldExpression><![CDATA[$F{fakultas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="37" y="2" width="100" height="20" uuid="561c4561-6732-4440-b6f5-669601578bb0"/>
+				<reportElement x="37" y="0" width="100" height="20" uuid="561c4561-6732-4440-b6f5-669601578bb0"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{id_prodi}]]></textFieldExpression>
 			</textField>
-			<line>
-				<reportElement x="37" y="20" width="499" height="1" uuid="691d82e2-eb44-4824-b8c3-3814e7df0c65"/>
-			</line>
 			<textField>
-				<reportElement x="137" y="2" width="160" height="20" uuid="62bb5885-1ee6-4ed1-94e1-ce0b01e3d44b"/>
+				<reportElement x="137" y="0" width="160" height="20" uuid="62bb5885-1ee6-4ed1-94e1-ce0b01e3d44b"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
 				<textFieldExpression><![CDATA[$F{nama_prodi}]]></textFieldExpression>
 			</textField>
 		</band>

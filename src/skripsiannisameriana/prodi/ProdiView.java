@@ -657,7 +657,7 @@ public class ProdiView extends javax.swing.JInternalFrame {
             if (ComboBoxCari.getSelectedIndex() == 0) {
                 sqlParameter = "id_prodi";
             } else if (ComboBoxCari.getSelectedIndex() == 1) {
-                sqlParameter = "prodi";
+                sqlParameter = "nama_prodi";
             }
             searchParameter = txtCari.getText();
             List<Prodi> list = prodiImplements.getProdiParameter(sqlParameter, searchParameter);

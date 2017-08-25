@@ -422,10 +422,11 @@
               <Font name="Tahoma" size="12" style="1"/>
             </Property>
             <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.editors2.ComboBoxModelEditor">
-              <StringArray count="3">
+              <StringArray count="4">
                 <StringItem index="0" value="Nomor Pendaftar"/>
                 <StringItem index="1" value="Nama Pendaftar"/>
                 <StringItem index="2" value="Asal Sekolah"/>
+                <StringItem index="3" value="email"/>
               </StringArray>
             </Property>
           </Properties>

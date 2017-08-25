@@ -113,8 +113,7 @@ public class ProdiImplements {
 
     public List<Prodi> getProdiParameter(String sqlParameter, String searchParameter) throws SQLException {
 
-        String sqlSelect = "SELECT * FROM tb_prodi JOIN tb_fakultas ON tb_fakultas.id_fakultas = tb_prodi.id_fakultas "
-                         + "WHERE " + sqlParameter + " LIKE  '%" + searchParameter + "%' AND id_prodi <> '1'";
+        String sqlSelect = "SELECT * FROM tb_prodi JOIN tb_fakultas ON tb_fakultas.id_fakultas = tb_prodi.id_fakultas WHERE " + sqlParameter + " LIKE  '%" + searchParameter + "%' AND id_prodi <> '1'";
         Statement statement = null;
         ResultSet resultSet;
         try {

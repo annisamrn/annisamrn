@@ -111,6 +111,11 @@ public class Home extends javax.swing.JFrame {
 
         jButton6.setText("Laporan");
         jButton6.setMaximumSize(new java.awt.Dimension(180, 31));
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
         jPanel2.add(jButton6);
 
         jButton7.setText("Help");
@@ -195,6 +200,13 @@ public class Home extends javax.swing.JFrame {
         // TODO add your handling code here:
         System.exit(0);
     }//GEN-LAST:event_jButton9ActionPerformed
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+        Laporan lap = new Laporan();
+        jDesktopPane2.add(lap);
+        lap.show();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments

@@ -1,0 +1,326 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6fab7a50-eb9b-47d2-802e-43b1c4659d8e">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="133"/>
+	<parameter name="nama_prodi" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT * FROM tb_prodi a
+JOIN tb_fakultas b ON a.id_fakultas = b.id_fakultas
+WHERE nama_prodi LIKE '%$P!{nama_prodi}%']]>
+	</queryString>
+	<field name="id_prodi" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_prodi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_fakultas" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fakultas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="137" splitType="Stretch">
+			<line>
+				<reportElement x="2" y="114" width="552" height="1" uuid="4b90c096-789c-4d48-93f7-e26301f2c102"/>
+			</line>
+			<staticText>
+				<reportElement x="102" y="26" width="345" height="20" uuid="dcbf2908-53fd-47e0-9bd7-0b8b7149a5b7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSITAS ISLAM KALIMANTAN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="66" width="345" height="20" uuid="1e6d13a2-ca4d-4fe6-930d-2a7b831c3a75"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANJARMASIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="86" width="345" height="20" uuid="0dd09279-3b38-479b-8ee3-844f33126464"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Jl. Adhyaksa No.2 Kayutangi FAX : 0511-3305834 Email : admin@uniska-bjm.ac.id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="102" y="46" width="345" height="20" uuid="e0d0b1f2-eda1-4250-9e68-695f3bfb5e15"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MUHAMMAD ARSYAD AL BANJARI]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="10" width="455" height="99" uuid="26d30e53-bbaf-4f42-9203-f62a1a3253cb"/>
+				<imageExpression><![CDATA["C:\\Users\\USER\\Documents\\NetBeansProjects\\SkripsiAnnisaMeriana\\src\\laporan\\Logo-UNISKA-Baru-kcl.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="87">
+			<staticText>
+				<reportElement x="88" y="0" width="377" height="20" uuid="e39f912e-9d74-4b70-bbcc-68a8038713a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[HASIL TES PEMINATAN PERPROGRRAM STUDI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="36" width="146" height="20" uuid="865d9532-a803-4905-b2d2-0b02205c632c"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Fakultas                       :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="45" y="56" width="146" height="20" uuid="c1d979a8-73d7-4d1a-b088-0cd374d3538b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Program Studi            :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="191" y="56" width="341" height="20" uuid="669b3670-6c79-40a5-ac69-4b38a7bf65e9"/>
+				<textFieldExpression><![CDATA[$F{nama_prodi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="191" y="36" width="341" height="20" uuid="d9441953-6207-438b-977e-cda7eaea1c2b"/>
+				<textFieldExpression><![CDATA[$F{fakultas}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="20" splitType="Stretch">
+			<staticText>
+				<reportElement x="377" y="0" width="133" height="20" uuid="ba7239b4-8a7d-4abd-9afd-639bafc20606"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hasil Perankingan Program Studi]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="0" width="221" height="20" uuid="08e5720e-c58c-497c-84bc-381258a4537f"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nama Pendaftar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="0" width="133" height="20" uuid="13374d21-90b1-4170-9f4e-99a87ed5b0a2"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pilihan Ke-]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="181" splitType="Stretch">
+			<staticText>
+				<reportElement x="23" y="1" width="221" height="20" uuid="fc3a0863-8033-4630-94a9-da2aee5bbe50"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[rey]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="21" width="221" height="20" uuid="4b704600-81e7-4ffb-ac6e-cb43fc742fb1"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[annisa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="41" width="221" height="20" uuid="64627ef3-a54b-442a-b3cc-2b96287e923a"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[aulia]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="61" width="221" height="20" uuid="d682dd86-98d7-4a4a-947b-6af7ba751061"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[nanda]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="23" y="81" width="221" height="20" uuid="0b4b577d-27c3-42a8-ac3c-9c8e343d8333"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<text><![CDATA[ridho]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="1" width="133" height="20" uuid="ea3e675c-0791-435a-ae50-c517bbeb1121"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[2]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="1" width="133" height="20" uuid="869b50a8-a95b-405e-ad8e-8c9a83ff6783"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="41" width="133" height="20" uuid="5f686bdb-223d-477c-ab32-8f92ac85f995"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="21" width="133" height="20" uuid="6791ec00-1f92-46ac-8809-dc9b786dad1b"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="61" width="133" height="20" uuid="de78baa1-67d2-47b3-829a-f824e60373c0"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[6]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="244" y="81" width="133" height="20" uuid="aa7058c7-f799-40ce-826d-a89ed47a7913"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="21" width="133" height="20" uuid="ecb4dbb1-1682-43f7-83eb-358f4dbb60d5"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[3]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="41" width="133" height="20" uuid="9eb6ec30-d46c-41b4-9c78-076d4a65b995"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[1]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="61" width="133" height="20" uuid="5ec7b326-3e09-42eb-be36-4ee6b8622035"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[4]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="377" y="81" width="133" height="20" uuid="84b4e4e1-bc99-454f-b068-303a6b187230"/>
+				<box topPadding="1" leftPadding="1" bottomPadding="1" rightPadding="1">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<text><![CDATA[2]]></text>
+			</staticText>
+		</band>
+	</detail>
+</jasperReport>

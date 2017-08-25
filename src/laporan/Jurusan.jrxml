@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6fab7a50-eb9b-47d2-802e-43b1c4659d8e">
-	<property name="ireport.zoom" value="0.75"/>
+	<property name="ireport.zoom" value="1.5"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
@@ -63,39 +63,65 @@
 				</textElement>
 				<text><![CDATA[LAPORAN FAKULTAS]]></text>
 			</staticText>
-			<line>
-				<reportElement x="101" y="49" width="298" height="1" uuid="d602d007-e1e0-49ed-9230-1636f3a819a0"/>
-			</line>
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="22" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<staticText>
-				<reportElement x="201" y="0" width="198" height="20" uuid="e4f52c73-9c28-455a-ae21-9ff0dcb28659"/>
+				<reportElement x="200" y="0" width="247" height="20" uuid="e4f52c73-9c28-455a-ae21-9ff0dcb28659"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[NAMA FAKULTAS]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="101" y="0" width="100" height="20" uuid="b394abd4-fd31-440d-94e2-80126ca2983f"/>
+				<reportElement x="100" y="0" width="100" height="20" uuid="b394abd4-fd31-440d-94e2-80126ca2983f"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
 				<text><![CDATA[ID FAKULTAS]]></text>
 			</staticText>
-			<line>
-				<reportElement x="102" y="20" width="298" height="1" uuid="11608307-7891-4115-bac1-71b0736d2555"/>
-			</line>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="24" splitType="Stretch">
+		<band height="20" splitType="Stretch">
 			<textField>
-				<reportElement x="201" y="0" width="198" height="20" uuid="60902fa3-d382-4407-be66-a5dfca3cd109"/>
+				<reportElement x="200" y="0" width="247" height="20" uuid="60902fa3-d382-4407-be66-a5dfca3cd109"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
 				<textFieldExpression><![CDATA[$F{fakultas}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="101" y="0" width="100" height="20" uuid="8f6f84fb-aa45-4f64-86e5-b481ae9894ce"/>
+				<reportElement x="100" y="0" width="100" height="20" uuid="8f6f84fb-aa45-4f64-86e5-b481ae9894ce"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
 				<textFieldExpression><![CDATA[$F{id_fakultas}]]></textFieldExpression>
 			</textField>
-			<line>
-				<reportElement x="101" y="19" width="298" height="1" uuid="90931e68-9fed-4805-a298-eca2f0adde03"/>
-			</line>
 		</band>
 	</detail>
 </jasperReport>

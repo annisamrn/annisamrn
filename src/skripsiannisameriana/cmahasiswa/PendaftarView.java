@@ -253,7 +253,7 @@ public class PendaftarView extends javax.swing.JInternalFrame {
         panelData.setOpaque(false);
 
         ComboBoxCari.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        ComboBoxCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nomor Pendaftar", "Nama Pendaftar", "Asal Sekolah" }));
+        ComboBoxCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Nomor Pendaftar", "Nama Pendaftar", "Asal Sekolah", "email" }));
 
         txtCari.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -353,10 +353,9 @@ public class PendaftarView extends javax.swing.JInternalFrame {
                 JasperViewer.viewReport(print, false);
             } else {
                 HashMap parameter = new HashMap();
-                String path = "src/laporan/Pendaftar.jasper";
+                String path = "src/laporan/Hasil.jasper";
                 //int id = txtKodeFakultas.getText();
                 parameter.put("id_jur", Integer.parseInt(txtKkodePendaftar.getText()));
-
                 //JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
                 JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
 
@@ -730,6 +729,8 @@ public class PendaftarView extends javax.swing.JInternalFrame {
                 sqlParameter = "nama";
             } else if (ComboBoxCari.getSelectedIndex() == 2) {
                 sqlParameter = "asal_sekolah";
+            } else if (ComboBoxCari.getSelectedIndex() == 3) {
+                sqlParameter = "email";
             }
             searchParameter = txtCari.getText();
             List<CMahasiswa> list = cMahasiswaImplements.getPendaftarParameter(sqlParameter, searchParameter);

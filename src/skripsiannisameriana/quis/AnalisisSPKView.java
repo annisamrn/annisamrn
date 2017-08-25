@@ -311,6 +311,11 @@ public class AnalisisSPKView extends javax.swing.JDialog {
         jLabel1.setText("Hasil Ranking");
 
         btnTutup.setText("Tutup");
+        btnTutup.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnTutupActionPerformed(evt);
+            }
+        });
 
         tabelHasilRangking.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -759,6 +764,11 @@ public class AnalisisSPKView extends javax.swing.JDialog {
             JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada " + ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
+        // TODO add your handling code here:
+        dispose();
+    }//GEN-LAST:event_btnTutupActionPerformed
 
     /**
      * @param args the command line arguments

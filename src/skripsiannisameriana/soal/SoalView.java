@@ -5,11 +5,15 @@
  */
 package skripsiannisameriana.soal;
 
+import java.util.HashMap;
 import java.util.List;
 import javax.swing.JOptionPane;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
-import skripsiannisameriana.prodi.CariFakultasView;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.view.JasperViewer;
+import skripsiannisameriana.connect.Connect;
 
 /**
  *
@@ -42,6 +46,7 @@ public class SoalView extends javax.swing.JInternalFrame {
         btnHapus = new javax.swing.JButton();
         btnBatal = new javax.swing.JButton();
         btnTutup = new javax.swing.JButton();
+        btnCetak = new javax.swing.JButton();
         panelIsi = new javax.swing.JPanel();
         txtKodeFakultas = new javax.swing.JTextField();
         txtNamaFakultas = new javax.swing.JTextField();
@@ -141,6 +146,15 @@ public class SoalView extends javax.swing.JInternalFrame {
             }
         });
         panelButton.add(btnTutup);
+
+        btnCetak.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        btnCetak.setText("Cetak");
+        btnCetak.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCetakActionPerformed(evt);
+            }
+        });
+        panelButton.add(btnCetak);
 
         panelIsi.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Soal", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.TOP, new java.awt.Font("Tahoma", 1, 24))); // NOI18N
         panelIsi.setOpaque(false);
@@ -296,7 +310,7 @@ public class SoalView extends javax.swing.JInternalFrame {
         panelData.setOpaque(false);
 
         ComboBoxCari.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        ComboBoxCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kode Soal", "Soal", "Fakultas", "Program Studi" }));
+        ComboBoxCari.setModel(new javax.swing.DefaultComboBoxModel(new String[] { "Kode Soal", "Soal", "Program Studi" }));
 
         txtCari.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyReleased(java.awt.event.KeyEvent evt) {
@@ -412,11 +426,44 @@ public class SoalView extends javax.swing.JInternalFrame {
         tableSoalAction();
     }//GEN-LAST:event_formInternalFrameOpened
 
+    private void btnCetakActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCetakActionPerformed
+        // TODO add your handling code here:
+        try {
+            String sqlParameter = null;
+            String searchParameter;
+            if(txtKodeProdi.getText().isEmpty()){
+            String path1 = "src/laporan/Soal.jasper";
+            JasperPrint print = JasperFillManager.fillReport(path1, null, Connect.getConnection());
+
+            JasperViewer.viewReport(print, false);
+            } else {//if(ComboBoxCari.getSelectedIndex() == 2) {
+//                sqlParameter = "nama_prodi";
+                int row = tabelSoal.getRowCount();
+                
+                HashMap parameter = new HashMap();
+                //JasperPrint jasperPrint = JasperFillManager.fillReport(getClass().getResourceAsStream("/laporan/SoalProdi.jasper"), null, Connect.getConnection());
+                String path = "src/laporan/SoalProdi.jasper";
+                //int id = txtKodeFakultas.getText();
+                parameter.put("nama_prodi", txtNamaProdi.getText());
+                //parameter.clear();
+
+                //JasperPrint print = JasperFillManager.fillReport(path, parameter, Connect.getConnection());
+                JasperPrint print = JasperFillManager.fillReport(getClass().getResourceAsStream(path), parameter, Connect.getConnection());
+
+                JasperViewer.viewReport(print, false);
+            }
+
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada " + ex);
+        }
+    }//GEN-LAST:event_btnCetakActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JComboBox ComboBoxCari;
     private javax.swing.JButton btnBatal;
     private javax.swing.JButton btnCariProdi;
+    private javax.swing.JButton btnCetak;
     private javax.swing.ButtonGroup btnGrupKunciJawaban;
     private javax.swing.JButton btnHapus;
     private javax.swing.JButton btnTambah;
@@ -834,8 +881,6 @@ public class SoalView extends javax.swing.JInternalFrame {
             } else if (ComboBoxCari.getSelectedIndex() == 1) {
                 sqlParameter = "soal";
             } else if (ComboBoxCari.getSelectedIndex() == 2) {
-                sqlParameter = "tb_fakultas.fakultas";
-            } else if (ComboBoxCari.getSelectedIndex() == 3) {
                 sqlParameter = "tb_prodi.nama_prodi";
             }
             searchParameter = txtCari.getText();

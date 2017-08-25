@@ -141,9 +141,7 @@ public class SoalImplements {
 
     public List<Soal> getSoalParameter(String sqlParameter, String searchParameter) throws SQLException {
 
-        String sqlSelect = "SELECT * FROM tb_soal JOIN tb_fakultas ON tb_fakultas.id_fakultas = tb_soal.id_fakultas"
-                         + "JOIN tb_prodi ON tb_prodi.id_prodi = tb_soal.id_prodi"
-                         + "WHERE " + sqlParameter + " LIKE  '%" + searchParameter + "%' AND id_soal <> '1'";
+        String sqlSelect = "SELECT * FROM tb_soal JOIN tb_prodi ON tb_prodi.id_prodi = tb_soal.id_prodi JOIN tb_fakultas ON tb_soal.id_fakultas = tb_fakultas.id_fakultas WHERE " + sqlParameter + " LIKE  '%" + searchParameter + "%' AND id_soal <> '1'";
         Statement statement = null;
         ResultSet resultSet;
         try {

@@ -82,29 +82,35 @@
 		</band>
 	</pageHeader>
 	<columnHeader>
-		<band height="25" splitType="Stretch">
+		<band height="22" splitType="Stretch">
 			<staticText>
 				<reportElement x="-1" y="1" width="37" height="20" uuid="5a7f249a-7a64-494e-ad34-d5a5dbfc9508"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="37" y="1" width="116" height="20" uuid="17f41501-5465-4a85-85de-eb644d4406ad"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<text><![CDATA[NAMA PENDAFTAR]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="153" y="1" width="100" height="20" uuid="9bab0491-269c-411e-802a-1fe2735e775c"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<text><![CDATA[ASAL SEKOLAH]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="252" y="1" width="71" height="20" uuid="bd6f706f-3b0e-4659-9da8-a7ed1805016b"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<text><![CDATA[TELEPON]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="324" y="1" width="100" height="20" uuid="1e05f6b9-b967-4e5d-8d38-b6393ab8f40c"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<text><![CDATA[EMAIL]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="424" y="1" width="130" height="20" uuid="03ee9d1b-aeda-401f-a350-e4d4523c1f55"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<text><![CDATA[ALAMAT]]></text>
 			</staticText>
 		</band>
@@ -113,37 +119,34 @@
 		<band height="20" splitType="Stretch">
 			<textField>
 				<reportElement x="-1" y="0" width="37" height="20" uuid="c3b89f50-b664-450c-bac6-3afaf5382829"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<textFieldExpression><![CDATA[$F{id_pendaftar}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="37" y="0" width="116" height="20" uuid="800df8d0-6d77-4844-b0f3-92e23dffb54f"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<textFieldExpression><![CDATA[$F{nama}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="153" y="0" width="100" height="20" uuid="58467934-f5b5-49b9-ab9d-b5518ada6845"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<textFieldExpression><![CDATA[$F{asal_sekolah}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="252" y="0" width="71" height="20" uuid="dec2e2a6-bebb-494f-9dbf-56cf3a8521b9"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<textFieldExpression><![CDATA[$F{telepon}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="324" y="0" width="100" height="20" uuid="8e294c32-8ee4-433a-97a7-fcaaf7b44505"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<textFieldExpression><![CDATA[$F{email}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="424" y="0" width="130" height="20" uuid="858f63ed-18f9-4924-8c57-4699c9a18a0d"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2"/>
 				<textFieldExpression><![CDATA[$F{alamat}]]></textFieldExpression>
 			</textField>
-			<line>
-				<reportElement x="2" y="19" width="552" height="1" uuid="adb19f92-80fe-4a65-ae64-2711e64445d1"/>
-			</line>
-			<line>
-				<reportElement x="-1" y="0" width="552" height="1" uuid="f8fb591c-b186-4239-b54f-2d07d17417fa"/>
-			</line>
-			<line>
-				<reportElement x="-1" y="-24" width="552" height="1" uuid="4b45d4c3-28c0-4330-9beb-413f181f9f4b"/>
-			</line>
 		</band>
 	</detail>
 </jasperReport>

@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="6fab7a50-eb9b-47d2-802e-43b1c4659d8e">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="prodi" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id_jur" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT a.soal, a.kepentingan, a.id_soal, b.fakultas, c.nama_prodi
+FROM tb_soal a
+JOIN tb_fakultas b ON a.id_fakultas = b.id_fakultas
+JOIN tb_prodi c ON a.id_prodi = c.id_prodi
+WHERE nama_prodi LIKE '%$P!{prodi}%']]>
+	</queryString>
+	<field name="soal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="kepentingan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="id_soal" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fakultas" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_prodi" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="137" splitType="Stretch">
+			<line>
+				<reportElement x="2" y="114" width="553" height="1" uuid="4b90c096-789c-4d48-93f7-e26301f2c102"/>
+			</line>
+			<staticText>
+				<reportElement x="109" y="68" width="345" height="20" uuid="d5e46e69-c592-481e-a8cd-f705faae62a6"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[BANJARMASIN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="48" width="345" height="20" uuid="aa769990-f8ed-4b73-ae3d-b5d0a0d2d529"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[MUHAMMAD ARSYAD AL BANJARI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="88" width="345" height="20" uuid="16b4ea4a-9c59-48f5-a6c0-cb4f5e29c033"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Jl. Adhyaksa No.2 Kayutangi FAX : 0511-3305834 Email : admin@uniska-bjm.ac.id]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="109" y="28" width="345" height="20" uuid="a1945e76-159a-4e63-8017-b9da0717f0db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[UNIVERSITAS ISLAM KALIMANTAN]]></text>
+			</staticText>
+			<image>
+				<reportElement x="16" y="0" width="455" height="99" uuid="289c6b10-cc83-4360-9b90-aa1fb2bb8cce"/>
+				<imageExpression><![CDATA["C:\\Users\\USER\\Documents\\NetBeansProjects\\SkripsiAnnisaMeriana\\src\\laporan\\Logo-UNISKA-Baru-kcl.png"]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="74">
+			<staticText>
+				<reportElement x="169" y="0" width="237" height="20" uuid="e39f912e-9d74-4b70-bbcc-68a8038713a1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="DejaVu Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SOAL PEMINATAN PERPRODI]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="27" width="127" height="20" uuid="864a033c-ccaf-4ff8-b94f-6857d4258b31"/>
+				<text><![CDATA[Fakultas                           :]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="42" y="47" width="127" height="20" uuid="33bd9071-0fa7-402a-9543-b8fb787cfce4"/>
+				<text><![CDATA[Program Studi                 :]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="169" y="27" width="348" height="20" uuid="dda2576a-7f39-4c92-9274-ea17aa0ad8ce"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fakultas}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="167" y="46" width="350" height="20" uuid="5dacbcf9-4595-4a9b-81ec-9bca149832bb"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_prodi}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="21" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="1" width="32" height="20" uuid="f30d816b-01a1-4802-bfd3-6b0939a1d3bb"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="32" y="1" width="422" height="20" uuid="ae602a7b-755b-49eb-b62d-ca017d781dd5"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[SOAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="1" width="100" height="20" uuid="b5379904-83d6-4a0e-9276-b6638a87be76"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[NILAI BOBOT]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="32" height="20" uuid="cd2c4d3b-7085-4b5c-a587-80fd0a72df0f"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{id_soal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="32" y="0" width="422" height="20" uuid="7c643643-92dd-4977-87c2-ffdc50f56602"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textFieldExpression><![CDATA[$F{soal}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="455" y="0" width="100" height="20" uuid="a1aa2734-5dd0-4ced-9eb4-126a416ddc66"/>
+				<box topPadding="2" leftPadding="2" bottomPadding="2" rightPadding="2">
+					<pen lineWidth="1.0"/>
+					<topPen lineWidth="1.0"/>
+					<leftPen lineWidth="1.0"/>
+					<bottomPen lineWidth="1.0"/>
+					<rightPen lineWidth="1.0"/>
+				</box>
+				<textElement textAlignment="Center"/>
+				<textFieldExpression><![CDATA[$F{kepentingan}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
