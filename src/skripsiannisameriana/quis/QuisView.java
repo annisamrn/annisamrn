@@ -185,7 +185,7 @@ public class QuisView extends javax.swing.JInternalFrame {
             next_soal();
         }
 
-        String sql1 = "SELECT * FROM tb_soal ORDER BY id_soal";
+        String sql1 = "SELECT * FROM tb_soal ORDER BY id_prodi";
         try {
 
             Statement s1 = Connect.getConnection().createStatement();
@@ -230,7 +230,7 @@ public class QuisView extends javax.swing.JInternalFrame {
                     jlh++;
                 }
             }
-            int ro[] = {1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5,1,2,3,4,5};
+            int ro[] = {1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6};
             String sql4 = "INSERT INTO tb_hasil (hasil, id_soal , id_urut, id_pendaftar, id_fakultas, id_prodi)VALUES (?, ?, ?, ?, ?, ?)";
             ps = Connect.getConnection().prepareStatement(sql4);
             for (int k = 0; k < jml; k++) {
@@ -267,7 +267,7 @@ public class QuisView extends javax.swing.JInternalFrame {
     // End of variables declaration//GEN-END:variables
 
     private void tampil() {
-        String sql = "SELECT * FROM tb_soal ORDER BY id_soal";
+        String sql = "SELECT * FROM tb_soal ORDER BY id_prodi";
         try {
 
             Statement s = Connect.getConnection().createStatement();

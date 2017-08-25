@@ -79,7 +79,7 @@ public class AnalisisSPKView extends javax.swing.JDialog {
                 kepentingan[c] = rs.getDouble("prioritas");
             }
 
-            // int[] coba = {1,2,3,4,5,6,7,8,9,10,11,12,13};
+            int[] coba = {0,1,2,3,4,5,6};
             alternatifkriteria = new double[jml_alternatif][jml_kriteria];
             for (int i = 0; i < alternatif.length; i++) {
                 for (int j = 0; j < kriteria.length; j++) {

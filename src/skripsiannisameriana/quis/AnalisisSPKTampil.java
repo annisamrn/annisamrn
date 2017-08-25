@@ -77,10 +77,11 @@ public class AnalisisSPKTampil extends javax.swing.JInternalFrame {
             }
 
             alternatifkriteria = new double[jml_alternatif][jml_kriteria];
+            int[] coba = {1,2,3,4,5};
             for (int i = 0; i < alternatif.length; i++) {
                 for (int j = 0; j < kriteria.length; j++) {
                     //rs = k.select("select * from tb_hasil where id_prodi = '" + id_alternatif[i] + "' and id_soal = '" + id_kriteria[j] + "'");
-                    rs = k.select("select * from tb_hasil where id_prodi = '" + id_alternatif[i] + "'");
+                    rs = k.select("select * from tb_hasil where id_prodi = '" + id_alternatif[i] + "'and id_urut = '" + id_kriteria[j] + "' ");
                     while (rs.next()) {
                         alternatifkriteria[i][j] = rs.getDouble("hasil");
                     }
