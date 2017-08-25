@@ -782,7 +782,7 @@ public class AnalisisSPKView extends javax.swing.JDialog {
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnTutupActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnTutupActionPerformed
-
+        dispose();
     }//GEN-LAST:event_btnTutupActionPerformed
 
     /**
