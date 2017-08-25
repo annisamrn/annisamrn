@@ -223,14 +223,14 @@ public class QuisView extends javax.swing.JInternalFrame {
                 jml++;
             }
 
-            rs4 = k.select("SELECT * FROM tb_pilihan");
-            int jlh = 1;
-            for (int ko = 0; ko < jml; ko++) {
-                while (rs4.next()) {
-                    jlh++;
-                }
-            }
-            int ro[] = {1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6};
+//            rs4 = k.select("SELECT * FROM tb_pilihan");
+//            int jlh = 1;
+//            for (int ko = 0; ko < jml; ko++) {
+//                while (rs4.next()) {
+//                    jlh++;
+//                }
+//            }
+            int ro[] = {1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6,1,2,3,4,5,6};
             String sql4 = "INSERT INTO tb_hasil (hasil, id_soal , id_urut, id_pendaftar, id_fakultas, id_prodi)VALUES (?, ?, ?, ?, ?, ?)";
             ps = Connect.getConnection().prepareStatement(sql4);
             for (int k = 0; k < jml; k++) {
@@ -243,9 +243,9 @@ public class QuisView extends javax.swing.JInternalFrame {
                 ps.executeUpdate();
             }
 
-            AnalisisSPKTampil tampil3 = new AnalisisSPKTampil();
-            Home1.jDesktopPane2.add(tampil3);
-            tampil3.setVisible(true);
+            AnalisisSPKTampil kTampil = new AnalisisSPKTampil();
+            Home1.jDesktopPane2.add(kTampil);
+            kTampil.setVisible(true);
             this.dispose();
 
         } catch (Exception e) {

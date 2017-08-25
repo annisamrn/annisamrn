@@ -71,7 +71,7 @@ public class AnalisisSPKTampil extends javax.swing.JInternalFrame {
             while (rs.next()) {
                 c++;
                 kriteria[c] = rs.getString("id_prodi");
-                //id_kriteria[c] = rs.getString("id_soal");
+                id_kriteria[c] = rs.getString("prioritas");
                 //costbenefit[c] = rs.getString("costbenefit");
                 kepentingan[c] = rs.getDouble("prioritas");
             }
@@ -212,18 +212,18 @@ public class AnalisisSPKTampil extends javax.swing.JInternalFrame {
         labelAlternatifTerbaik.setText(alternatifrangking[0]);
         labelNilaiTerbesar.setText(BigDecimal.valueOf(hasilrangking[0]).toPlainString());
         
-        try {
-            // TODO add your handling code here:
-            String sql = "INSERT INTO tb_hasil_analisa (alternatif, nilai) VALUES(?, ?)";
-            PreparedStatement ps = Connect.getConnection().prepareStatement(sql);
-            for (int i = 0; i < alternatifrangking.length; i++) {
-                ps.setString(1, alternatifrangking[i]);
-                ps.setString(2, BigDecimal.valueOf(hasilrangking[i]).toPlainString());
-                ps.executeUpdate();
-            }
-        } catch (SQLException ex) {
-            Logger.getLogger(AnalisisSPKView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+//        try {
+//            // TODO add your handling code here:
+//            String sql = "INSERT INTO tb_hasil_analisa (alternatif, nilai) VALUES(?, ?)";
+//            PreparedStatement ps = Connect.getConnection().prepareStatement(sql);
+//            for (int i = 0; i < alternatifrangking.length; i++) {
+//                ps.setString(1, alternatifrangking[i]);
+//                ps.setString(2, BigDecimal.valueOf(hasilrangking[i]).toPlainString());
+//                ps.executeUpdate();
+//            }
+//        } catch (SQLException ex) {
+//            Logger.getLogger(AnalisisSPKView.class.getName()).log(Level.SEVERE, null, ex);
+//        }
 
         tabelAlternatif.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
         tabelKriteria.setModel(new DefaultTableModel(new Object[][]{{null, null, null, null}, {null, null, null, null}, {null, null, null, null}, {null, null, null, null}}, new String[]{"Title 1", "Title 2", "Title 3", "Title 4"}));
